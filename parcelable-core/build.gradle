@@ -1,0 +1,50 @@
+import com.chrynan.parcelable.buildSrc.LibraryConstants
+
+apply plugin: "kotlin-multiplatform"
+
+group LibraryConstants.group
+version LibraryConstants.versionName
+
+kotlin {
+    targets {
+        jvm()
+        js()
+        ios()
+    }
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
+
+                api "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1"
+            }
+        }
+    }
+}
+
+configurations {
+    compileClasspath
+}
+
+publishing {
+    publications {
+        kotlinMultiplatform {
+            artifactId = "parcelable-core"
+        }
+        jvm {
+            artifactId = "parcelable-core-jvm"
+        }
+        js {
+            artifactId = "parcelable-core-js"
+        }
+        iosArm64 {
+            artifactId = "parcelable-core-ios-arm64"
+        }
+        iosX64 {
+            artifactId = "parcelable-core-ios-x64"
+        }
+        metadata {
+            artifactId = "parcelable-core-metadata"
+        }
+    }
+}

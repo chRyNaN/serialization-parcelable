@@ -1,0 +1,130 @@
+@file:Suppress("unused")
+
+package com.chrynan.parcelable.android
+
+import com.chrynan.parcelable.core.InvalidParcelValueException
+import com.chrynan.parcelable.core.Parcel
+import kotlinx.serialization.SerializationException
+
+class AndroidParcel(private val parcel: android.os.Parcel) : Parcel {
+
+    override val dataBufferCapacity: Int
+        get() = parcel.dataCapacity()
+
+    override val dataSize: Int
+        get() = parcel.dataSize()
+
+    override val dataPosition: Int
+        get() = parcel.dataPosition()
+
+    override fun readBoolean(): Boolean = try {
+        parcel.readInt() == 1
+    } catch (exception: Exception) {
+        throw SerializationException("Error reading the Boolean value from the Parcel.", exception)
+    }
+
+    override fun readByte(): Byte = try {
+        parcel.readByte()
+    } catch (exception: Exception) {
+        throw SerializationException("Error reading the Byte value from the Parcel.", exception)
+    }
+
+    override fun readShort(): Short = try {
+        parcel.readInt().toShort()
+    } catch (exception: Exception) {
+        throw SerializationException("Error reading the Short value from the Parcel.", exception)
+    }
+
+    override fun readInt(): Int = try {
+        parcel.readInt()
+    } catch (exception: Exception) {
+        throw SerializationException("Error reading the Int value from the Parcel.", exception)
+    }
+
+    override fun readLong(): Long = try {
+        parcel.readLong()
+    } catch (exception: Exception) {
+        throw SerializationException("Error reading the Long value from the Parcel.", exception)
+    }
+
+    override fun readFloat(): Float = try {
+        parcel.readFloat()
+    } catch (exception: Exception) {
+        throw SerializationException("Error reading the Float value from the Parcel.", exception)
+    }
+
+    override fun readDouble(): Double = try {
+        parcel.readDouble()
+    } catch (exception: Exception) {
+        throw SerializationException("Error reading the Double value from the Parcel.", exception)
+    }
+
+    override fun readChar(): Char = try {
+        parcel.readString()?.get(0)
+    } catch (exception: Exception) {
+        throw SerializationException("Error reading the Char value from the Parcel.", exception)
+    } ?: throw InvalidParcelValueException("Invalid Parcel value. Expected Char but got null.")
+
+    override fun readString(): String =
+        try {
+            parcel.readString()
+        } catch (exception: Exception) {
+            throw SerializationException("Error reading the Double value from the Parcel.", exception)
+        } ?: throw InvalidParcelValueException("Invalid Parcel value. Expected String but got null.")
+
+    override fun writeBoolean(value: Boolean) = try {
+        parcel.writeInt(if (value) 1 else 0)
+    } catch (exception: Exception) {
+        throw SerializationException("Error writing the Boolean value '$value' to the Parcel.", exception)
+    }
+
+    override fun writeByte(value: Byte) = try {
+        parcel.writeByte(value)
+    } catch (exception: Exception) {
+        throw SerializationException("Error writing the Byte value '$value' to the Parcel.", exception)
+    }
+
+    override fun writeShort(value: Short) = try {
+        parcel.writeInt(value.toInt())
+    } catch (exception: Exception) {
+        throw SerializationException("Error writing the Short value '$value' to the Parcel.", exception)
+    }
+
+    override fun writeInt(value: Int) = try {
+        parcel.writeInt(value)
+    } catch (exception: Exception) {
+        throw SerializationException("Error writing the Int value '$value' to the Parcel.", exception)
+    }
+
+    override fun writeLong(value: Long) = try {
+        parcel.writeLong(value)
+    } catch (exception: Exception) {
+        throw SerializationException("Error writing the Long value '$value' to the Parcel.", exception)
+    }
+
+    override fun writeFloat(value: Float) = try {
+        parcel.writeFloat(value)
+    } catch (exception: Exception) {
+        throw SerializationException("Error writing the Float value '$value' to the Parcel.", exception)
+    }
+
+    override fun writeDouble(value: Double) = try {
+        parcel.writeDouble(value)
+    } catch (exception: Exception) {
+        throw SerializationException("Error writing the Double value '$value' to the Parcel.", exception)
+    }
+
+    override fun writeChar(value: Char) = try {
+        parcel.writeString(value.toString())
+    } catch (exception: Exception) {
+        throw SerializationException("Error writing the Char value '$value' to the Parcel.", exception)
+    }
+
+    override fun writeString(value: String) = try {
+        parcel.writeString(value)
+    } catch (exception: Exception) {
+        throw SerializationException("Error writing the String value '$value' to the Parcel.", exception)
+    }
+
+    override fun recycle() = parcel.recycle()
+}

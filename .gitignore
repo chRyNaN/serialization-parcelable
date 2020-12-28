@@ -1,0 +1,28 @@
+# IDE
+*.iml
+*.ipr
+*.iws
+**/.idea/workspace.xml
+**/.idea/tasks.xml
+**/.idea/misc.xml
+**/.idea/modules.xml
+**/.idea/gradle.xml
+**/.idea/runConfigurations.xml
+**/.idea/assetWizardSettings.xml
+**/.idea/datasources.xml
+**/.idea/dataSources.ids
+**/.idea/shelf
+**/.idea/libraries
+**/.idea/fileTemplates
+**/.idea/dictionaries
+**/.idea/caches
+local.properties
+/captures
+.externalNativeBuild
+
+# Gradle
+.gradle
+build/
+
+# Mac
+.DS_Store
