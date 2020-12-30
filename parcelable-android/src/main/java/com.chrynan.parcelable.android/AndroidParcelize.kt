@@ -36,9 +36,9 @@ fun <T : Any> AndroidParceler.parcelize(value: T, kClass: KClass<T>): GenericPar
 inline fun <reified T : Any> AndroidParceler.parcelize(value: T): GenericParcelable<T> = parcelize(value, T::class)
 
 @ExperimentalSerializationApi
-fun <T : Any> com.chrynan.parcelable.core.Parcelable.parcelize(value: T, kClass: KClass<T>): Parcelable =
+fun <T : Any> com.chrynan.parcelable.core.Parcelable.parcelize(value: T, kClass: KClass<T>): GenericParcelable<T> =
     AndroidParceler(this).parcelize(value, kClass)
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> com.chrynan.parcelable.core.Parcelable.parcelize(value: T): Parcelable =
+inline fun <reified T : Any> com.chrynan.parcelable.core.Parcelable.parcelize(value: T): GenericParcelable<T> =
     parcelize(value, T::class)
