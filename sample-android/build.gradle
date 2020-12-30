@@ -1,0 +1,46 @@
+import com.chrynan.parcelable.buildSrc.LibraryConstants
+
+apply plugin: "com.android.application"
+apply plugin: "kotlin-android"
+apply plugin: "kotlinx-serialization"
+
+group LibraryConstants.group
+version LibraryConstants.versionName
+
+android {
+    compileSdkVersion LibraryConstants.androidCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion 26
+        targetSdkVersion LibraryConstants.androidTargetSdkVersion
+        versionCode LibraryConstants.versionCode
+        versionName LibraryConstants.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    implementation "com.android.support:support-annotations:28.0.0"
+
+    implementation "androidx.appcompat:appcompat:1.2.0"
+
+    implementation project(":parcelable-android")
+}

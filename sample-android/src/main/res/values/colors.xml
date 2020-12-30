@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Color Palette -->
+    <color name="blue">#008dd5</color>
+    <color name="dark_blue">#373f51</color>
+    <color name="light_pink">#dfbbb1</color>
+    <color name="pink">#f56476</color>
+    <color name="dark_pink">#e43f6f</color>
+
+    <color name="colorPrimary">@color/blue</color>
+    <color name="colorPrimaryDark">@color/dark_blue</color>
+    <color name="colorAccent">@color/pink</color>
+
+    <color name="text_primary_color">#000000</color>
+    <color name="text_secondary_color">#80000000</color>
+    <color name="text_primary_light_color">#FFFFFF</color>
+
+</resources>
