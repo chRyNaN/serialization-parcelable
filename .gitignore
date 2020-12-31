@@ -19,6 +19,8 @@
 local.properties
 /captures
 .externalNativeBuild
+out/
+**/out/
 
 # Gradle
 .gradle

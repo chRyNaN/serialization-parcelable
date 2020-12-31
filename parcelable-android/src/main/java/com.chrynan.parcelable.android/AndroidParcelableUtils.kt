@@ -9,17 +9,25 @@ import kotlinx.serialization.ExperimentalSerializationApi
 
 @ExperimentalSerializationApi
 inline fun <reified T : Any> Intent.putExtra(key: String, value: T, parceler: AndroidParceler) {
-    putExtra(key, parceler.parcelize(value))
+    putExtra(key, parceler.bundle(value))
 }
 
 @ExperimentalSerializationApi
 inline fun <reified T : Any> Intent.putExtra(key: String, value: T, parceler: Parcelable) {
-    putExtra(key, parceler.parcelize(value))
+    putExtra(key, parceler.bundle(value))
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Intent.getKotlinParcelableExtra(key: String) =
-    getParcelableExtra<GenericParcelable<T>>(key)?.item
+inline fun <reified T : Any> Intent.getParcelableExtra(key: String, parceler: AndroidParceler): T? {
+    val bundle = getBundleExtra(key)
+    return bundle?.let { parceler.unbundle<T>(it) }
+}
+
+@ExperimentalSerializationApi
+inline fun <reified T : Any> Intent.getParcelableExtra(key: String, parceler: Parcelable): T? {
+    val bundle = getBundleExtra(key)
+    return bundle?.let { parceler.unbundle<T>(it) }
+}
 
 @ExperimentalSerializationApi
 inline fun <reified T : Any> Bundle.putParcelable(
@@ -27,14 +35,22 @@ inline fun <reified T : Any> Bundle.putParcelable(
     value: T,
     parceler: AndroidParceler
 ) {
-    putParcelable(key, parceler.parcelize(value))
+    putBundle(key, parceler.bundle(value))
 }
 
 @ExperimentalSerializationApi
 inline fun <reified T : Any> Bundle.putParcelable(key: String, value: T, parceler: Parcelable) {
-    putParcelable(key, parceler.parcelize(value))
+    putBundle(key, parceler.bundle(value))
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Bundle.getKotlinParcelable(key: String) =
-    getParcelable<GenericParcelable<T>>(key)?.item
+inline fun <reified T : Any> Bundle.getParcelable(key: String, parceler: AndroidParceler): T? {
+    val bundle = getBundle(key)
+    return bundle?.let { parceler.unbundle<T>(it) }
+}
+
+@ExperimentalSerializationApi
+inline fun <reified T : Any> Bundle.getParcelable(key: String, parceler: Parcelable): T? {
+    val bundle = getBundle(key)
+    return bundle?.let { parceler.unbundle<T>(it) }
+}
