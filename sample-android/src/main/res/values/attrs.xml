@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Themed Attributes-->
+    <attr name="textColorPrimary" format="reference|color"/>
+    <attr name="textColorSecondary" format="reference|color"/>
+    <attr name="textColorTertiary" format="reference|color"/>
+    <attr name="textColorError" format="reference|color"/>
+    <attr name="textColorDisabled" format="reference|color"/>
+
+</resources>

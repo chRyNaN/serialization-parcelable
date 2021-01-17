@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base -->
+
+    <style name="Light" parent="@android:style/TextAppearance">
+        <item name="fontFamily">@font/open_sans_light</item>
+        <item name="android:fontFamily">@font/open_sans_light</item>
+    </style>
+
+    <style name="Regular" parent="@android:style/TextAppearance">
+        <item name="fontFamily">@font/open_sans</item>
+        <item name="android:fontFamily">@font/open_sans</item>
+    </style>
+
+    <style name="SemiBold" parent="@android:style/TextAppearance">
+        <item name="fontFamily">@font/open_sans_semibold</item>
+        <item name="android:fontFamily">@font/open_sans_semibold</item>
+    </style>
+
+    <style name="Bold" parent="@android:style/TextAppearance">
+        <item name="fontFamily">@font/open_sans_bold</item>
+        <item name="android:fontFamily">@font/open_sans_bold</item>
+    </style>
+
+    <!-- Base Extensions -->
+
+    <style name="TextAppearance.H1" parent="Light">
+        <item name="android:textSize">@dimen/text_size_xxxxlarge</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.H2" parent="Light">
+        <item name="android:textSize">@dimen/text_size_xxxlarge</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.H3" parent="Regular">
+        <item name="android:textSize">@dimen/text_size_xxlarge</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.H4" parent="Regular">
+        <item name="android:textSize">@dimen/text_size_xlarge</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.H5" parent="Regular">
+        <item name="android:textSize">@dimen/text_size_large</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.H6" parent="SemiBold">
+        <item name="android:textSize">@dimen/text_size_medium</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Subtitle" parent="Bold">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Subtitle2" parent="SemiBold">
+        <item name="android:textSize">@dimen/text_size_xsmall</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Button" parent="SemiBold">
+        <item name="android:textSize">@dimen/text_size_xsmall</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="TextAppearance.Body" parent="Regular">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Body2" parent="Regular">
+        <item name="android:textSize">@dimen/text_size_xsmall</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Caption" parent="Regular">
+        <item name="android:textSize">@dimen/text_size_xxsmall</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Overline" parent="Regular">
+        <item name="android:textSize">@dimen/text_size_xxxsmall</item>
+        <item name="android:textColor">?attr/textColorPrimary</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Body Extensions -->
+
+    <style name="TextAppearance.Body.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.Body.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.Body.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.Body.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+    <style name="TextAppearance.Body2.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.Body2.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.Body2.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.Body2.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+    <!-- Title Extensions -->
+
+    <style name="TextAppearance.Subtitle2.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.Subtitle2.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.Subtitle2.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.Subtitle2.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+    <style name="TextAppearance.Subtitle.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.Subtitle.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.Subtitle.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.Subtitle.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+    <!-- Header Extensions -->
+
+    <style name="TextAppearance.H1.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.H1.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.H1.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.H1.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+    <style name="TextAppearance.H2.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.H2.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.H2.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.H2.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+    <style name="TextAppearance.H3.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.H3.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.H3.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.H3.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+    <style name="TextAppearance.H4.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.H4.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.H4.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.H4.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+    <style name="TextAppearance.H5.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.H5.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.H5.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.H5.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+    <style name="TextAppearance.H6.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.H6.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.H6.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.H6.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+    <!-- Button Extensions -->
+
+    <style name="TextAppearance.Button.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.Button.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.Button.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.Button.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+    <!-- LabelHeader Extensions -->
+
+    <style name="TextAppearance.Caption.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+    <!-- Label Extensions -->
+
+    <style name="TextAppearance.Overline.Secondary">
+        <item name="android:textColor">?attr/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.Overline.Tertiary">
+        <item name="android:textColor">?attr/textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.Overline.Error">
+        <item name="android:textColor">?attr/textColorError</item>
+    </style>
+
+    <style name="TextAppearance.Overline.Disabled">
+        <item name="android:textColor">?attr/textColorDisabled</item>
+    </style>
+
+</resources>

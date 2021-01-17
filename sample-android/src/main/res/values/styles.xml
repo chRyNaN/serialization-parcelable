@@ -1,10 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="AppBaseTheme"/>
+
+    <style name="AppBaseTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+
+        <item name="colorSurface">@color/colorSurface</item>
+
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorError">@color/textColorError</item>
+
+        <item name="android:colorBackground">@color/colorBackground</item>
+
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+        <item name="android:textColorTertiary">@color/textColorTertiary</item>
+        <item name="android:textColorLink">@color/textColorSecondary</item>
+
+        <item name="textColorPrimary">@color/textColorPrimary</item>
+        <item name="textColorSecondary">@color/textColorSecondary</item>
+        <item name="textColorTertiary">@color/textColorTertiary</item>
+        <item name="textColorError">@color/textColorError</item>
+
+        <item name="textAppearanceHeadline1">@style/TextAppearance.H1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.H2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.H3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.H4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.H5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.H6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.Subtitle</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.Body</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.Body2</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.Caption</item>
+        <item name="textAppearanceButton">@style/TextAppearance.Button</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.Overline</item>
+
     </style>
 
 </resources>

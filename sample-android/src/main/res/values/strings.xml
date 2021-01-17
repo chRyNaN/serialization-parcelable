@@ -2,4 +2,12 @@
 
     <string name="app_name">parcelable</string>
 
+    <string name="header_expected_model">Expected Model</string>
+    <string name="header_retrieved_model">Retrieved Model</string>
+
+    <string name="result_success">Success</string>
+    <string name="result_error">Error</string>
+
+    <string name="button_parcelize">Parcelize</string>
+
 </resources>
