@@ -2,55 +2,63 @@
 
 package com.chrynan.parcelable.android
 
-import android.content.Intent
-import android.os.Bundle
+import android.os.Parcel
+import com.chrynan.parcelable.core.ParcelDecoder
+import com.chrynan.parcelable.core.ParcelEncoder
 import com.chrynan.parcelable.core.Parcelable
+import kotlinx.serialization.DeserializationStrategy
 import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.SerializationStrategy
+import kotlinx.serialization.serializer
+import kotlin.reflect.KClass
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Intent.putExtra(key: String, value: T, parceler: AndroidParceler) {
-    putExtra(key, parceler.bundle(value))
+fun <T> Parcelable.encodeToParcel(
+    parcel: Parcel,
+    serializer: SerializationStrategy<T>,
+    value: T
+): com.chrynan.parcelable.core.Parcel {
+    val androidParcel = AndroidParcel(parcel)
+    val encoder = ParcelEncoder(serializersModule = serializersModule, output = androidParcel)
+    encoder.encodeSerializableValue(serializer, value)
+    return androidParcel
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Intent.putExtra(key: String, value: T, parceler: Parcelable) {
-    putExtra(key, parceler.bundle(value))
+fun <T> Parcelable.decodeFromParcel(parcel: Parcel, deserializer: DeserializationStrategy<T>): T {
+    val decoder = ParcelDecoder(serializersModule = serializersModule, input = AndroidParcel(parcel))
+    return decoder.decodeSerializableValue(deserializer)
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Intent.getParcelableExtra(key: String, parceler: AndroidParceler): T? {
-    val bundle = getBundleExtra(key)
-    return bundle?.let { parceler.unbundle<T>(it) }
+inline fun <reified T> Parcelable.encodeToParcel(parcel: Parcel, value: T): com.chrynan.parcelable.core.Parcel {
+    val androidParcel = AndroidParcel(parcel)
+    val encoder = ParcelEncoder(serializersModule = serializersModule, output = androidParcel)
+    encoder.encodeSerializableValue(serializersModule.serializer(), value)
+    return androidParcel
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Intent.getParcelableExtra(key: String, parceler: Parcelable): T? {
-    val bundle = getBundleExtra(key)
-    return bundle?.let { parceler.unbundle<T>(it) }
+inline fun <reified T> Parcelable.decodeFromParcel(parcel: Parcel): T {
+    val decoder = ParcelDecoder(serializersModule = serializersModule, input = AndroidParcel(parcel))
+    return decoder.decodeSerializableValue(serializersModule.serializer())
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Bundle.putParcelable(
-    key: String,
+fun <T : Any> Parcelable.encodeToParcel(
+    parcel: Parcel,
     value: T,
-    parceler: AndroidParceler
-) {
-    putBundle(key, parceler.bundle(value))
+    kclass: KClass<T>
+): com.chrynan.parcelable.core.Parcel {
+    val androidParcel = AndroidParcel(parcel)
+    val encoder = ParcelEncoder(serializersModule = serializersModule, output = androidParcel)
+    encoder.encodeSerializableValue(serializersModule.serializer(kclass.java), value)
+    return androidParcel
 }
 
+@Suppress("UNCHECKED_CAST")
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Bundle.putParcelable(key: String, value: T, parceler: Parcelable) {
-    putBundle(key, parceler.bundle(value))
-}
-
-@ExperimentalSerializationApi
-inline fun <reified T : Any> Bundle.getParcelable(key: String, parceler: AndroidParceler): T? {
-    val bundle = getBundle(key)
-    return bundle?.let { parceler.unbundle<T>(it) }
-}
-
-@ExperimentalSerializationApi
-inline fun <reified T : Any> Bundle.getParcelable(key: String, parceler: Parcelable): T? {
-    val bundle = getBundle(key)
-    return bundle?.let { parceler.unbundle<T>(it) }
+fun <T : Any> Parcelable.decodeFromParcel(parcel: Parcel, kclass: KClass<T>): T {
+    val decoder = ParcelDecoder(serializersModule = serializersModule, input = AndroidParcel(parcel))
+    return decoder.decodeSerializableValue(serializersModule.serializer(kclass.java)) as T
 }
