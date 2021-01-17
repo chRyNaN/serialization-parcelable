@@ -79,6 +79,19 @@ val myModel = parcelable.decodeFromParcel(parcel)
 val myModel = parcelable.decodeFromBundle(bundle)
 ```
 
+## Sample
+
+The `sample-android` module contains an Android App showcasing the use of this library and providing a means to test
+parceling different models.
+
+Simply update the `ExpectedModel.model` value to be any Serializable class and run the application to test if the
+parceling worked.
+
+### Sample Screenshots
+
+![Main Screen](assets/sample_main_screenshot.png)
+![Results Screen](assets/sample_result_screenshot.png)
+
 ## License
 
 ```
