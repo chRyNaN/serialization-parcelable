@@ -7,24 +7,29 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlin.reflect.KClass
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> AndroidParceler.bundle(value: T): Bundle = bundle(value, T::class)
+inline fun <reified T : Any> AndroidParceler.encodeToBundle(value: T): Bundle = encodeToBundle(value, T::class)
 
 @ExperimentalSerializationApi
-fun <T : Any> com.chrynan.parcelable.core.Parcelable.bundle(value: T, kClass: KClass<T>): Bundle =
-    AndroidParceler(this).bundle(value, kClass)
+fun <T : Any> com.chrynan.parcelable.core.Parcelable.encodeToBundle(value: T, kClass: KClass<T>): Bundle =
+    AndroidParceler(this).encodeToBundle(value, kClass)
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> com.chrynan.parcelable.core.Parcelable.bundle(value: T): Bundle =
-    AndroidParceler(this).bundle(value)
+inline fun <reified T : Any> com.chrynan.parcelable.core.Parcelable.encodeToBundle(value: T): Bundle =
+    AndroidParceler(this).encodeToBundle(value)
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> AndroidParceler.unbundle(bundle: Bundle, flags: Int = 0): T? =
-    unbundle(bundle, T::class, flags)
+inline fun <reified T : Any> AndroidParceler.decodeFromBundle(bundle: Bundle, flags: Int = 0): T? =
+    decodeFromBundle(bundle, T::class, flags)
 
 @ExperimentalSerializationApi
-fun <T : Any> com.chrynan.parcelable.core.Parcelable.unbundle(bundle: Bundle, kClass: KClass<T>, flags: Int = 0): T? =
-    AndroidParceler(this).unbundle(bundle, kClass, flags)
+fun <T : Any> com.chrynan.parcelable.core.Parcelable.decodeFromBundle(
+    bundle: Bundle,
+    kClass: KClass<T>,
+    flags: Int = 0
+): T? = AndroidParceler(this).decodeFromBundle(bundle, kClass, flags)
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> com.chrynan.parcelable.core.Parcelable.unbundle(bundle: Bundle, flags: Int = 0): T? =
-    AndroidParceler(this).unbundle(bundle, flags)
+inline fun <reified T : Any> com.chrynan.parcelable.core.Parcelable.decodeFromBundle(
+    bundle: Bundle,
+    flags: Int = 0
+): T? = AndroidParceler(this).decodeFromBundle(bundle, flags)

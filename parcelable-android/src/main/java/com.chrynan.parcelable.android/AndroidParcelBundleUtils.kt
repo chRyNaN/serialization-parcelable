@@ -12,7 +12,7 @@ import kotlin.reflect.KClass
  * [Bundle]s.
  */
 @ExperimentalSerializationApi
-fun <T : Any> AndroidParceler.bundle(value: T, kClass: KClass<T>): Bundle {
+fun <T : Any> AndroidParceler.encodeToBundle(value: T, kClass: KClass<T>): Bundle {
     // Create a new Bundle and obtain a Parcel from the Parcel Pool.
     val bundle = Bundle()
     val parcel = Parcel.obtain()
@@ -64,7 +64,7 @@ fun <T : Any> AndroidParceler.bundle(value: T, kClass: KClass<T>): Bundle {
  * if the [bundle] is empty or
  */
 @ExperimentalSerializationApi
-fun <T : Any> AndroidParceler.unbundle(bundle: Bundle, kClass: KClass<T>, flags: Int = 0): T? {
+fun <T : Any> AndroidParceler.decodeFromBundle(bundle: Bundle, kClass: KClass<T>, flags: Int = 0): T? {
     // Obtain a new Parcel from the Parcel pool.
     val parcel = Parcel.obtain()
 
