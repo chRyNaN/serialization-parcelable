@@ -3,6 +3,8 @@
 Android Parceling support for the [Kotlinx Serialization library](https://github.com/Kotlin/kotlinx.serialization). \
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/chrynan/parcelable)
 
+<a href="https://androidweekly.net/issues/issue-450"><img alt="Badge" src="https://androidweekly.net/issues/issue-450/badge" height="20px"></img></a>
+
 ```kotlin
 parcelable.encodeToBundle(myModel)
 val myModel = parcelable.decodeFromBundle(bundle)
