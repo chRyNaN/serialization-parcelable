@@ -5,6 +5,12 @@ package com.chrynan.parcelable.core
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.modules.SerializersModule
 
+/**
+ * A builder class to create an instance of [ParcelableConfiguration].
+ *
+ * Note that this class has an internal constructor and is used internally to create a [ParcelableConfiguration]. This
+ * class is used in the [Parcelable] function to retrieve a custom [ParcelableConfiguration].
+ */
 @ExperimentalSerializationApi
 class ParcelableConfigurationBuilder internal constructor(configuration: ParcelableConfiguration) {
 

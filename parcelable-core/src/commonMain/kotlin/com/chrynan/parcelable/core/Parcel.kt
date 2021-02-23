@@ -2,6 +2,16 @@
 
 package com.chrynan.parcelable.core
 
+/**
+ * An interface representing a component that has the ability for primitive types to be written to and read from it.
+ *
+ * Note that this is not meant to represent a persistent storage component. Instead, [Parcel]s are short-lived and
+ * meant to transfer data between different components and processes.
+ *
+ * Note that this is based off of the Android Parcel component.
+ *
+ * @see [Android Parcel](https://developer.android.com/reference/android/os/Parcel)
+ */
 interface Parcel : InputParcel,
     OutputParcel {
 

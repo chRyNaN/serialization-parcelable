@@ -8,7 +8,11 @@ import kotlinx.serialization.encoding.AbstractDecoder
 import kotlinx.serialization.encoding.CompositeDecoder
 import kotlinx.serialization.modules.EmptySerializersModule
 import kotlinx.serialization.modules.SerializersModule
+import kotlinx.serialization.encoding.Decoder
 
+/**
+ * A [Decoder] that decodes its values from the provided [input] [Parcel].
+ */
 @ExperimentalSerializationApi
 class ParcelDecoder(
     override val serializersModule: SerializersModule = EmptySerializersModule,
