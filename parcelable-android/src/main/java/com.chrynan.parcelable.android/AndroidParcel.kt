@@ -6,6 +6,16 @@ import com.chrynan.parcelable.core.InvalidParcelValueException
 import com.chrynan.parcelable.core.Parcel
 import kotlinx.serialization.SerializationException
 
+/**
+ * An Android implementation of the [Parcel] interface. This class wraps the provided [android.os.Parcel] [parcel] and
+ * delegates the reading and writing to it.
+ *
+ * Note that this class should not be confused with the [android.os.Parcel]. Instead, this class wraps that class and
+ * implements the [Parcel] interface of this library.
+ *
+ * @see [Parcel]
+ * @see [android.os.Parcel]
+ */
 class AndroidParcel(private val parcel: android.os.Parcel) : Parcel {
 
     override val dataBufferCapacity: Int

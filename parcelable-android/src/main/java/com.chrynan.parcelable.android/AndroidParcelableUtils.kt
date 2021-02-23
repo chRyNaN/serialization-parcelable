@@ -2,7 +2,7 @@
 
 package com.chrynan.parcelable.android
 
-import android.os.Parcel
+import com.chrynan.parcelable.core.Parcel
 import com.chrynan.parcelable.core.ParcelDecoder
 import com.chrynan.parcelable.core.ParcelEncoder
 import com.chrynan.parcelable.core.Parcelable
@@ -14,10 +14,10 @@ import kotlin.reflect.KClass
 
 @ExperimentalSerializationApi
 fun <T> Parcelable.encodeToParcel(
-    parcel: Parcel,
+    parcel: android.os.Parcel,
     serializer: SerializationStrategy<T>,
     value: T
-): com.chrynan.parcelable.core.Parcel {
+): Parcel {
     val androidParcel = AndroidParcel(parcel)
     val encoder = ParcelEncoder(serializersModule = serializersModule, output = androidParcel)
     encoder.encodeSerializableValue(serializer, value)
@@ -25,13 +25,13 @@ fun <T> Parcelable.encodeToParcel(
 }
 
 @ExperimentalSerializationApi
-fun <T> Parcelable.decodeFromParcel(parcel: Parcel, deserializer: DeserializationStrategy<T>): T {
+fun <T> Parcelable.decodeFromParcel(parcel: android.os.Parcel, deserializer: DeserializationStrategy<T>): T {
     val decoder = ParcelDecoder(serializersModule = serializersModule, input = AndroidParcel(parcel))
     return decoder.decodeSerializableValue(deserializer)
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T> Parcelable.encodeToParcel(parcel: Parcel, value: T): com.chrynan.parcelable.core.Parcel {
+inline fun <reified T> Parcelable.encodeToParcel(parcel: android.os.Parcel, value: T): Parcel {
     val androidParcel = AndroidParcel(parcel)
     val encoder = ParcelEncoder(serializersModule = serializersModule, output = androidParcel)
     encoder.encodeSerializableValue(serializersModule.serializer(), value)
@@ -39,17 +39,17 @@ inline fun <reified T> Parcelable.encodeToParcel(parcel: Parcel, value: T): com.
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T> Parcelable.decodeFromParcel(parcel: Parcel): T {
+inline fun <reified T> Parcelable.decodeFromParcel(parcel: android.os.Parcel): T {
     val decoder = ParcelDecoder(serializersModule = serializersModule, input = AndroidParcel(parcel))
     return decoder.decodeSerializableValue(serializersModule.serializer())
 }
 
 @ExperimentalSerializationApi
 fun <T : Any> Parcelable.encodeToParcel(
-    parcel: Parcel,
+    parcel: android.os.Parcel,
     value: T,
     kclass: KClass<T>
-): com.chrynan.parcelable.core.Parcel {
+): Parcel {
     val androidParcel = AndroidParcel(parcel)
     val encoder = ParcelEncoder(serializersModule = serializersModule, output = androidParcel)
     encoder.encodeSerializableValue(serializersModule.serializer(kclass.java), value)
@@ -58,7 +58,7 @@ fun <T : Any> Parcelable.encodeToParcel(
 
 @Suppress("UNCHECKED_CAST")
 @ExperimentalSerializationApi
-fun <T : Any> Parcelable.decodeFromParcel(parcel: Parcel, kclass: KClass<T>): T {
+fun <T : Any> Parcelable.decodeFromParcel(parcel: android.os.Parcel, kclass: KClass<T>): T {
     val decoder = ParcelDecoder(serializersModule = serializersModule, input = AndroidParcel(parcel))
     return decoder.decodeSerializableValue(serializersModule.serializer(kclass.java)) as T
 }
