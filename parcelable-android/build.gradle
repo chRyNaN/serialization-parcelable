@@ -3,6 +3,7 @@ import com.chrynan.parcelable.buildSrc.LibraryConstants
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 apply plugin: "digital.wup.android-maven-publish"
+apply plugin: "org.jetbrains.dokka"
 
 group LibraryConstants.group
 version LibraryConstants.versionName

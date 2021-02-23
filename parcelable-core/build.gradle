@@ -1,6 +1,8 @@
 import com.chrynan.parcelable.buildSrc.LibraryConstants
 
 apply plugin: "kotlin-multiplatform"
+apply plugin: "org.jetbrains.dokka"
+apply plugin: "com.chrynan.target.plugin"
 
 group LibraryConstants.group
 version LibraryConstants.versionName
@@ -47,4 +49,11 @@ publishing {
             artifactId = "parcelable-core-metadata"
         }
     }
+}
+
+// Target Information
+kotlinTargetDataGenerator {
+    generateJson = true
+    generateSvg = true
+    outputPath = "${projectDir.path}/targets"
 }

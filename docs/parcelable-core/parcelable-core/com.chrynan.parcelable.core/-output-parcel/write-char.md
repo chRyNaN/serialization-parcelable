@@ -1,0 +1,17 @@
+//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[OutputParcel](index.md)/[writeChar](write-char.md)
+
+
+
+# writeChar  
+[common]  
+Content  
+abstract fun [writeChar](write-char.md)(value: [Char](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-char/index.html))  
+More info  
+
+
+Writes the Char to the Parcel at the current data position.
+
+  
+
+
+
