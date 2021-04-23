@@ -1,4 +1,4 @@
-//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[OutputParcel](index.md)/[writeString](write-string.md)
+//[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[OutputParcel](index.md)/[writeString](write-string.md)
 
 
 
@@ -9,7 +9,7 @@ abstract fun [writeString](write-string.md)(value: [String](https://kotlinlang.o
 More info  
 
 
-Writes the String to the Parcel at the current data position.
+Writes the [String](write-string.md) to the Parcel at the current data position.
 
   
 

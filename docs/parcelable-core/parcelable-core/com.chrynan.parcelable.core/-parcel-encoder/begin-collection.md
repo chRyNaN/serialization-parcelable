@@ -1,4 +1,4 @@
-//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[ParcelEncoder](index.md)/[beginCollection](begin-collection.md)
+//[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[ParcelEncoder](index.md)/[beginCollection](begin-collection.md)
 
 
 

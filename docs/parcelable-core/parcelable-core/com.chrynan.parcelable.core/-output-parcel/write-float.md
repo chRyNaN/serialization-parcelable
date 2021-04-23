@@ -1,4 +1,4 @@
-//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[OutputParcel](index.md)/[writeFloat](write-float.md)
+//[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[OutputParcel](index.md)/[writeFloat](write-float.md)
 
 
 
@@ -9,7 +9,7 @@ abstract fun [writeFloat](write-float.md)(value: [Float](https://kotlinlang.org/
 More info  
 
 
-Writes the Float to the Parcel at the current data position.
+Writes the [Float](write-float.md) to the Parcel at the current data position.
 
   
 

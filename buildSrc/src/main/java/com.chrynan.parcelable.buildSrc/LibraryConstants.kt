@@ -11,7 +11,11 @@ object LibraryConstants {
     const val versionDescription = "Pre-release 0.2.0"
     const val license = "Apache-2.0"
     const val vcsUrl = "https://github.com/chRyNaN/pacelable.git"
-    const val androidCompileSdkVersion = 29
-    const val androidMinSdkVersion = 23
-    const val androidTargetSdkVersion = 29
+
+    object Android {
+
+        const val compileSdkVersion = 29
+        const val minSdkVersion = 23
+        const val targetSdkVersion = 29
+    }
 }

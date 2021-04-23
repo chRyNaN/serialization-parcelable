@@ -1,4 +1,4 @@
-//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[Parcel](index.md)/[dataBufferCapacity](data-buffer-capacity.md)
+//[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[Parcel](index.md)/[dataBufferCapacity](data-buffer-capacity.md)
 
 
 

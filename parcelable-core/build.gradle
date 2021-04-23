@@ -1,6 +1,7 @@
 import com.chrynan.parcelable.buildSrc.LibraryConstants
 
 apply plugin: "kotlin-multiplatform"
+apply plugin: "maven-publish"
 apply plugin: "org.jetbrains.dokka"
 apply plugin: "com.chrynan.target.plugin"
 
@@ -18,7 +19,7 @@ kotlin {
             dependencies {
                 implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
 
-                api "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1"
+                api "org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0"
             }
         }
     }
@@ -28,25 +29,21 @@ configurations {
     compileClasspath
 }
 
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
 publishing {
-    publications {
-        kotlinMultiplatform {
-            artifactId = "parcelable-core"
-        }
-        jvm {
-            artifactId = "parcelable-core-jvm"
-        }
-        js {
-            artifactId = "parcelable-core-js"
-        }
-        iosArm64 {
-            artifactId = "parcelable-core-ios-arm64"
-        }
-        iosX64 {
-            artifactId = "parcelable-core-ios-x64"
-        }
-        metadata {
-            artifactId = "parcelable-core-metadata"
+    repositories {
+        maven {
+            url "https://repo.repsy.io/mvn/chrynan/public"
+
+            credentials {
+                username = project.findProperty("repsyUsername") ?: System.getenv("repsyUsername")
+                password = project.findProperty("repsyToken") ?: System.getenv("repsyToken")
+            }
         }
     }
 }
@@ -56,4 +53,13 @@ kotlinTargetDataGenerator {
     generateJson = true
     generateSvg = true
     outputPath = "${projectDir.path}/targets"
+}
+
+// Documentation
+tasks.named("dokkaGfm") {
+    dokkaSourceSets {
+        configureEach {
+            includes.from("Module.md")
+        }
+    }
 }

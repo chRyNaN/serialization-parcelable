@@ -1,4 +1,4 @@
-//[parcelable-android](../../index.md)/[com.chrynan.parcelable.android](../index.md)/[AndroidParcel](index.md)/[writeString](write-string.md)
+//[parcelable-android](../../../index.md)/[com.chrynan.parcelable.android](../index.md)/[AndroidParcel](index.md)/[writeString](write-string.md)
 
 
 

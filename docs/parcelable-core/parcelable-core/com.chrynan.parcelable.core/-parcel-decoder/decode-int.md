@@ -1,4 +1,4 @@
-//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[ParcelDecoder](index.md)/[decodeInt](decode-int.md)
+//[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[ParcelDecoder](index.md)/[decodeInt](decode-int.md)
 
 
 

@@ -1,5 +1,60 @@
 $dokka.format:gfm-v1
 $dokka.linkExtension:md
-
+$dokka.location:com.chrynan.parcelable.android////PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/index.md
+$dokka.location:com.chrynan.parcelable.android//createFromParcel/com.chrynan.parcelable.android.AndroidParceler#android.os.Parcel/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/create-from-parcel.md
+$dokka.location:com.chrynan.parcelable.android//decodeFromBundle/com.chrynan.parcelable.android.AndroidParceler#android.os.Bundle#kotlin.Int/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/decode-from-bundle.md
+$dokka.location:com.chrynan.parcelable.android//decodeFromBundle/com.chrynan.parcelable.android.AndroidParceler#android.os.Bundle#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]#kotlin.Int/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/decode-from-bundle.md
+$dokka.location:com.chrynan.parcelable.android//decodeFromBundle/com.chrynan.parcelable.core.Parcelable#android.os.Bundle#kotlin.Int/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/decode-from-bundle.md
+$dokka.location:com.chrynan.parcelable.android//decodeFromBundle/com.chrynan.parcelable.core.Parcelable#android.os.Bundle#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]#kotlin.Int/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/decode-from-bundle.md
+$dokka.location:com.chrynan.parcelable.android//decodeFromParcel/com.chrynan.parcelable.core.Parcelable#android.os.Parcel#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/decode-from-parcel.md
+$dokka.location:com.chrynan.parcelable.android//decodeFromParcel/com.chrynan.parcelable.core.Parcelable#android.os.Parcel#kotlinx.serialization.DeserializationStrategy[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/decode-from-parcel.md
+$dokka.location:com.chrynan.parcelable.android//decodeFromParcel/com.chrynan.parcelable.core.Parcelable#android.os.Parcel/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/decode-from-parcel.md
+$dokka.location:com.chrynan.parcelable.android//encodeToBundle/com.chrynan.parcelable.android.AndroidParceler#TypeParam(bounds=[kotlin.Any])#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/encode-to-bundle.md
+$dokka.location:com.chrynan.parcelable.android//encodeToBundle/com.chrynan.parcelable.android.AndroidParceler#TypeParam(bounds=[kotlin.Any])/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/encode-to-bundle.md
+$dokka.location:com.chrynan.parcelable.android//encodeToBundle/com.chrynan.parcelable.core.Parcelable#TypeParam(bounds=[kotlin.Any])#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/encode-to-bundle.md
+$dokka.location:com.chrynan.parcelable.android//encodeToBundle/com.chrynan.parcelable.core.Parcelable#TypeParam(bounds=[kotlin.Any])/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/encode-to-bundle.md
+$dokka.location:com.chrynan.parcelable.android//encodeToParcel/com.chrynan.parcelable.core.Parcelable#android.os.Parcel#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/encode-to-parcel.md
+$dokka.location:com.chrynan.parcelable.android//encodeToParcel/com.chrynan.parcelable.core.Parcelable#android.os.Parcel#TypeParam(bounds=[kotlin.Any])#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/encode-to-parcel.md
+$dokka.location:com.chrynan.parcelable.android//encodeToParcel/com.chrynan.parcelable.core.Parcelable#android.os.Parcel#kotlinx.serialization.SerializationStrategy[TypeParam(bounds=[kotlin.Any?])]#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/encode-to-parcel.md
+$dokka.location:com.chrynan.parcelable.android//getParcelable/android.os.Bundle#kotlin.String#com.chrynan.parcelable.android.AndroidParceler/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/get-parcelable.md
+$dokka.location:com.chrynan.parcelable.android//getParcelable/android.os.Bundle#kotlin.String#com.chrynan.parcelable.core.Parcelable/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/get-parcelable.md
+$dokka.location:com.chrynan.parcelable.android//getParcelableExtra/android.content.Intent#kotlin.String#com.chrynan.parcelable.android.AndroidParceler/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/get-parcelable-extra.md
+$dokka.location:com.chrynan.parcelable.android//getParcelableExtra/android.content.Intent#kotlin.String#com.chrynan.parcelable.core.Parcelable/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/get-parcelable-extra.md
+$dokka.location:com.chrynan.parcelable.android//newArrayInline/com.chrynan.parcelable.android.AndroidParceler#kotlin.Int/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/new-array-inline.md
+$dokka.location:com.chrynan.parcelable.android//putExtra/android.content.Intent#kotlin.String#TypeParam(bounds=[kotlin.Any])#com.chrynan.parcelable.android.AndroidParceler/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/put-extra.md
+$dokka.location:com.chrynan.parcelable.android//putExtra/android.content.Intent#kotlin.String#TypeParam(bounds=[kotlin.Any])#com.chrynan.parcelable.core.Parcelable/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/put-extra.md
+$dokka.location:com.chrynan.parcelable.android//putParcelable/android.os.Bundle#kotlin.String#TypeParam(bounds=[kotlin.Any])#com.chrynan.parcelable.android.AndroidParceler/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/put-parcelable.md
+$dokka.location:com.chrynan.parcelable.android//putParcelable/android.os.Bundle#kotlin.String#TypeParam(bounds=[kotlin.Any])#com.chrynan.parcelable.core.Parcelable/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/put-parcelable.md
+$dokka.location:com.chrynan.parcelable.android//writeToParcel/com.chrynan.parcelable.android.AndroidParceler#TypeParam(bounds=[kotlin.Any])#android.os.Parcel/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/write-to-parcel.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel///PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/index.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/AndroidParcel/#android.os.Parcel/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/-android-parcel.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/dataBufferCapacity/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/data-buffer-capacity.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/dataPosition/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/data-position.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/dataSize/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/data-size.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/readBoolean/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/read-boolean.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/readByte/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/read-byte.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/readChar/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/read-char.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/readDouble/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/read-double.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/readFloat/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/read-float.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/readInt/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/read-int.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/readLong/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/read-long.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/readShort/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/read-short.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/readString/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/read-string.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/recycle/#/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/recycle.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/writeBoolean/#kotlin.Boolean/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/write-boolean.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/writeByte/#kotlin.Byte/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/write-byte.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/writeChar/#kotlin.Char/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/write-char.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/writeDouble/#kotlin.Double/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/write-double.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/writeFloat/#kotlin.Float/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/write-float.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/writeInt/#kotlin.Int/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/write-int.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/writeLong/#kotlin.Long/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/write-long.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/writeShort/#kotlin.Short/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/write-short.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParcel/writeString/#kotlin.String/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parcel/write-string.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParceler///PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parceler/index.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParceler/AndroidParceler/#com.chrynan.parcelable.core.Parcelable/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parceler/-android-parceler.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParceler/createFromParcel/#android.os.Parcel#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parceler/create-from-parcel.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParceler/describeContents/#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parceler/describe-contents.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParceler/newArray/#kotlin.Int/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parceler/new-array.md
+$dokka.location:com.chrynan.parcelable.android/AndroidParceler/writeToParcel/#TypeParam(bounds=[kotlin.Any])#android.os.Parcel#kotlin.reflect.KClass[TypeParam(bounds=[kotlin.Any])]/PointingToDeclaration/parcelable-android/com.chrynan.parcelable.android/-android-parceler/write-to-parcel.md
 com.chrynan.parcelable.android
 

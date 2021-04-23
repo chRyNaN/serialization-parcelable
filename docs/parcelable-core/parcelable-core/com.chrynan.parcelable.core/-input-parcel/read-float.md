@@ -1,4 +1,4 @@
-//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[InputParcel](index.md)/[readFloat](read-float.md)
+//[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[InputParcel](index.md)/[readFloat](read-float.md)
 
 
 

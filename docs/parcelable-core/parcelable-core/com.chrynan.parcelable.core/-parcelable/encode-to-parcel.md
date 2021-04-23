@@ -1,4 +1,4 @@
-//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[Parcelable](index.md)/[encodeToParcel](encode-to-parcel.md)
+//[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[Parcelable](index.md)/[encodeToParcel](encode-to-parcel.md)
 
 
 
@@ -9,14 +9,14 @@ fun <[T](encode-to-parcel.md)> [encodeToParcel](encode-to-parcel.md)(parcel: [Pa
 More info  
 
 
-Encodes the provided value to the provided parcel using the provided serializer.
+Encodes the provided [value](encode-to-parcel.md) to the provided [parcel](encode-to-parcel.md) using the provided [serializer](encode-to-parcel.md).
 
 
 
 #### Return  
 
 
-The provided parcel containing the encoded value.
+The provided [parcel](encode-to-parcel.md) containing the encoded [value](encode-to-parcel.md).
 
   
 

@@ -1,4 +1,4 @@
-//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[OutputParcel](index.md)/[writeInt](write-int.md)
+//[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[OutputParcel](index.md)/[writeInt](write-int.md)
 
 
 
@@ -9,7 +9,7 @@ abstract fun [writeInt](write-int.md)(value: [Int](https://kotlinlang.org/api/la
 More info  
 
 
-Writes the Int to the Parcel at the current data position.
+Writes the [Int](write-int.md) to the Parcel at the current data position.
 
   
 

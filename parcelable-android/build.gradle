@@ -2,18 +2,18 @@ import com.chrynan.parcelable.buildSrc.LibraryConstants
 
 apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
-apply plugin: "digital.wup.android-maven-publish"
+apply plugin: "maven-publish"
 apply plugin: "org.jetbrains.dokka"
 
 group LibraryConstants.group
 version LibraryConstants.versionName
 
 android {
-    compileSdkVersion LibraryConstants.androidCompileSdkVersion
+    compileSdkVersion LibraryConstants.Android.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion LibraryConstants.androidMinSdkVersion
-        targetSdkVersion LibraryConstants.androidTargetSdkVersion
+        minSdkVersion LibraryConstants.Android.minSdkVersion
+        targetSdkVersion LibraryConstants.Android.targetSdkVersion
         versionCode LibraryConstants.versionCode
         versionName LibraryConstants.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -43,10 +43,34 @@ dependencies {
 }
 
 publishing {
+    repositories {
+        maven {
+            url "https://repo.repsy.io/mvn/chrynan/public"
+
+            credentials {
+                username = project.findProperty("repsyUsername") ?: System.getenv("repsyUsername")
+                password = project.findProperty("repsyToken") ?: System.getenv("repsyToken")
+            }
+        }
+    }
+
     publications {
-        MavenPub(MavenPublication) {
-            from(components.android)
-            artifactId "parcelable-android"
+        android.libraryVariants.all { variant ->
+            "maven${variant.name.capitalize()}Aar"(MavenPublication) {
+                from components.findByName("android${variant.name.capitalize()}")
+                groupId LibraryConstants.group
+                artifactId "parcelable-android"
+                version "${LibraryConstants.versionName}-${variant.name}"
+            }
+        }
+    }
+}
+
+// Documentation
+tasks.named("dokkaGfm") {
+    dokkaSourceSets {
+        configureEach {
+            includes.from("Module.md")
         }
     }
 }

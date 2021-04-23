@@ -9,11 +9,11 @@ group LibraryConstants.group
 version LibraryConstants.versionName
 
 android {
-    compileSdkVersion LibraryConstants.androidCompileSdkVersion
+    compileSdkVersion LibraryConstants.Android.compileSdkVersion
 
     defaultConfig {
         minSdkVersion 26
-        targetSdkVersion LibraryConstants.androidTargetSdkVersion
+        targetSdkVersion LibraryConstants.Android.targetSdkVersion
         versionCode LibraryConstants.versionCode
         versionName LibraryConstants.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -46,7 +46,7 @@ dependencies {
 
     implementation "androidx.appcompat:appcompat:1.2.0"
 
-    implementation "com.google.android.material:material:1.2.1"
+    implementation "com.google.android.material:material:1.3.0"
 
     implementation project(":parcelable-android")
 

@@ -1,4 +1,4 @@
-//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[OutputParcel](index.md)/[writeLong](write-long.md)
+//[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[OutputParcel](index.md)/[writeLong](write-long.md)
 
 
 
@@ -9,7 +9,7 @@ abstract fun [writeLong](write-long.md)(value: [Long](https://kotlinlang.org/api
 More info  
 
 
-Writes the Long to the Parcel at the current data position.
+Writes the [Long](write-long.md) to the Parcel at the current data position.
 
   
 

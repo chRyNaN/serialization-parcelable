@@ -1,4 +1,4 @@
-//[parcelable-android](../../index.md)/[com.chrynan.parcelable.android](../index.md)/[AndroidParceler](index.md)/[describeContents](describe-contents.md)
+//[parcelable-android](../../../index.md)/[com.chrynan.parcelable.android](../index.md)/[AndroidParceler](index.md)/[describeContents](describe-contents.md)
 
 
 
@@ -9,7 +9,7 @@ fun <[T](describe-contents.md)> [describeContents](describe-contents.md)(value: 
 More info  
 
 
-Retrieves the hashCode for the provided value used to describe it's contents in the underlying [android.os.Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html).
+Retrieves the [hashCode](../../../../parcelable-android/com.chrynan.parcelable.android/-android-parceler/hash-code.md) for the provided [value](describe-contents.md) used to describe it's contents in the underlying [android.os.Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html).
 
   
 

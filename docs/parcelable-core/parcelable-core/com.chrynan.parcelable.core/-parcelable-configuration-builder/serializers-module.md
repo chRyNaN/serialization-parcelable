@@ -1,4 +1,4 @@
-//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[ParcelableConfigurationBuilder](index.md)/[serializersModule](serializers-module.md)
+//[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[ParcelableConfigurationBuilder](index.md)/[serializersModule](serializers-module.md)
 
 
 

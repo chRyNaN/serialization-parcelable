@@ -1,4 +1,4 @@
-//[parcelable-android](../../index.md)/[com.chrynan.parcelable.android](../index.md)/[AndroidParceler](index.md)/[createFromParcel](create-from-parcel.md)
+//[parcelable-android](../../../index.md)/[com.chrynan.parcelable.android](../index.md)/[AndroidParceler](index.md)/[createFromParcel](create-from-parcel.md)
 
 
 
@@ -9,7 +9,7 @@ fun <[T](create-from-parcel.md) : [Any](https://kotlinlang.org/api/latest/jvm/st
 More info  
 
 
-Retrieves the value of [T](create-from-parcel.md) represented by the provided kClass from the underlying [android.os.Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html) using the parcelable instance.
+Retrieves the value of [T](create-from-parcel.md) represented by the provided [kClass](create-from-parcel.md) from the underlying [android.os.Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html) using the [parcelable](../../../../parcelable-android/com.chrynan.parcelable.android/-android-parceler/parcelable.md) instance.
 
   
 

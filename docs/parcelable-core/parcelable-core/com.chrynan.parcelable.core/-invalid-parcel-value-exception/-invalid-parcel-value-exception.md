@@ -1,4 +1,4 @@
-//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[InvalidParcelValueException](index.md)/[InvalidParcelValueException](-invalid-parcel-value-exception.md)
+//[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[InvalidParcelValueException](index.md)/[InvalidParcelValueException](-invalid-parcel-value-exception.md)
 
 
 

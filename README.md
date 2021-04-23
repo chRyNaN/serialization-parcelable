@@ -1,11 +1,12 @@
 # parcelable
 
-Android Parceling support for the [Kotlinx Serialization library](https://github.com/Kotlin/kotlinx.serialization). \
-![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/chrynan/parcelable)
+Android Parceling support for the [Kotlinx Serialization library](https://github.com/Kotlin/kotlinx.serialization). <br />
+<img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/chRyNaN/serialization-parcelable">
 
 <a href="https://androidweekly.net/issues/issue-450"><img alt="Badge" src="https://androidweekly.net/issues/issue-450/badge" height="20px"></img></a>
 
 ```kotlin
+val parcelable = Parcelable.Default
 parcelable.encodeToBundle(myModel)
 val myModel = parcelable.decodeFromBundle(bundle)
 ```
@@ -13,20 +14,18 @@ val myModel = parcelable.decodeFromBundle(bundle)
 Now all the serialization can be handled from a single library, no need to create both custom Parcelers and Serializers.
 Have a custom class that requires specific serialization? Use
 the [Kotlinx Serialization library](https://github.com/Kotlin/kotlinx.serialization) and it will automatically work with
-Android's `Parcel`.
+Android's `Parcel`, `Bundle`, and `Intent`.
 
 ## Building the library
 
-The library is provided through [Bintray](https://bintray.com/). Checkout
-the [releases page](https://github.com/chRyNaN/parcelable/releases) to get the latest version.
+The library is provided through [Repsy.io](https://repsy.io). Checkout the [releases page](https://github.com/chRyNaN/parcelable/releases) to get the latest version. <br />
+<img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/chRyNaN/serialization-parcelable">
 
 ### Repository
 
 ```groovy
 repositories {
-    maven {
-        url = uri("https://dl.bintray.com/chrynan/chrynan")
-    }
+    maven { url = "https://repo.repsy.io/mvn/chrynan/public" }
 }
 ```
 

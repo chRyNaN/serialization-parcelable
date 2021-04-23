@@ -1,4 +1,4 @@
-//[parcelable-core](../../index.md)/[com.chrynan.parcelable.core](../index.md)/[OutputParcel](index.md)/[writeBoolean](write-boolean.md)
+//[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[OutputParcel](index.md)/[writeBoolean](write-boolean.md)
 
 
 
@@ -9,7 +9,7 @@ abstract fun [writeBoolean](write-boolean.md)(value: [Boolean](https://kotlinlan
 More info  
 
 
-Writes the Boolean to the Parcel at the current data position.
+Writes the [Boolean](write-boolean.md) to the Parcel at the current data position.
 
   
 
