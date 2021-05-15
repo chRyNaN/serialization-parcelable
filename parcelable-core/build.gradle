@@ -19,7 +19,7 @@ kotlin {
             dependencies {
                 implementation "org.jetbrains.kotlin:kotlin-stdlib-common"
 
-                api "org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0"
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1"
             }
         }
     }
