@@ -11,5 +11,6 @@ object SerializerUtils {
 
     val json: Json = Json {
         prettyPrint = true
+        encodeDefaults = true
     }
 }
