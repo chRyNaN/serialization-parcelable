@@ -44,25 +44,25 @@ dependencies {
     api project(":parcelable-core")
 }
 
-publishing {
-    repositories {
-        maven {
-            url "https://repo.repsy.io/mvn/chrynan/public"
+afterEvaluate {
+    publishing {
+        repositories {
+            maven {
+                url "https://repo.repsy.io/mvn/chrynan/public"
 
-            credentials {
-                username = project.findProperty("repsyUsername") ?: System.getenv("repsyUsername")
-                password = project.findProperty("repsyToken") ?: System.getenv("repsyToken")
+                credentials {
+                    username = project.findProperty("repsyUsername") ?: System.getenv("repsyUsername")
+                    password = project.findProperty("repsyToken") ?: System.getenv("repsyToken")
+                }
             }
         }
-    }
 
-    publications {
-        android.libraryVariants.all { variant ->
-            "maven${variant.name.capitalize()}Aar"(MavenPublication) {
-                from components.findByName("android${variant.name.capitalize()}")
+        publications {
+            release(MavenPublication) {
+                from components.release
                 groupId LibraryConstants.group
                 artifactId "parcelable-android"
-                version "${LibraryConstants.versionName}-${variant.name}"
+                version LibraryConstants.versionName
             }
         }
     }
