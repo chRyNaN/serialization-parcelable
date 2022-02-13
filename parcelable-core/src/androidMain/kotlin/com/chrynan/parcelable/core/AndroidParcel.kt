@@ -2,8 +2,6 @@
 
 package com.chrynan.parcelable.core
 
-import com.chrynan.parcelable.core.InvalidParcelValueException
-import com.chrynan.parcelable.core.Parcel
 import kotlinx.serialization.SerializationException
 
 /**
@@ -26,6 +24,9 @@ class AndroidParcel(private val parcel: android.os.Parcel) : Parcel {
 
     override val dataPosition: Int
         get() = parcel.dataPosition()
+
+    override var isRecycled: Boolean = false
+        private set
 
     override fun readBoolean(): Boolean = try {
         parcel.readInt() == 1
@@ -136,5 +137,8 @@ class AndroidParcel(private val parcel: android.os.Parcel) : Parcel {
         throw SerializationException("Error writing the String value '$value' to the Parcel.", exception)
     }
 
-    override fun recycle() = parcel.recycle()
+    override fun recycle() {
+        parcel.recycle()
+        isRecycled = true
+    }
 }

@@ -40,7 +40,13 @@ interface Parcel : InputParcel,
         get() = dataSize - dataPosition
 
     /**
-     * Puts this parcel object back into the pool, removing it's data. This parcel object should not be used after it
+     * Determines whether this [Parcel]s [recycle] function has been called already. A parcel object should not be used
+     * after it is recycled.
+     */
+    val isRecycled: Boolean
+
+    /**
+     * Puts this parcel object back into the pool, removing its data. This parcel object should not be used after it
      * is recycled.
      */
     fun recycle()
