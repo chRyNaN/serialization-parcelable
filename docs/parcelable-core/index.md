@@ -1,13 +1,9 @@
 //[parcelable-core](index.md)
 
+# parcelable-core
 
+## Packages
 
-# parcelable-core  
-
-
-## Packages  
-  
-|  Name | 
+| Name |
 |---|
-| <a name="com.chrynan.parcelable.core////PointingToDeclaration/"></a>[com.chrynan.parcelable.core](parcelable-core/com.chrynan.parcelable.core/index.md)|
-
+| [com.chrynan.parcelable.core](parcelable-core/com.chrynan.parcelable.core/index.md) |

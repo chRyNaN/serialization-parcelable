@@ -1,64 +1,58 @@
 //[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[Parcelable](index.md)
 
+# Parcelable
 
-
-# Parcelable  
- [common] sealed class [Parcelable](index.md) : SerialFormat
+[common]\
+sealed class [Parcelable](index.md) : SerialFormat, BinaryFormat
 
 Represents the serialization format for [ParcelEncoder](../-parcel-encoder/index.md)s and [ParcelDecoder](../-parcel-decoder/index.md)s. This is analogous to the Json class for the JSON serialization format.
 
+Note that this is not to be confused with the Android Parcelable interface. However, there is some overlap, and hence the same name, as the Android Parcelable interface provides a means of serializing data between different components and processes, this [Parcelable](index.md) interface performs a similar task. Though the way they perform their tasks differs.
 
+## See also
 
-Note that this is not to be confused with the Android Parcelable interface. However, there is some overlap, and hence the same name, as the Android Parcelable interface provides a means of serializing data between different components and processes, this [Parcelable](index.md) interface performs a similar task. Though they way they perform their tasks differs.
+common
 
-   
-
-
-## See also  
-  
-common  
-  
 | | |
 |---|---|
-| <a name="com.chrynan.parcelable.core/Parcelable///PointingToDeclaration/"></a>| <a name="com.chrynan.parcelable.core/Parcelable///PointingToDeclaration/"></a><br><br>[Android Parcelable (not the same)](https://developer.android.com/reference/android/os/Parcelable))<br><br>|
-  
+|  | [Android Parcelable (not the same)](https://developer.android.com/reference/android/os/Parcelable)) |
 
+## Types
 
-## Types  
-  
-|  Name |  Summary | 
+| Name | Summary |
 |---|---|
-| <a name="com.chrynan.parcelable.core/Parcelable.Custom///PointingToDeclaration/"></a>[Custom](-custom/index.md)| <a name="com.chrynan.parcelable.core/Parcelable.Custom///PointingToDeclaration/"></a>[common]  <br>Content  <br>class [Custom](-custom/index.md) : [Parcelable](index.md)  <br>More info  <br>A custom [Parcelable](index.md) implementation using the provided [configuration](../../../../parcelable-core/com.chrynan.parcelable.core/-parcelable/-custom/configuration.md) values.  <br><br><br>|
-| <a name="com.chrynan.parcelable.core/Parcelable.Default///PointingToDeclaration/"></a>[Default](-default/index.md)| <a name="com.chrynan.parcelable.core/Parcelable.Default///PointingToDeclaration/"></a>[common]  <br>Content  <br>object [Default](-default/index.md) : [Parcelable](index.md)  <br>More info  <br>The default [Parcelable](index.md) implementation using the default [ParcelableConfiguration](../-parcelable-configuration/index.md) values.  <br><br><br>|
+| [Custom](-custom/index.md) | [common]<br>class [Custom](-custom/index.md) : [Parcelable](index.md)<br>A custom [Parcelable](index.md) implementation using the provided [configuration](../../../../parcelable-core/com.chrynan.parcelable.core/-parcelable/-custom/configuration.md) values. This class can be used when custom configuration is needed. |
+| [Default](-default/index.md) | [common]<br>object [Default](-default/index.md) : [Parcelable](index.md)<br>The default [Parcelable](index.md) implementation using the default [ParcelableConfiguration](../-parcelable-configuration/index.md) values. This class can be used when no custom configuration is needed. |
 
+## Functions
 
-## Functions  
-  
-|  Name |  Summary | 
+| Name | Summary |
 |---|---|
-| <a name="com.chrynan.parcelable.core/Parcelable/decodeFromParcel/#com.chrynan.parcelable.core.Parcel#kotlinx.serialization.DeserializationStrategy[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/"></a>[decodeFromParcel](decode-from-parcel.md)| <a name="com.chrynan.parcelable.core/Parcelable/decodeFromParcel/#com.chrynan.parcelable.core.Parcel#kotlinx.serialization.DeserializationStrategy[TypeParam(bounds=[kotlin.Any?])]/PointingToDeclaration/"></a>[common]  <br>Content  <br>fun <[T](decode-from-parcel.md)> [decodeFromParcel](decode-from-parcel.md)(parcel: [Parcel](../-parcel/index.md), deserializer: DeserializationStrategy<[T](decode-from-parcel.md)>): [T](decode-from-parcel.md)  <br>More info  <br>Decodes the value of [T](decode-from-parcel.md) from the provided [parcel](decode-from-parcel.md) using the provided [deserializer](decode-from-parcel.md).  <br><br><br>|
-| <a name="com.chrynan.parcelable.core/Parcelable/encodeToParcel/#com.chrynan.parcelable.core.Parcel#kotlinx.serialization.SerializationStrategy[TypeParam(bounds=[kotlin.Any?])]#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/"></a>[encodeToParcel](encode-to-parcel.md)| <a name="com.chrynan.parcelable.core/Parcelable/encodeToParcel/#com.chrynan.parcelable.core.Parcel#kotlinx.serialization.SerializationStrategy[TypeParam(bounds=[kotlin.Any?])]#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/"></a>[common]  <br>Content  <br>fun <[T](encode-to-parcel.md)> [encodeToParcel](encode-to-parcel.md)(parcel: [Parcel](../-parcel/index.md), serializer: SerializationStrategy<[T](encode-to-parcel.md)>, value: [T](encode-to-parcel.md)): [Parcel](../-parcel/index.md)  <br>More info  <br>Encodes the provided [value](encode-to-parcel.md) to the provided [parcel](encode-to-parcel.md) using the provided [serializer](encode-to-parcel.md).  <br><br><br>|
+| [decodeFromByteArray](decode-from-byte-array.md) | [common]<br>open override fun &lt;[T](decode-from-byte-array.md)&gt; [decodeFromByteArray](decode-from-byte-array.md)(deserializer: DeserializationStrategy&lt;[T](decode-from-byte-array.md)&gt;, bytes: [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html)): [T](decode-from-byte-array.md) |
+| [decodeFromParcel](decode-from-parcel.md) | [common]<br>fun &lt;[T](decode-from-parcel.md)&gt; [decodeFromParcel](decode-from-parcel.md)(parcel: [Parcel](../-parcel/index.md), deserializer: DeserializationStrategy&lt;[T](decode-from-parcel.md)&gt;): [T](decode-from-parcel.md)<br>Decodes the value of [T](decode-from-parcel.md) from the provided [parcel](decode-from-parcel.md) using the provided [deserializer](decode-from-parcel.md). |
+| [encodeToByteArray](encode-to-byte-array.md) | [common]<br>open override fun &lt;[T](encode-to-byte-array.md)&gt; [encodeToByteArray](encode-to-byte-array.md)(serializer: SerializationStrategy&lt;[T](encode-to-byte-array.md)&gt;, value: [T](encode-to-byte-array.md)): [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html) |
+| [encodeToParcel](encode-to-parcel.md) | [common]<br>fun &lt;[T](encode-to-parcel.md)&gt; [encodeToParcel](encode-to-parcel.md)(parcel: [Parcel](../-parcel/index.md), serializer: SerializationStrategy&lt;[T](encode-to-parcel.md)&gt;, value: [T](encode-to-parcel.md)): [Parcel](../-parcel/index.md)<br>Encodes the provided [value](encode-to-parcel.md) to the provided [parcel](encode-to-parcel.md) using the provided [serializer](encode-to-parcel.md). |
 
+## Properties
 
-## Properties  
-  
-|  Name |  Summary | 
+| Name | Summary |
 |---|---|
-| <a name="com.chrynan.parcelable.core/Parcelable/serializersModule/#/PointingToDeclaration/"></a>[serializersModule](serializers-module.md)| <a name="com.chrynan.parcelable.core/Parcelable/serializersModule/#/PointingToDeclaration/"></a> [common] open override val [serializersModule](serializers-module.md): SerializersModule   <br>|
+| [serializersModule](serializers-module.md) | [common]<br>open override val [serializersModule](serializers-module.md): SerializersModule |
 
+## Inheritors
 
-## Inheritors  
-  
-|  Name | 
+| Name |
 |---|
-| <a name="com.chrynan.parcelable.core/Parcelable.Default///PointingToDeclaration/"></a>[Parcelable](-default/index.md)|
-| <a name="com.chrynan.parcelable.core/Parcelable.Custom///PointingToDeclaration/"></a>[Parcelable](-custom/index.md)|
+| [Default](-default/index.md) |
+| [Custom](-custom/index.md) |
 
+## Extensions
 
-## Extensions  
-  
-|  Name |  Summary | 
+| Name | Summary |
 |---|---|
-| <a name="com.chrynan.parcelable.core//decodeFromParcel/com.chrynan.parcelable.core.Parcelable#com.chrynan.parcelable.core.Parcel/PointingToDeclaration/"></a>[decodeFromParcel](../decode-from-parcel.md)| <a name="com.chrynan.parcelable.core//decodeFromParcel/com.chrynan.parcelable.core.Parcelable#com.chrynan.parcelable.core.Parcel/PointingToDeclaration/"></a>[common]  <br>Content  <br>inline fun <[T](../decode-from-parcel.md)> [Parcelable](index.md).[decodeFromParcel](../decode-from-parcel.md)(parcel: [Parcel](../-parcel/index.md)): [T](../decode-from-parcel.md)  <br>More info  <br>A convenience function to [Parcelable.decodeFromParcel](decode-from-parcel.md) that retrieves the deserializer from the [Parcelable.serializersModule](serializers-module.md).  <br><br><br>|
-| <a name="com.chrynan.parcelable.core//encodeToParcel/com.chrynan.parcelable.core.Parcelable#com.chrynan.parcelable.core.Parcel#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/"></a>[encodeToParcel](../encode-to-parcel.md)| <a name="com.chrynan.parcelable.core//encodeToParcel/com.chrynan.parcelable.core.Parcelable#com.chrynan.parcelable.core.Parcel#TypeParam(bounds=[kotlin.Any?])/PointingToDeclaration/"></a>[common]  <br>Content  <br>inline fun <[T](../encode-to-parcel.md)> [Parcelable](index.md).[encodeToParcel](../encode-to-parcel.md)(parcel: [Parcel](../-parcel/index.md), value: [T](../encode-to-parcel.md)): [Parcel](../-parcel/index.md)  <br>More info  <br>A convenience function to [Parcelable.encodeToParcel](encode-to-parcel.md) that retrieves the serializer from the [Parcelable.serializersModule](serializers-module.md).  <br><br><br>|
-
+| [decodeFromBundle](../decode-from-bundle.md) | [android]<br>fun &lt;[T](../decode-from-bundle.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromBundle](../decode-from-bundle.md)(bundle: [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), kClass: [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)&lt;[T](../decode-from-bundle.md)&gt;, flags: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) = 0): [T](../decode-from-bundle.md)<br>inline fun &lt;[T](../decode-from-bundle.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromBundle](../decode-from-bundle.md)(bundle: [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), flags: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) = 0): [T](../decode-from-bundle.md)<br>fun &lt;[T](../decode-from-bundle.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromBundle](../decode-from-bundle.md)(bundle: [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), deserializer: DeserializationStrategy&lt;[T](../decode-from-bundle.md)&gt;, flags: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) = 0): [T](../decode-from-bundle.md) |
+| [decodeFromBundleOrNull](../decode-from-bundle-or-null.md) | [android]<br>fun &lt;[T](../decode-from-bundle-or-null.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromBundleOrNull](../decode-from-bundle-or-null.md)(bundle: [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), kClass: [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)&lt;[T](../decode-from-bundle-or-null.md)&gt;, flags: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) = 0): [T](../decode-from-bundle-or-null.md)?<br>inline fun &lt;[T](../decode-from-bundle-or-null.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromBundleOrNull](../decode-from-bundle-or-null.md)(bundle: [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), flags: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) = 0): [T](../decode-from-bundle-or-null.md)?<br>inline fun &lt;[T](../decode-from-bundle-or-null.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromBundleOrNull](../decode-from-bundle-or-null.md)(bundle: [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html), flags: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) = 0, deserializer: DeserializationStrategy&lt;[T](../decode-from-bundle-or-null.md)&gt;): [T](../decode-from-bundle-or-null.md)? |
+| [decodeFromParcel](../decode-from-parcel.md) | [android]<br>fun &lt;[T](../decode-from-parcel.md)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromParcel](../decode-from-parcel.md)(parcel: [Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html), deserializer: DeserializationStrategy&lt;[T](../decode-from-parcel.md)&gt;): [T](../decode-from-parcel.md)<br>inline fun &lt;[T](../decode-from-parcel.md)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromParcel](../decode-from-parcel.md)(parcel: [Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html)): [T](../decode-from-parcel.md)<br>fun &lt;[T](../decode-from-parcel.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromParcel](../decode-from-parcel.md)(parcel: [Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html), kclass: [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)&lt;[T](../decode-from-parcel.md)&gt;): [T](../decode-from-parcel.md)<br>[common]<br>inline fun &lt;[T](../decode-from-parcel.md)&gt; [Parcelable](index.md).[decodeFromParcel](../decode-from-parcel.md)(parcel: [Parcel](../-parcel/index.md)): [T](../decode-from-parcel.md)<br>A convenience function to [Parcelable.decodeFromParcel](decode-from-parcel.md) that retrieves the deserializer from the [Parcelable.serializersModule](serializers-module.md). |
+| [decodeFromParcelOrNull](../decode-from-parcel-or-null.md) | [android]<br>fun &lt;[T](../decode-from-parcel-or-null.md)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromParcelOrNull](../decode-from-parcel-or-null.md)(parcel: [Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html), deserializer: DeserializationStrategy&lt;[T](../decode-from-parcel-or-null.md)&gt;): [T](../decode-from-parcel-or-null.md)?<br>inline fun &lt;[T](../decode-from-parcel-or-null.md)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromParcelOrNull](../decode-from-parcel-or-null.md)(parcel: [Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html)): [T](../decode-from-parcel-or-null.md)?<br>fun &lt;[T](../decode-from-parcel-or-null.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromParcelOrNull](../decode-from-parcel-or-null.md)(parcel: [Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html), kclass: [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)&lt;[T](../decode-from-parcel-or-null.md)&gt;): [T](../decode-from-parcel-or-null.md)? |
+| [encodeToBundle](../encode-to-bundle.md) | [android]<br>fun &lt;[T](../encode-to-bundle.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[encodeToBundle](../encode-to-bundle.md)(value: [T](../encode-to-bundle.md), kClass: [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)&lt;[T](../encode-to-bundle.md)&gt;): [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html)<br>inline fun &lt;[T](../encode-to-bundle.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[encodeToBundle](../encode-to-bundle.md)(value: [T](../encode-to-bundle.md)): [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html)<br>inline fun &lt;[T](../encode-to-bundle.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[encodeToBundle](../encode-to-bundle.md)(value: [T](../encode-to-bundle.md), serializer: SerializationStrategy&lt;[T](../encode-to-bundle.md)&gt;): [Bundle](https://developer.android.com/reference/kotlin/android/os/Bundle.html) |
+| [encodeToParcel](../encode-to-parcel.md) | [android]<br>fun &lt;[T](../encode-to-parcel.md)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[encodeToParcel](../encode-to-parcel.md)(parcel: [Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html), serializer: SerializationStrategy&lt;[T](../encode-to-parcel.md)&gt;, value: [T](../encode-to-parcel.md)): [Parcel](../../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md)<br>inline fun &lt;[T](../encode-to-parcel.md)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[encodeToParcel](../encode-to-parcel.md)(parcel: [Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html), value: [T](../encode-to-parcel.md)): [Parcel](../../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md)<br>fun &lt;[T](../encode-to-parcel.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](index.md#1131268509%2FExtensions%2F-1462739831).[encodeToParcel](../encode-to-parcel.md)(parcel: [Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html), value: [T](../encode-to-parcel.md), kclass: [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)&lt;[T](../encode-to-parcel.md)&gt;): [Parcel](../../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md)<br>[common]<br>inline fun &lt;[T](../encode-to-parcel.md)&gt; [Parcelable](index.md).[encodeToParcel](../encode-to-parcel.md)(parcel: [Parcel](../-parcel/index.md), value: [T](../encode-to-parcel.md)): [Parcel](../-parcel/index.md)<br>A convenience function to [Parcelable.encodeToParcel](encode-to-parcel.md) that retrieves the serializer from the [Parcelable.serializersModule](serializers-module.md). |

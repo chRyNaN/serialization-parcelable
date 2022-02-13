@@ -1,11 +1,6 @@
 //[parcelable-core](../../../index.md)/[com.chrynan.parcelable.core](../index.md)/[ParcelEncoder](index.md)/[encodeLong](encode-long.md)
 
+# encodeLong
 
-
-# encodeLong  
-[common]  
-Content  
-open override fun [encodeLong](encode-long.md)(value: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html))  
-
-
-
+[common]\
+open override fun [encodeLong](encode-long.md)(value: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html))
