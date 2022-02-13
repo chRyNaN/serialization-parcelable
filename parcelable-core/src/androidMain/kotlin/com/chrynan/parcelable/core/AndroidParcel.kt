@@ -141,4 +141,6 @@ class AndroidParcel(private val parcel: android.os.Parcel) : Parcel {
         parcel.recycle()
         isRecycled = true
     }
+
+    override fun toByteArray(): ByteArray = parcel.marshall()
 }

@@ -42,6 +42,8 @@ interface Parcel : InputParcel,
     /**
      * Determines whether this [Parcel]s [recycle] function has been called already. A parcel object should not be used
      * after it is recycled.
+     *
+     * Note that this property is unstable between processes.
      */
     val isRecycled: Boolean
 
@@ -50,4 +52,9 @@ interface Parcel : InputParcel,
      * is recycled.
      */
     fun recycle()
+
+    /**
+     * Obtains a [ByteArray] of the underlying values of this [Parcel].
+     */
+    fun toByteArray(): ByteArray
 }
