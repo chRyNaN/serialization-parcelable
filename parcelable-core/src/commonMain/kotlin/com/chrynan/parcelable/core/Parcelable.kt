@@ -18,7 +18,8 @@ import kotlinx.serialization.json.Json
  * @see [Android Parcelable (not the same)](https://developer.android.com/reference/android/os/Parcelable))
  */
 @ExperimentalSerializationApi
-sealed class Parcelable(internal val configuration: ParcelableConfiguration) : SerialFormat {
+sealed class Parcelable(internal val configuration: ParcelableConfiguration) : SerialFormat,
+    BinaryFormat {
 
     override val serializersModule: SerializersModule
         get() = configuration.serializersModule
@@ -36,6 +37,19 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
      * Note that instances of this class are created using the [Parcelable] function.
      */
     class Custom internal constructor(configuration: ParcelableConfiguration) : Parcelable(configuration)
+
+    override fun <T> encodeToByteArray(serializer: SerializationStrategy<T>, value: T): ByteArray {
+        val parcel = Parcel()
+        val encoder = ParcelEncoder(serializersModule = serializersModule, output = parcel)
+        encoder.encodeSerializableValue(serializer, value)
+        return parcel.toByteArray()
+    }
+
+    override fun <T> decodeFromByteArray(deserializer: DeserializationStrategy<T>, bytes: ByteArray): T {
+        val parcel = Parcel(bytes)
+        val decoder = ParcelDecoder(serializersModule = serializersModule, input = parcel)
+        return decoder.decodeSerializableValue(deserializer)
+    }
 
     /**
      * Encodes the provided [value] to the provided [parcel] using the provided [serializer].
