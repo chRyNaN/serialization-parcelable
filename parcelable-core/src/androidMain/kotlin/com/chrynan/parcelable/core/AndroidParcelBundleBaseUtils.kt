@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Parcel
 import kotlinx.serialization.DeserializationStrategy
 import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.SerializationException
 import kotlinx.serialization.SerializationStrategy
 import kotlin.reflect.KClass
 
@@ -62,7 +63,7 @@ fun <T : Any> AndroidParceler.encodeToBundle(value: T, kClass: KClass<T>): Bundl
 }
 
 /**
- * Writes the provided [value] of [kClass] into a [Bundle] and returns it.
+ * Writes the provided [value] of [serializer] into a [Bundle] and returns it.
  * The returned [Bundle] can then be used as extras in [Intent]s or other
  * [Bundle]s.
  */
@@ -119,7 +120,7 @@ fun <T : Any> AndroidParceler.encodeToBundle(value: T, serializer: Serialization
  * if the [bundle] is empty or
  */
 @ExperimentalSerializationApi
-fun <T : Any> AndroidParceler.decodeFromBundle(bundle: Bundle, kClass: KClass<T>, flags: Int = 0): T? {
+fun <T : Any> AndroidParceler.decodeFromBundle(bundle: Bundle, kClass: KClass<T>, flags: Int = 0): T {
     // Obtain a new Parcel from the Parcel pool.
     val parcel = Parcel.obtain()
 
@@ -132,7 +133,7 @@ fun <T : Any> AndroidParceler.decodeFromBundle(bundle: Bundle, kClass: KClass<T>
     // The first property is the length field. We don't specifically need to use the value
     // but if the value is less than or equal to zero than there are no properties so we
     // return null.
-    if (parcel.readInt() <= 0) return null
+    if (parcel.readInt() <= 0) throw SerializationException("Error decoding a value from the Bundle. length = 0.")
 
     // There's some internal "magic" int property that we don't need. We just read it so
     // that we can go to the next property which should be the first property in the returned
@@ -150,7 +151,7 @@ fun <T : Any> AndroidParceler.decodeFromBundle(bundle: Bundle, kClass: KClass<T>
 }
 
 /**
- * Retrieves a value of [T] of [kClass] from the provided [bundle] and [flags], or null
+ * Retrieves a value of [T] of [deserializer] from the provided [bundle] and [flags], or null
  * if the [bundle] is empty or
  */
 @ExperimentalSerializationApi
@@ -158,7 +159,7 @@ fun <T : Any> AndroidParceler.decodeFromBundle(
     bundle: Bundle,
     deserializer: DeserializationStrategy<T>,
     flags: Int = 0
-): T? {
+): T {
     // Obtain a new Parcel from the Parcel pool.
     val parcel = Parcel.obtain()
 
@@ -171,7 +172,7 @@ fun <T : Any> AndroidParceler.decodeFromBundle(
     // The first property is the length field. We don't specifically need to use the value
     // but if the value is less than or equal to zero than there are no properties so we
     // return null.
-    if (parcel.readInt() <= 0) return null
+    if (parcel.readInt() <= 0) throw SerializationException("Error decoding a value from the Bundle. length = 0.")
 
     // There's some internal "magic" int property that we don't need. We just read it so
     // that we can go to the next property which should be the first property in the returned
