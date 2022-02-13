@@ -33,7 +33,7 @@ repositories {
 ### Dependency
 
 ```groovy
-implementation "com.chrynan.parcelable:parcelable-android:$VERSION"
+implementation "com.chrynan.parcelable:parcelable-core:$VERSION"
 ```
 
 ## Usage
@@ -80,6 +80,11 @@ val bundle = parcelable.encodeToBundle(myModel)
 val myModel = parcelable.decodeFromParcel(parcel)
 val myModel = parcelable.decodeFromBundle(bundle)
 ```
+
+## Documentation
+
+More detailed documentation is available in the [docs](docs) folder. The entry point to the documentation can be
+found [here](docs/index.md).
 
 ## Sample
 
