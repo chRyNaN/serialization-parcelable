@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink" width="200" height="100" viewBox="0 0 200 100">
-    <rect x="0" y="0" width="200" height="100" fill="#FF9B00" rx="50"/>
-    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#FFFFFF" font-size="1.5em">js</text>
-</svg>

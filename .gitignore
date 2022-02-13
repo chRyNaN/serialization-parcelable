@@ -16,6 +16,7 @@
 **/.idea/fileTemplates
 **/.idea/dictionaries
 **/.idea/caches
+**/.idea/**
 local.properties
 /captures
 .externalNativeBuild
@@ -28,3 +29,5 @@ build/
 
 # Mac
 .DS_Store
+
+kotlin-js-store
