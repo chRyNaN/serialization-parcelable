@@ -13,6 +13,7 @@ object ExpectedModel {
         float = 10f,
         double = 10.5647,
         nullableString = null,
-        integerList = emptyList()
+        integerList = emptyList(),
+        subModel = SubModel(text = "Text")
     )
 }

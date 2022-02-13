@@ -14,5 +14,11 @@ data class Model(
     val float: Float,
     val double: Double,
     val nullableString: String? = null,
-    val integerList: List<Int> = emptyList()
+    val integerList: List<Int> = emptyList(),
+    val subModel: SubModel? = null
+)
+
+@Serializable
+data class SubModel(
+    val text: String
 )
