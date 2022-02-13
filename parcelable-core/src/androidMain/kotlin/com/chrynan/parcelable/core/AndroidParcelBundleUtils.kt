@@ -7,7 +7,7 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlin.reflect.KClass
 
 /**
- * Writes the provide [value] of [kClass] into a [Bundle] and returns it.
+ * Writes the provided [value] of [kClass] into a [Bundle] and returns it.
  * The returned [Bundle] can then be used as extras in [Intent]s or other
  * [Bundle]s.
  */
