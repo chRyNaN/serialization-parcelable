@@ -27,7 +27,7 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
      * The default [Parcelable] implementation using the default [ParcelableConfiguration] values. This class can be
      * used when no custom configuration is needed.
      */
-    object Default : Parcelable(ParcelableConfiguration())
+    companion object Default : Parcelable(ParcelableConfiguration())
 
     /**
      * A custom [Parcelable] implementation using the provided [configuration] values. This class can be used when
