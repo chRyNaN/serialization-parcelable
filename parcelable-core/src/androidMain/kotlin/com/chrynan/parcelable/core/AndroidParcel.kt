@@ -2,6 +2,7 @@
 
 package com.chrynan.parcelable.core
 
+import android.annotation.SuppressLint
 import kotlinx.serialization.SerializationException
 
 /**
@@ -143,4 +144,15 @@ class AndroidParcel(private val parcel: android.os.Parcel) : Parcel {
     }
 
     override fun toByteArray(): ByteArray = parcel.marshall()
+}
+
+actual fun Parcel(): Parcel = AndroidParcel(android.os.Parcel.obtain())
+
+@SuppressLint("Recycle")
+actual fun Parcel(data: ByteArray): Parcel {
+    val androidParcel = android.os.Parcel.obtain()
+
+    androidParcel.unmarshall(data, 0, data.size)
+
+    return AndroidParcel(androidParcel)
 }

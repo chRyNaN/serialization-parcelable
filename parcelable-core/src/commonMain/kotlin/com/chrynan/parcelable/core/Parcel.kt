@@ -58,3 +58,15 @@ interface Parcel : InputParcel,
      */
     fun toByteArray(): ByteArray
 }
+
+/**
+ * Creates an empty [Parcel] instance.
+ */
+expect fun Parcel(): Parcel
+
+/**
+ * Creates a [Parcel] instance containing the provided [data].
+ *
+ * Note that data coming from different target platforms, or different [Parcel] implementations, is not inter-operable.
+ */
+expect fun Parcel(data: ByteArray): Parcel
