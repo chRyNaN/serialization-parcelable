@@ -12,7 +12,7 @@ import kotlinx.serialization.json.Json
  *
  * Note that this is not to be confused with the Android Parcelable interface. However, there is some overlap, and
  * hence the same name, as the Android Parcelable interface provides a means of serializing data between different
- * components and processes, this [Parcelable] interface performs a similar task. Though they way they perform their
+ * components and processes, this [Parcelable] interface performs a similar task. Though the way they perform their
  * tasks differs.
  *
  * @see [Android Parcelable (not the same)](https://developer.android.com/reference/android/os/Parcelable))

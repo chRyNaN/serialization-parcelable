@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.chrynan.parcelable.android
+package com.chrynan.parcelable.core
 
 import com.chrynan.parcelable.core.InvalidParcelValueException
 import com.chrynan.parcelable.core.Parcel

@@ -1,8 +1,7 @@
 @file:Suppress("unused")
 
-package com.chrynan.parcelable.android
+package com.chrynan.parcelable.core
 
-import com.chrynan.parcelable.core.Parcelable
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlin.reflect.KClass
 

@@ -1,11 +1,7 @@
 @file:Suppress("unused")
 
-package com.chrynan.parcelable.android
+package com.chrynan.parcelable.core
 
-import com.chrynan.parcelable.core.Parcel
-import com.chrynan.parcelable.core.ParcelDecoder
-import com.chrynan.parcelable.core.ParcelEncoder
-import com.chrynan.parcelable.core.Parcelable
 import kotlinx.serialization.DeserializationStrategy
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerializationStrategy

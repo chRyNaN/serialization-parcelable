@@ -1,4 +1,4 @@
-package com.chrynan.parcelable.android
+package com.chrynan.parcelable.core
 
 import android.content.Intent
 import android.os.Bundle
