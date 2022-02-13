@@ -54,6 +54,13 @@ inline fun <reified T : Any> Parcelable.decodeFromBundle(
 ): T = AndroidParceler(this).decodeFromBundle(bundle, flags)
 
 @ExperimentalSerializationApi
+fun <T : Any> Parcelable.decodeFromBundle(
+    bundle: Bundle,
+    deserializer: DeserializationStrategy<T>,
+    flags: Int = 0
+): T = AndroidParceler(this).decodeFromBundle(bundle, deserializer, flags)
+
+@ExperimentalSerializationApi
 inline fun <reified T : Any> Parcelable.decodeFromBundleOrNull(
     bundle: Bundle,
     flags: Int = 0
