@@ -50,7 +50,7 @@ dependencies {
 
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1"
 
-    implementation project(":parcelable-android")
+    implementation project(":parcelable-core")
 
     implementation "io.noties.markwon:core:4.6.1"
     implementation "io.noties.markwon:syntax-highlight:4.6.1"
