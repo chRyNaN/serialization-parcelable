@@ -9,6 +9,9 @@ Android Parceling support for the [Kotlinx Serialization library](https://github
 ```kotlin
 intent.putExtra("key", value, serializer)
 val value = intent.getParcelableExtra("key", deserializer)
+
+// Compose
+rememberSavable(serializer) { value }
 ```
 
 Now all the serialization can be handled from a single library, no need to create both custom Parcelers and Serializers.
@@ -32,8 +35,16 @@ repositories {
 
 ### Dependency
 
+#### Core
+
 ```groovy
-implementation "com.chrynan.parcelable:parcelable-core:$VERSION"
+implementation("com.chrynan.parcelable:parcelable-core:$VERSION")
+```
+
+#### Compose
+
+```kotlin
+implementation("com.chrynan.parcelable:parcelable-compose:$VERSION")
 ```
 
 ## Usage
@@ -79,6 +90,12 @@ val bundle = parcelable.encodeToBundle(myModel)
 // From
 val myModel = parcelable.decodeFromParcel(parcel)
 val myModel = parcelable.decodeFromBundle(bundle)
+```
+
+* Or serialize to a `Saver` with Jetpack Compose
+
+```kotlin
+val model = rememberSavable(parcelable = parcelable, serializer = MyModel.serializer) { myModel }
 ```
 
 ## Documentation
