@@ -1,5 +1,8 @@
 $dokka.format:gfm-v1
 $dokka.linkExtension:md
+$dokka.location:com.chrynan.parcelable.compose////PointingToDeclaration/parcelable-compose/parcelable-compose/com.chrynan.parcelable.compose/index.md
+$dokka.location:com.chrynan.parcelable.compose//ParcelableSaver/#com.chrynan.parcelable.core.Parcelable#kotlinx.serialization.KSerializer[TypeParam(bounds=[kotlin.Any])]/PointingToDeclaration/parcelable-compose/parcelable-compose/com.chrynan.parcelable.compose/-parcelable-saver.md
+$dokka.location:com.chrynan.parcelable.compose//rememberSavable/#kotlin.Array[kotlin.Any?]#com.chrynan.parcelable.core.Parcelable#kotlinx.serialization.KSerializer[TypeParam(bounds=[kotlin.Any])]#kotlin.String?#kotlin.Function0[TypeParam(bounds=[kotlin.Any])]/PointingToDeclaration/parcelable-compose/parcelable-compose/com.chrynan.parcelable.compose/remember-savable.md
 $dokka.location:com.chrynan.parcelable.core////PointingToDeclaration/parcelable-core/parcelable-core/com.chrynan.parcelable.core/index.md
 $dokka.location:com.chrynan.parcelable.core//Parcel/#/PointingToDeclaration/parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel.md
 $dokka.location:com.chrynan.parcelable.core//Parcel/#kotlin.ByteArray/PointingToDeclaration/parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel.md
@@ -183,5 +186,7 @@ $dokka.location:com.chrynan.parcelable.core/ParcelableConfiguration///PointingTo
 $dokka.location:com.chrynan.parcelable.core/ParcelableConfiguration/serializersModule/#/PointingToDeclaration/parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcelable-configuration/serializers-module.md
 $dokka.location:com.chrynan.parcelable.core/ParcelableConfigurationBuilder///PointingToDeclaration/parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcelable-configuration-builder/index.md
 $dokka.location:com.chrynan.parcelable.core/ParcelableConfigurationBuilder/serializersModule/#/PointingToDeclaration/parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcelable-configuration-builder/serializers-module.md
+module:parcelable-compose
+com.chrynan.parcelable.compose
 module:parcelable-core
 com.chrynan.parcelable.core
