@@ -19,5 +19,5 @@ inline fun <reified T : Any> Parcelable.encodeToBundle(value: T): Bundle =
     AndroidParceler(this).encodeToBundle(value)
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Parcelable.encodeToBundle(value: T, serializer: SerializationStrategy<T>): Bundle =
+fun <T : Any> Parcelable.encodeToBundle(value: T, serializer: SerializationStrategy<T>): Bundle =
     AndroidParceler(this).encodeToBundle(value, serializer)

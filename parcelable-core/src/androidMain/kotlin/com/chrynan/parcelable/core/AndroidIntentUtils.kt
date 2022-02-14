@@ -19,7 +19,7 @@ inline fun <reified T : Any> Intent.putExtra(key: String, value: T, parcelable: 
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Intent.putExtra(
+fun <T : Any> Intent.putExtra(
     key: String,
     value: T,
     parcelable: Parcelable = Parcelable.Default,
@@ -42,7 +42,7 @@ inline fun <reified T : Any> Intent.getParcelableExtra(key: String, parcelable: 
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Intent.getParcelableExtra(
+fun <T : Any> Intent.getParcelableExtra(
     key: String,
     parcelable: Parcelable = Parcelable,
     deserializer: DeserializationStrategy<T>

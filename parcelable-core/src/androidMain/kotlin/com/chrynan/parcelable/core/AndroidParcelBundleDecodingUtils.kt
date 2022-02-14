@@ -72,7 +72,7 @@ inline fun <reified T : Any> Parcelable.decodeFromBundleOrNull(
     }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Parcelable.decodeFromBundleOrNull(
+fun <T : Any> Parcelable.decodeFromBundleOrNull(
     bundle: Bundle,
     flags: Int = 0,
     deserializer: DeserializationStrategy<T>

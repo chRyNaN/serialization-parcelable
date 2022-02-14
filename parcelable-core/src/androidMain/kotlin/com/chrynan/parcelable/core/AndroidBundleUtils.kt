@@ -22,7 +22,7 @@ inline fun <reified T : Any> Bundle.putParcelable(key: String, value: T, parcela
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Bundle.putParcelable(
+fun <T : Any> Bundle.putParcelable(
     key: String,
     value: T,
     parcelable: Parcelable = Parcelable.Default,
@@ -44,7 +44,7 @@ inline fun <reified T : Any> Bundle.getParcelable(key: String, parcelable: Parce
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Bundle.getParcelable(
+fun <T : Any> Bundle.getParcelable(
     key: String,
     parcelable: Parcelable = Parcelable.Default,
     deserializer: DeserializationStrategy<T>
