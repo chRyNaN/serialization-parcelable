@@ -14,6 +14,9 @@ object ExpectedModel {
         double = 10.5647,
         nullableString = null,
         integerList = emptyList(),
-        subModel = SubModel(text = "Text")
+        subModel = SubModel(text = "Text", nullableMap = mapOf(null to "Testing123")),
+        map = mapOf("Key1" to 1, "Key2" to 2, "Key3" to 3, "Null" to null),
+        enum = SomeEnum.ONE,
+        enumSet = setOf(SomeEnum.ONE, SomeEnum.TWO, SomeEnum.THREE, SomeEnum.FOUR, SomeEnum.FIVE)
     )
 }
