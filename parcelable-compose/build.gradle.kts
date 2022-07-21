@@ -19,6 +19,9 @@ kotlin {
     targets {
         android()
         jvm()
+        js(IR) {
+            browser()
+        }
     }
     sourceSets {
         all {
@@ -27,11 +30,20 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(project(":parcelable-core"))
-                
+
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
 
-                implementation(compose.foundation)
                 implementation(compose.runtime)
+            }
+        }
+        val androidMain by getting {
+            dependencies {
+                implementation(compose.foundation)
+            }
+        }
+        val jvmMain by getting {
+            dependencies {
+                implementation(compose.foundation)
             }
         }
     }

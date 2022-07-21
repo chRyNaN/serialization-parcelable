@@ -1,41 +1,45 @@
-@file:Suppress("unused", "FunctionName")
+@file:Suppress("unused")
 
 package com.chrynan.parcelable.compose
 
-import androidx.compose.runtime.saveable.Saver
-import androidx.compose.runtime.saveable.SaverScope
-import com.chrynan.parcelable.core.Parcel
-import com.chrynan.parcelable.core.Parcelable
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.KSerializer
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 
-@ExperimentalSerializationApi
-internal class JvmParcelableSaver<T>(
-    private val parcelable: Parcelable = Parcelable.Default,
-    private val serializer: KSerializer<T>
-) : Saver<T, ByteArray> {
+actual typealias Saver<Original, Saveable> = androidx.compose.runtime.saveable.Saver<Original, Saveable>
 
-    override fun SaverScope.save(value: T): ByteArray {
-        val parcel = Parcel()
+actual typealias SaverScope = androidx.compose.runtime.saveable.SaverScope
 
-        parcelable.encodeToParcel(parcel = parcel, serializer = serializer, value = value)
+@Suppress("FunctionName")
+actual fun <Original, Saveable : Any> Saver(
+    save: SaverScope.(value: Original) -> Saveable?,
+    restore: (value: Saveable) -> Original?
+): Saver<Original, Saveable> = androidx.compose.runtime.saveable.Saver(save = save, restore = restore)
 
-        return parcel.toByteArray()
-    }
+actual fun <T> autoSaver(): Saver<T, Any> = androidx.compose.runtime.saveable.autoSaver()
 
-    override fun restore(value: ByteArray): T? {
-        val parcel = Parcel(value)
+actual fun <Original, Saveable> listSaver(
+    save: SaverScope.(value: Original) -> List<Saveable>,
+    restore: (list: List<Saveable>) -> Original?
+): Saver<Original, Any> = androidx.compose.runtime.saveable.listSaver(save = save, restore = restore)
 
-        return parcelable.decodeFromParcel(parcel = parcel, deserializer = serializer)
-    }
-}
+actual fun <T> mapSaver(
+    save: SaverScope.(value: T) -> Map<String, Any?>,
+    restore: (Map<String, Any?>) -> T?
+): Saver<T, Any> = androidx.compose.runtime.saveable.mapSaver(save = save, restore = restore)
 
-@ExperimentalSerializationApi
-internal actual fun <T : Any> InternalParcelableSaver(
-    parcelable: Parcelable,
-    serializer: KSerializer<T>
-): Saver<T, *> =
-    JvmParcelableSaver(
-        parcelable = parcelable,
-        serializer = serializer
-    )
+@Composable
+internal actual fun <T : Any> internalRememberSaveable(
+    vararg inputs: Any?,
+    saver: Saver<T, out Any>,
+    key: String?,
+    init: () -> T
+): T = androidx.compose.runtime.saveable.rememberSaveable(inputs = inputs, saver = saver, key = key, init = init)
+
+@Composable
+internal actual fun <T> internalRememberSaveable(
+    vararg inputs: Any?,
+    stateSaver: Saver<T, out Any>,
+    key: String?,
+    init: () -> MutableState<T>
+): MutableState<T> =
+    androidx.compose.runtime.saveable.rememberSaveable(inputs = inputs, stateSaver = stateSaver, key = key, init = init)

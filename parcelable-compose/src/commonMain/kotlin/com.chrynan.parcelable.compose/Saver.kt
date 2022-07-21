@@ -1,45 +1,68 @@
-@file:Suppress("FunctionName", "unused")
+@file:Suppress("unused")
 
 package com.chrynan.parcelable.compose
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.saveable.Saver
-import androidx.compose.runtime.saveable.rememberSaveable
-import com.chrynan.parcelable.core.Parcelable
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.KSerializer
+import androidx.compose.runtime.MutableState
 
-@ExperimentalSerializationApi
-internal expect fun <T : Any> InternalParcelableSaver(
-    parcelable: Parcelable = Parcelable.Default,
-    serializer: KSerializer<T>
-): Saver<T, *>
+expect interface Saver<Original, Saveable : Any> {
 
-/**
- * Creates a [Saver] that uses the provided [parcelable] and [serializer] to save and restore the value.
- */
-@ExperimentalSerializationApi
-fun <T : Any> ParcelableSaver(
-    parcelable: Parcelable = Parcelable.Default,
-    serializer: KSerializer<T>
-): Saver<T, *> = InternalParcelableSaver(
-    parcelable = parcelable,
-    serializer = serializer
-)
+    fun SaverScope.save(value: Original): Saveable?
 
-/**
- * Calls [rememberSaveable] using a [ParcelableSaver] created using the provided [parcelable] and [serializer].
- */
+    fun restore(value: Saveable): Original?
+}
+
+expect fun interface SaverScope {
+
+    fun canBeSaved(value: Any): Boolean
+}
+
+@Suppress("FunctionName")
+expect fun <Original, Saveable : Any> Saver(
+    save: SaverScope.(value: Original) -> Saveable?,
+    restore: (value: Saveable) -> Original?
+): Saver<Original, Saveable>
+
+expect fun <T> autoSaver(): Saver<T, Any>
+
+expect fun <Original, Saveable> listSaver(
+    save: SaverScope.(value: Original) -> List<Saveable>,
+    restore: (list: List<Saveable>) -> Original?
+): Saver<Original, Any>
+
+expect fun <T> mapSaver(
+    save: SaverScope.(value: T) -> Map<String, Any?>,
+    restore: (Map<String, Any?>) -> T?
+): Saver<T, Any>
+
 @Composable
-@ExperimentalSerializationApi
-fun <T : Any> rememberSavable(
+internal expect fun <T : Any> internalRememberSaveable(
     vararg inputs: Any?,
-    parcelable: Parcelable = Parcelable.Default,
-    serializer: KSerializer<T>,
+    saver: Saver<T, out Any> = autoSaver(),
     key: String? = null,
     init: () -> T
-): T {
-    val saver = ParcelableSaver(parcelable = parcelable, serializer = serializer)
+): T
 
-    return rememberSaveable(saver = saver, key = key, init = init, inputs = inputs)
-}
+@Composable
+internal expect fun <T> internalRememberSaveable(
+    vararg inputs: Any?,
+    stateSaver: Saver<T, out Any>,
+    key: String? = null,
+    init: () -> MutableState<T>
+): MutableState<T>
+
+@Composable
+fun <T : Any> rememberSaveable(
+    vararg inputs: Any?,
+    saver: Saver<T, out Any> = autoSaver(),
+    key: String? = null,
+    init: () -> T
+): T = internalRememberSaveable(inputs = inputs, saver = saver, key = key, init = init)
+
+@Composable
+fun <T> rememberSaveable(
+    vararg inputs: Any?,
+    stateSaver: Saver<T, out Any>,
+    key: String? = null,
+    init: () -> MutableState<T>
+): MutableState<T> = internalRememberSaveable(inputs = inputs, stateSaver = stateSaver, key = key, init = init)
