@@ -4,8 +4,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.chrynan.parcelable.sample.core.ExpectedModel
+import com.chrynan.parcelable.sample.core.Model
 import com.chrynan.sample.R
+import kotlinx.serialization.ExperimentalSerializationApi
 
+@OptIn(ExperimentalSerializationApi::class)
 class MainActivity : AppCompatActivity() {
 
     private val modelExpectedTextView by lazy { findViewById<TextView>(R.id.mainModelExpectedTextView) }

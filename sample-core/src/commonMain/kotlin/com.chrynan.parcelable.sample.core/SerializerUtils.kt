@@ -1,10 +1,12 @@
-package com.chrynan.parcelable.sample.android
+@file:Suppress("unused")
+
+package com.chrynan.parcelable.sample.core
 
 import com.chrynan.parcelable.core.Parcelable
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 
-@OptIn(ExperimentalSerializationApi::class)
+@ExperimentalSerializationApi
 object SerializerUtils {
 
     val parcelable: Parcelable = Parcelable.Default

@@ -7,6 +7,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.chrynan.parcelable.core.getParcelable
 import com.chrynan.parcelable.core.putExtra
+import com.chrynan.parcelable.sample.core.ExpectedModel
+import com.chrynan.parcelable.sample.core.Model
+import com.chrynan.parcelable.sample.core.SerializerUtils
 import com.chrynan.sample.R
 import kotlinx.serialization.ExperimentalSerializationApi
 

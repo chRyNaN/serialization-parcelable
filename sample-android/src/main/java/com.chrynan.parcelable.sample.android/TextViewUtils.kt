@@ -3,11 +3,14 @@
 package com.chrynan.parcelable.sample.android
 
 import android.widget.TextView
+import com.chrynan.parcelable.sample.core.SerializerUtils
 import io.noties.markwon.syntax.Prism4jSyntaxHighlight
 import io.noties.markwon.syntax.Prism4jThemeDarkula
 import io.noties.prism4j.Prism4j
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerializationStrategy
 
+@ExperimentalSerializationApi
 fun <T> TextView.setJsonText(serializer: SerializationStrategy<T>, model: T?) {
     val jsonText = if (model != null) {
         val jsonString = SerializerUtils.json.encodeToString(serializer, model)

@@ -1,4 +1,6 @@
-package com.chrynan.parcelable.sample.android
+@file:Suppress("unused")
+
+package com.chrynan.parcelable.sample.core
 
 import kotlinx.serialization.Serializable
 
