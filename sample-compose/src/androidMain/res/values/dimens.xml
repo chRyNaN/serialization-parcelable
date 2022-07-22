@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="spacing_horizontal_default">@dimen/spacing_small</dimen>
+    <dimen name="spacing_vertical_default">@dimen/spacing_small</dimen>
+
+    <dimen name="spacing_xxxsmall">4dp</dimen>
+    <dimen name="spacing_xxsmall">8dp</dimen>
+    <dimen name="spacing_xsmall">12dp</dimen>
+    <dimen name="spacing_small">16dp</dimen>
+    <dimen name="spacing_medium">24dp</dimen>
+    <dimen name="spacing_large">36dp</dimen>
+    <dimen name="spacing_xlarge">48dp</dimen>
+    <dimen name="spacing_xxlarge">56dp</dimen>
+
+    <dimen name="text_size_xxxsmall">10sp</dimen>
+    <dimen name="text_size_xxsmall">12sp</dimen>
+    <dimen name="text_size_xsmall">14sp</dimen>
+    <dimen name="text_size_small">16sp</dimen>
+    <dimen name="text_size_medium">20sp</dimen>
+    <dimen name="text_size_large">24sp</dimen>
+    <dimen name="text_size_xlarge">34sp</dimen>
+    <dimen name="text_size_xxlarge">48sp</dimen>
+    <dimen name="text_size_xxxlarge">60sp</dimen>
+    <dimen name="text_size_xxxxlarge">96sp</dimen>
+
+    <dimen name="bg_syntax_highlight_corner_radius">4dp</dimen>
+
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Color Palette -->
+    <color name="blue">#008dd5</color>
+    <color name="dark_blue">#373f51</color>
+    <color name="real_dark">#101929</color>
+    <color name="light_pink">#dfbbb1</color>
+    <color name="pink">#f56476</color>
+    <color name="dark_pink">#e43f6f</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="colorPrimary">@color/blue</color>
+    <color name="colorOnPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@color/dark_blue</color>
+    <color name="colorSecondary">@color/dark_blue</color>
+    <color name="colorOnSecondary">@color/white</color>
+    <color name="colorAccent">@color/pink</color>
+    <color name="colorBackground">@color/dark_blue</color>
+    <color name="colorSurface">@color/light_pink</color>
+
+    <!-- Text Colors -->
+    <color name="textColorPrimary">@color/white</color>
+    <color name="textColorSecondary">@color/blue</color>
+    <color name="textColorTertiary">#80373f51</color>
+    <color name="textColorError">@color/dark_pink</color>
+
+</resources>
