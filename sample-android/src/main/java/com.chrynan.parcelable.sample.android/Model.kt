@@ -27,6 +27,7 @@ data class SubModel(
     val nullableMap: Map<String?, String> = emptyMap()
 )
 
+@Serializable
 enum class SomeEnum {
 
     ONE,
