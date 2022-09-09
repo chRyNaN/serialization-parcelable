@@ -12,5 +12,5 @@ import kotlinx.serialization.modules.SerializersModule
  */
 @ExperimentalSerializationApi
 data class ParcelableConfiguration internal constructor(
-    val serializersModule: SerializersModule = EmptySerializersModule
+    val serializersModule: SerializersModule = EmptySerializersModule()
 )

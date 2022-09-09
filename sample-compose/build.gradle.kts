@@ -21,7 +21,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0")
 
                 implementation(project(":parcelable-core"))
                 implementation(project(":parcelable-compose"))
@@ -34,9 +34,9 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("androidx.activity:activity-compose:1.5.0")
+                implementation("androidx.activity:activity-compose:1.5.1")
 
-                implementation("androidx.appcompat:appcompat:1.4.2")
+                implementation("androidx.appcompat:appcompat:1.5.0")
             }
         }
         val jvmMain by getting {
