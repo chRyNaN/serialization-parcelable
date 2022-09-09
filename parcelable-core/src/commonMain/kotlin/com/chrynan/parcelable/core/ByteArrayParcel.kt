@@ -13,10 +13,6 @@ import kotlin.experimental.and
  */
 class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) : Parcel {
 
-    init {
-        setDataFromByteArray(value = initial)
-    }
-
     override val dataBufferCapacity: Int
         get() = data.size
 
@@ -30,6 +26,10 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
         private set
 
     private val data = mutableListOf<ByteArray>()
+
+    init {
+        setDataFromByteArray(value = initial)
+    }
 
     override fun readBoolean(): Boolean {
         val result = data[dataPosition][0].toBooleanValue()
