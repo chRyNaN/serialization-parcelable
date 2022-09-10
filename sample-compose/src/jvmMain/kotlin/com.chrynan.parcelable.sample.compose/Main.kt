@@ -6,7 +6,8 @@ import androidx.compose.ui.window.singleWindowApplication
 
 fun main() = singleWindowApplication(
     title = "sample-compose",
-    state = WindowState(width = 1280.dp, height = 768.dp)
+    state = WindowState(width = 1280.dp, height = 768.dp),
+    transparent = false
 ) {
-    MainView()
+    App()
 }

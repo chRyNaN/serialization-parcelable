@@ -1,7 +1,6 @@
 import com.chrynan.parcelable.buildSrc.LibraryConstants
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.compose.compose
-import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 
 plugins {
     kotlin("multiplatform") // kotlin("jvm") doesn't work well in IDEA/AndroidStudio (https://github.com/JetBrains/compose-jb/issues/22)
@@ -21,9 +20,6 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0")
-
-                implementation(project(":parcelable-core"))
                 implementation(project(":parcelable-compose"))
                 implementation(project(":sample-core"))
 
@@ -37,11 +33,17 @@ kotlin {
                 implementation("androidx.activity:activity-compose:1.5.1")
 
                 implementation("androidx.appcompat:appcompat:1.5.0")
+
+                // Syntax highlighting
+                implementation("io.noties:prism4j:2.0.0")
             }
         }
         val jvmMain by getting {
             dependencies {
                 implementation(compose.desktop.currentOs)
+
+                // Syntax highlighting
+                implementation("io.noties:prism4j:2.0.0")
             }
         }
     }
@@ -85,4 +87,8 @@ android {
     sourceSets["test"].res.srcDirs("src/androidTest/res")
 }
 
-tasks.withType<Jar> { duplicatesStrategy = DuplicatesStrategy.INHERIT }
+tasks.withType<Jar> { duplicatesStrategy = DuplicatesStrategy.WARN }
+
+configurations.filter { it.name == "implementation" }.forEach {
+    it.exclude(group = "org.jetbrains", module = "annotations")
+}
