@@ -19,7 +19,11 @@ kotlin {
         android()
         jvm()
         js(BOTH) {
-            browser()
+            browser {
+                testTask {
+                    useKarma { useFirefox() }
+                }
+            }
             nodejs()
         }
         ios()
@@ -29,6 +33,11 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0")
+            }
+        }
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
             }
         }
         val iosMain by sourceSets.getting

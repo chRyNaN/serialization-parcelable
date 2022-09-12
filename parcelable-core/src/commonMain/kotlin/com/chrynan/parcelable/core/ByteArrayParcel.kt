@@ -1,7 +1,5 @@
 package com.chrynan.parcelable.core
 
-import kotlin.experimental.and
-
 /**
  * A [Parcel] implementation that stores its underlying data into a [ByteArray].
  *
@@ -118,43 +116,43 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     override fun writeShort(value: Short) {
         data.add(dataPosition, value.toByteArray())
 
-        dataPosition
+        dataPosition++
     }
 
     override fun writeInt(value: Int) {
         data.add(dataPosition, value.toByteArray())
 
-        dataPosition
+        dataPosition++
     }
 
     override fun writeLong(value: Long) {
         data.add(dataPosition, value.toByteArray())
 
-        dataPosition
+        dataPosition++
     }
 
     override fun writeFloat(value: Float) {
         data.add(dataPosition, value.toByteArray())
 
-        dataPosition
+        dataPosition++
     }
 
     override fun writeDouble(value: Double) {
         data.add(dataPosition, value.toByteArray())
 
-        dataPosition
+        dataPosition++
     }
 
     override fun writeChar(value: Char) {
         data.add(dataPosition, value.toByteArray())
 
-        dataPosition
+        dataPosition++
     }
 
     override fun writeString(value: String) {
         data.add(dataPosition, value.toByteArray())
 
-        dataPosition
+        dataPosition++
     }
 
     override fun recycle() {
@@ -172,7 +170,7 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
         }
 
         data.forEach { dataItemArray ->
-            byteList.size.toByteArray().forEach {
+            dataItemArray.size.toByteArray().forEach {
                 byteList.add(it)
             }
 
@@ -186,22 +184,25 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
 
     private fun setDataFromByteArray(value: ByteArray) {
         data.clear()
+        dataPosition = 0
 
         if (value.size >= 4) {
-            val size = value.copyOfRange(fromIndex = 0, toIndex = 4).toIntValue()
+            val dataListSize = value.copyOfRange(fromIndex = 0, toIndex = 4).toIntValue()
 
-            if (size > 0) {
+            if (dataListSize > 0) {
                 var i = 4
 
                 while (i < value.size) {
-                    val s = value.copyOfRange(fromIndex = i, toIndex = i + 4).toIntValue()
+                    val subListSize = value.copyOfRange(fromIndex = i, toIndex = i + 4).toIntValue()
 
                     i += 4
 
-                    if (s > 0) {
-                        data.add(value.copyOfRange(fromIndex = i, toIndex = i + s))
+                    if (subListSize > 0) {
+                        data.add(value.copyOfRange(fromIndex = i, toIndex = i + subListSize))
 
-                        i += s
+                        i += subListSize
+                    } else {
+                        data.add(byteArrayOf())
                     }
                 }
             }
@@ -212,35 +213,9 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
 
     private fun Short.toByteArray(): ByteArray = toInt().toByteArray()
 
-    private fun Int.toByteArray(): ByteArray {
-        val size = Int.SIZE_BYTES
-        val result = ByteArray(size)
-        var l = this
-
-        for (i in size - 1 downTo 0) {
-            result[i] = (l and 0xFF).toByte()
-            l = l shr size
-        }
-
-        return result
-    }
-
-    private fun Long.toByteArray(): ByteArray {
-        val size = Long.SIZE_BYTES
-        val result = ByteArray(size)
-        var l = this
-
-        for (i in size - 1 downTo 0) {
-            result[i] = (l and 0xFF).toByte()
-            l = l shr size
-        }
-
-        return result
-    }
-
     private fun Float.toByteArray(): ByteArray = toRawBits().toByteArray()
 
-    private fun Double.toByteArray(): ByteArray = toRawBits().toByteArray()
+    private fun Double.toByteArray(): ByteArray = toBits().toByteArray()
 
     @Suppress("DEPRECATION")
     private fun Char.toByteArray(): ByteArray = toInt().toByteArray()
@@ -250,28 +225,6 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     private fun Byte.toBooleanValue(): Boolean = this == TRUE
 
     private fun ByteArray.toShortValue(): Short = toIntValue().toShort()
-
-    private fun ByteArray.toIntValue(): Int {
-        var result = 0
-
-        for (i in 0 until Int.SIZE_BYTES) {
-            result = result shl Int.SIZE_BYTES
-            result = (result or (this[i] and 0xFF.toByte()).toInt())
-        }
-
-        return result
-    }
-
-    private fun ByteArray.toLongValue(): Long {
-        var result = 0L
-
-        for (i in 0 until Long.SIZE_BYTES) {
-            result = result shl Long.SIZE_BYTES
-            result = (result or (this[i] and 0xFF.toByte()).toLong())
-        }
-
-        return result
-    }
 
     private fun ByteArray.toFloatValue(): Float = Float.fromBits(toIntValue())
 

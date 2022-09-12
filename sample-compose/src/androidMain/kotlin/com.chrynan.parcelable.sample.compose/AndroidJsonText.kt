@@ -27,7 +27,7 @@ actual fun AnnotatedString.Builder.appendJsonText(
                 JsonGrammar.Token.PUNCTUATION -> builder.pushStyle(SpanStyle(color = colors.punctuationColor))
                 JsonGrammar.Token.STRING -> builder.pushStyle(SpanStyle(color = colors.stringColor))
                 JsonGrammar.Token.NUMBER -> builder.pushStyle(SpanStyle(color = colors.numberColor))
-                JsonGrammar.Token.PROPERTY -> builder.pushStyle(SpanStyle())
+                JsonGrammar.Token.PROPERTY -> builder.pushStyle(SpanStyle(color = colors.propertyColor))
                 JsonGrammar.Token.NULL -> builder.pushStyle(SpanStyle(color = colors.nullColor))
                 else -> {}
             }

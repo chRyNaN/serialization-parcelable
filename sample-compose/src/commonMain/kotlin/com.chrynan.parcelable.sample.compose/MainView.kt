@@ -20,7 +20,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import com.chrynan.parcelable.compose.rememberSavable
 import com.chrynan.parcelable.core.Parcel
-import com.chrynan.parcelable.core.encodeToParcel
 import com.chrynan.parcelable.sample.core.ExpectedModel
 import com.chrynan.parcelable.sample.core.Model
 import com.chrynan.parcelable.sample.core.SerializerUtils

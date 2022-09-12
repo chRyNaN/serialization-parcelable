@@ -68,7 +68,8 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
      * @return The decoded value of [T].
      */
     fun <T> decodeFromParcel(parcel: Parcel, deserializer: DeserializationStrategy<T>): T {
-        val decoder = ParcelDecoder(serializersModule = serializersModule, input = parcel)
+        val newParcel = Parcel(parcel.toByteArray())
+        val decoder = ParcelDecoder(serializersModule = serializersModule, input = newParcel)
         return decoder.decodeSerializableValue(deserializer)
     }
 }
