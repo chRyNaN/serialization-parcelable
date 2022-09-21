@@ -31,7 +31,7 @@ internal class JvmParcelableSaver<T>(
 }
 
 @ExperimentalSerializationApi
-internal actual fun <T : Any> InternalParcelableSaver(
+internal actual fun <T> InternalParcelableSaver(
     parcelable: Parcelable,
     serializer: KSerializer<T>
 ): Saver<T, *> =

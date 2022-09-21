@@ -9,7 +9,7 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.KSerializer
 
 @ExperimentalSerializationApi
-internal expect fun <T : Any> InternalParcelableSaver(
+internal expect fun <T> InternalParcelableSaver(
     parcelable: Parcelable = Parcelable.Default,
     serializer: KSerializer<T>
 ): Saver<T, *>
@@ -18,7 +18,7 @@ internal expect fun <T : Any> InternalParcelableSaver(
  * Creates a [Saver] that uses the provided [parcelable] and [serializer] to save and restore the value.
  */
 @ExperimentalSerializationApi
-fun <T : Any> ParcelableSaver(
+fun <T> ParcelableSaver(
     parcelable: Parcelable = Parcelable.Default,
     serializer: KSerializer<T>
 ): Saver<T, *> = InternalParcelableSaver(
@@ -48,7 +48,7 @@ fun <T : Any> rememberSavable(
  */
 @Composable
 @ExperimentalSerializationApi
-fun <T : Any> rememberSaveable(
+fun <T> rememberSaveable(
     vararg inputs: Any?,
     parcelable: Parcelable = Parcelable.Default,
     serializer: KSerializer<T>,

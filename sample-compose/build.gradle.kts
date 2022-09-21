@@ -1,6 +1,6 @@
 import com.chrynan.parcelable.buildSrc.LibraryConstants
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.compose.compose
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform") // kotlin("jvm") doesn't work well in IDEA/AndroidStudio (https://github.com/JetBrains/compose-jb/issues/22)
@@ -85,6 +85,15 @@ android {
 
     sourceSets["test"].java.srcDirs("src/androidTest/kotlin")
     sourceSets["test"].res.srcDirs("src/androidTest/res")
+}
+
+compose {
+    desktop {
+        application {
+            mainClass = "com.chrynan.parcelable.sample.compose.MainKt"
+            from(kotlin.targets.getByName("jvm"))
+        }
+    }
 }
 
 tasks.withType<Jar> { duplicatesStrategy = DuplicatesStrategy.WARN }

@@ -28,7 +28,7 @@ internal class JsParcelableSaver<T>(
 
 @Suppress("FunctionName")
 @ExperimentalSerializationApi
-internal actual fun <T : Any> InternalParcelableSaver(
+internal actual fun <T> InternalParcelableSaver(
     parcelable: Parcelable,
     serializer: KSerializer<T>
 ): Saver<T, *> =

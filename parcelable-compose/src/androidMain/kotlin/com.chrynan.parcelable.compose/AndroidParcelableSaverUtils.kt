@@ -13,7 +13,7 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.KSerializer
 
 @ExperimentalSerializationApi
-internal class AndroidParcelableSaver<T : Any>(
+internal class AndroidParcelableSaver<T>(
     private val parcelable: Parcelable = Parcelable.Default,
     private val serializer: KSerializer<T>
 ) : Saver<T, Bundle> {
@@ -25,7 +25,7 @@ internal class AndroidParcelableSaver<T : Any>(
 
 @SuppressLint("ComposableNaming")
 @ExperimentalSerializationApi
-internal actual fun <T : Any> InternalParcelableSaver(
+internal actual fun <T> InternalParcelableSaver(
     parcelable: Parcelable,
     serializer: KSerializer<T>
 ): Saver<T, *> =
