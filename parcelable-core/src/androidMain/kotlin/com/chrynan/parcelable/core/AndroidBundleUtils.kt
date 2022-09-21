@@ -17,12 +17,12 @@ inline fun <reified T : Any> Bundle.putParcelable(
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Bundle.putParcelable(key: String, value: T, parcelable: Parcelable = Parcelable.Default) {
+inline fun <reified T> Bundle.putParcelable(key: String, value: T, parcelable: Parcelable = Parcelable.Default) {
     putBundle(key, parcelable.encodeToBundle(value))
 }
 
 @ExperimentalSerializationApi
-fun <T : Any> Bundle.putParcelable(
+fun <T> Bundle.putParcelable(
     key: String,
     value: T,
     parcelable: Parcelable = Parcelable.Default,
@@ -32,19 +32,19 @@ fun <T : Any> Bundle.putParcelable(
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Bundle.getParcelable(key: String, parceler: AndroidParceler): T? {
+inline fun <reified T> Bundle.getParcelable(key: String, parceler: AndroidParceler): T? {
     val bundle = getBundle(key)
     return bundle?.let { parceler.decodeFromBundle(it) }
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Bundle.getParcelable(key: String, parcelable: Parcelable = Parcelable.Default): T? {
+inline fun <reified T> Bundle.getParcelable(key: String, parcelable: Parcelable = Parcelable.Default): T? {
     val bundle = getBundle(key)
     return bundle?.let { parcelable.decodeFromBundle(it) }
 }
 
 @ExperimentalSerializationApi
-fun <T : Any> Bundle.getParcelable(
+fun <T> Bundle.getParcelable(
     key: String,
     parcelable: Parcelable = Parcelable.Default,
     deserializer: DeserializationStrategy<T>

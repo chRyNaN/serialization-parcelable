@@ -27,7 +27,7 @@ class AndroidParceler(
      * Retrieves the value of [T] represented by the provided [deserializer] from the underlying [android.os.Parcel] using
      * the [parcelable] instance.
      */
-    fun <T : Any> createFromParcel(source: android.os.Parcel, deserializer: DeserializationStrategy<T>): T =
+    fun <T> createFromParcel(source: android.os.Parcel, deserializer: DeserializationStrategy<T>): T =
         parcelable.decodeFromParcel(source, deserializer)
 
     /**
@@ -41,14 +41,14 @@ class AndroidParceler(
      * Writes the provided [value], represented by the provided [serializer], to the [dest] [android.os.Parcel] using
      * the [parcelable] instance.
      */
-    fun <T : Any> writeToParcel(value: T, dest: android.os.Parcel, serializer: SerializationStrategy<T>) =
+    fun <T> writeToParcel(value: T, dest: android.os.Parcel, serializer: SerializationStrategy<T>) =
         parcelable.encodeToParcel(dest, serializer, value)
 
     /**
      * Retrieves a new empty array for type [T].
      */
     @Suppress("UNCHECKED_CAST")
-    fun <T : Any> newArray(size: Int): Array<T?> = arrayOfNulls<Any?>(size) as Array<T?>
+    fun <T> newArray(size: Int): Array<T?> = arrayOfNulls<Any?>(size) as Array<T?>
 
     /**
      * Retrieves the [hashCode] for the provided [value] used to describe it's contents in the underlying
@@ -75,4 +75,4 @@ inline fun <reified T : Any> AndroidParceler.writeToParcel(value: T, dest: andro
  * A reified convenience function for [AndroidParceler.newArray].
  */
 @ExperimentalSerializationApi
-inline fun <reified T : Any> AndroidParceler.newArrayInline(size: Int): Array<T?> = arrayOfNulls(size)
+inline fun <reified T> AndroidParceler.newArrayInline(size: Int): Array<T?> = arrayOfNulls(size)
