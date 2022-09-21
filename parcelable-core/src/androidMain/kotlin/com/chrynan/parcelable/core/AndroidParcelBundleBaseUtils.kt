@@ -68,7 +68,7 @@ fun <T : Any> AndroidParceler.encodeToBundle(value: T, kClass: KClass<T>): Bundl
  * [Bundle]s.
  */
 @ExperimentalSerializationApi
-fun <T : Any> AndroidParceler.encodeToBundle(value: T, serializer: SerializationStrategy<T>): Bundle {
+fun <T> AndroidParceler.encodeToBundle(value: T, serializer: SerializationStrategy<T>): Bundle {
     // Create a new Bundle and obtain a Parcel from the Parcel Pool.
     val bundle = Bundle()
     val parcel = Parcel.obtain()
@@ -155,7 +155,7 @@ fun <T : Any> AndroidParceler.decodeFromBundle(bundle: Bundle, kClass: KClass<T>
  * if the [bundle] is empty or
  */
 @ExperimentalSerializationApi
-fun <T : Any> AndroidParceler.decodeFromBundle(
+fun <T> AndroidParceler.decodeFromBundle(
     bundle: Bundle,
     deserializer: DeserializationStrategy<T>,
     flags: Int = 0
