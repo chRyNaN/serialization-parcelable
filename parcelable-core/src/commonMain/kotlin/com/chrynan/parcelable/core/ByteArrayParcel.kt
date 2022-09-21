@@ -234,6 +234,38 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
 
     private fun ByteArray.toStringValue(): String = decodeToString()
 
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is ByteArrayParcel) return false
+
+        if (dataBufferCapacity != other.dataBufferCapacity) return false
+        if (dataSize != other.dataSize) return false
+        if (dataPosition != other.dataPosition) return false
+        if (isRecycled != other.isRecycled) return false
+        if (data != other.data) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = dataBufferCapacity
+
+        result = 31 * result + dataSize
+        result = 31 * result + dataPosition
+        result = 31 * result + isRecycled.hashCode()
+        result = 31 * result + data.hashCode()
+
+        return result
+    }
+
+    override fun toString(): String =
+        "ByteArrayParcel(" +
+                "dataBufferCapacity=$dataBufferCapacity, " +
+                "dataSize=$dataSize, " +
+                "dataPosition=$dataPosition, " +
+                "isRecycled=$isRecycled, " +
+                "data=$data)"
+
     companion object {
 
         private const val FALSE: Byte = 0

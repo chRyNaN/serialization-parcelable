@@ -144,6 +144,38 @@ class AndroidParcel(private val parcel: android.os.Parcel) : Parcel {
     }
 
     override fun toByteArray(): ByteArray = parcel.marshall()
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is AndroidParcel) return false
+
+        if (parcel != other.parcel) return false
+        if (dataBufferCapacity != other.dataBufferCapacity) return false
+        if (dataSize != other.dataSize) return false
+        if (dataPosition != other.dataPosition) return false
+        if (isRecycled != other.isRecycled) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = parcel.hashCode()
+
+        result = 31 * result + dataBufferCapacity
+        result = 31 * result + dataSize
+        result = 31 * result + dataPosition
+        result = 31 * result + isRecycled.hashCode()
+
+        return result
+    }
+
+    override fun toString(): String =
+        "AndroidParcel(" +
+                "parcel=$parcel, " +
+                "dataBufferCapacity=$dataBufferCapacity, " +
+                "dataSize=$dataSize, " +
+                "dataPosition=$dataPosition, " +
+                "isRecycled=$isRecycled)"
 }
 
 actual fun Parcel(): Parcel = AndroidParcel(android.os.Parcel.obtain())

@@ -2,6 +2,7 @@
 
 package com.chrynan.parcelable.compose
 
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.saveable.Saver
 import androidx.compose.runtime.saveable.SaverScope
 import com.chrynan.parcelable.core.Parcel
@@ -9,6 +10,7 @@ import com.chrynan.parcelable.core.Parcelable
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.KSerializer
 
+@Stable
 @ExperimentalSerializationApi
 internal class JvmParcelableSaver<T>(
     private val parcelable: Parcelable = Parcelable.Default,
@@ -28,6 +30,25 @@ internal class JvmParcelableSaver<T>(
 
         return parcelable.decodeFromParcel(parcel = parcel, deserializer = serializer)
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is JvmParcelableSaver<*>) return false
+
+        if (parcelable != other.parcelable) return false
+        if (serializer != other.serializer) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = parcelable.hashCode()
+        result = 31 * result + serializer.hashCode()
+        return result
+    }
+
+    override fun toString(): String =
+        "JvmParcelableSaver(parcelable=$parcelable, serializer=$serializer)"
 }
 
 @ExperimentalSerializationApi

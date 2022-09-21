@@ -54,4 +54,27 @@ class ParcelDecoder(
     override fun decodeCollectionSize(descriptor: SerialDescriptor): Int = decodeInt()
 
     override fun decodeNotNullMark(): Boolean = input.readBoolean()
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is ParcelDecoder) return false
+
+        if (serializersModule != other.serializersModule) return false
+        if (input != other.input) return false
+        if (elementIndex != other.elementIndex) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = serializersModule.hashCode()
+
+        result = 31 * result + input.hashCode()
+        result = 31 * result + elementIndex
+
+        return result
+    }
+
+    override fun toString(): String =
+        "ParcelDecoder(serializersModule=$serializersModule, input=$input, elementIndex=$elementIndex)"
 }

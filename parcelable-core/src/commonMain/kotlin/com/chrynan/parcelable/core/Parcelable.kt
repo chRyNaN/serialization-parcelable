@@ -36,7 +36,20 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
      *
      * Note that instances of this class are created using the [Parcelable] function.
      */
-    class Custom internal constructor(configuration: ParcelableConfiguration) : Parcelable(configuration)
+    class Custom internal constructor(configuration: ParcelableConfiguration) : Parcelable(configuration) {
+
+        override fun equals(other: Any?): Boolean {
+            if (this === other) return true
+            if (other !is Custom) return false
+
+            return other.configuration == configuration
+        }
+
+        override fun hashCode(): Int = configuration.hashCode()
+
+        override fun toString(): String =
+            "Parcelable.Custom(configuration=$configuration)"
+    }
 
     override fun <T> encodeToByteArray(serializer: SerializationStrategy<T>, value: T): ByteArray {
         val parcel = Parcel()

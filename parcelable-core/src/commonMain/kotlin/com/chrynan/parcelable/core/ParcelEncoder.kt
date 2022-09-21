@@ -47,4 +47,23 @@ class ParcelEncoder(
         output.writeInt(collectionSize)
         return this
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is ParcelEncoder) return false
+
+        if (serializersModule != other.serializersModule) return false
+        if (output != other.output) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = serializersModule.hashCode()
+        result = 31 * result + output.hashCode()
+        return result
+    }
+
+    override fun toString(): String =
+        "ParcelEncoder(serializersModule=$serializersModule, output=$output)"
 }
