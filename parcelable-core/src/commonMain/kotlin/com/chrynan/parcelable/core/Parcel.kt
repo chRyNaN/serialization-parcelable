@@ -49,18 +49,20 @@ interface Parcel : InputParcel,
 
     /**
      * Sets the [dataPosition] to the provided [index] value. This will throw an exception if the provided [index]
-     * value is less than zero or exceeds the last index ([dataSize] minus one).
+     * value is less than zero or exceeds [dataSize].
      */
     fun setDataPosition(index: Int)
 
     /**
      * Puts this parcel object back into the pool, removing its data. This parcel object should not be used after it
-     * is recycled.
+     * is recycled. Attempting to write or read from a recycled [Parcel] may cause an exception to be thrown.
      */
     fun recycle()
 
     /**
-     * Obtains a [ByteArray] of the underlying values of this [Parcel].
+     * Obtains a [ByteArray] of the underlying values of this [Parcel]. Note that the returned [ByteArray] data is
+     * structured in a way that is meaningful for this implementation, but doesn't guarantee any structure for outside
+     * usage or usage between different implementations.
      */
     fun toByteArray(): ByteArray
 }

@@ -30,6 +30,8 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun readBoolean(): Boolean {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         val result = data[dataPosition][0].toBooleanValue()
 
         dataPosition++
@@ -38,6 +40,8 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun readByte(): Byte {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         val result = data[dataPosition][0]
 
         dataPosition++
@@ -46,6 +50,8 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun readShort(): Short {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         val result = data[dataPosition].toShortValue()
 
         dataPosition++
@@ -54,6 +60,8 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun readInt(): Int {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         val result = data[dataPosition].toInt()
 
         dataPosition++
@@ -62,6 +70,8 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun readLong(): Long {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         val result = data[dataPosition].toLong()
 
         dataPosition++
@@ -70,6 +80,8 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun readFloat(): Float {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         val result = data[dataPosition].toFloatValue()
 
         dataPosition++
@@ -78,6 +90,8 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun readDouble(): Double {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         val result = data[dataPosition].toDoubleValue()
 
         dataPosition++
@@ -86,6 +100,8 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun readChar(): Char {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         val result = data[dataPosition].toCharValue()
 
         dataPosition++
@@ -94,6 +110,8 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun readString(): String {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         val result = data[dataPosition].toStringValue()
 
         dataPosition++
@@ -102,61 +120,80 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun writeBoolean(value: Boolean) {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         data.add(dataPosition, byteArrayOf(value.toByte()))
 
         dataPosition++
     }
 
     override fun writeByte(value: Byte) {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         data.add(dataPosition, byteArrayOf(value))
 
         dataPosition++
     }
 
     override fun writeShort(value: Short) {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         data.add(dataPosition, value.toByteArray())
 
         dataPosition++
     }
 
     override fun writeInt(value: Int) {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         data.add(dataPosition, value.toByteArray())
 
         dataPosition++
     }
 
     override fun writeLong(value: Long) {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         data.add(dataPosition, value.toByteArray())
 
         dataPosition++
     }
 
     override fun writeFloat(value: Float) {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         data.add(dataPosition, value.toByteArray())
 
         dataPosition++
     }
 
     override fun writeDouble(value: Double) {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         data.add(dataPosition, value.toByteArray())
 
         dataPosition++
     }
 
     override fun writeChar(value: Char) {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         data.add(dataPosition, value.toByteArray())
 
         dataPosition++
     }
 
     override fun writeString(value: String) {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         data.add(dataPosition, value.toByteArray())
 
         dataPosition++
     }
 
     override fun setDataPosition(index: Int) {
-        require(index in 0 until dataSize) { "Cannot set data position index less than zero or greater than or equal to dataSize." }
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+        require(index in 0..dataSize) { "Cannot set data position index less than zero or greater than or equal to dataSize." }
 
         dataPosition = index
     }
@@ -169,6 +206,8 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun toByteArray(): ByteArray {
+        check(!isRecycled) { "ByteArrayParcel has been recycled and cannot be reused." }
+
         val byteList = mutableListOf<Byte>()
 
         data.size.toByteArray().forEach {

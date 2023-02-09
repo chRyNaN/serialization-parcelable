@@ -139,7 +139,7 @@ class AndroidParcel(private val parcel: android.os.Parcel) : Parcel {
     }
 
     override fun setDataPosition(index: Int) {
-        require(index in 0 until dataSize) { "Cannot set data position index less than zero or greater than or equal to dataSize." }
+        require(index in 0..dataSize) { "Cannot set data position index less than zero or greater than or equal to dataSize." }
 
         parcel.setDataPosition(index)
     }
