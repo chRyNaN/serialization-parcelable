@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.chrynan.parcelable.core
 
 import android.content.Intent
