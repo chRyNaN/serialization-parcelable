@@ -13,7 +13,7 @@ fun <T> Parcelable.encodeToParcel(
     serializer: SerializationStrategy<T>,
     value: T
 ): Parcel {
-    val androidParcel = AndroidParcel(parcel)
+    val androidParcel = Parcel(parcel)
     val encoder = ParcelEncoder(serializersModule = serializersModule, output = androidParcel)
     encoder.encodeSerializableValue(serializer, value)
     return androidParcel
@@ -21,7 +21,7 @@ fun <T> Parcelable.encodeToParcel(
 
 @ExperimentalSerializationApi
 inline fun <reified T> Parcelable.encodeToParcel(parcel: android.os.Parcel, value: T): Parcel {
-    val androidParcel = AndroidParcel(parcel)
+    val androidParcel = Parcel(parcel)
     val encoder = ParcelEncoder(serializersModule = serializersModule, output = androidParcel)
     encoder.encodeSerializableValue(serializersModule.serializer(), value)
     return androidParcel
@@ -33,7 +33,7 @@ fun <T : Any> Parcelable.encodeToParcel(
     value: T,
     kclass: KClass<T>
 ): Parcel {
-    val androidParcel = AndroidParcel(parcel)
+    val androidParcel = Parcel(parcel)
     val encoder = ParcelEncoder(serializersModule = serializersModule, output = androidParcel)
     encoder.encodeSerializableValue(serializersModule.serializer(kclass.java), value)
     return androidParcel

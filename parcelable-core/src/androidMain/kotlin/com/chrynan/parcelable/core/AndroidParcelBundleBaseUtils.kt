@@ -20,7 +20,7 @@ fun <T : Any> AndroidParceler.encodeToBundle(value: T, kClass: KClass<T>): Bundl
     val bundle = Bundle()
     val parcel = Parcel.obtain()
 
-    // Write the properties of the value to the Parcel, then set it's data
+    // Write the properties of the value to the Parcel, then set its data
     // position back to zero so that it can be read.
     this.writeToParcel(value, parcel, kClass)
     parcel.setDataPosition(0)
@@ -54,7 +54,7 @@ fun <T : Any> AndroidParceler.encodeToBundle(value: T, kClass: KClass<T>): Bundl
     // Set the Bundle values to the data Parcel values.
     bundle.readFromParcel(data)
 
-    // Recycler the Parcels.
+    // Recycle the Parcels.
     parcel.recycle()
     data.recycle()
 
@@ -73,7 +73,7 @@ fun <T> AndroidParceler.encodeToBundle(value: T, serializer: SerializationStrate
     val bundle = Bundle()
     val parcel = Parcel.obtain()
 
-    // Write the properties of the value to the Parcel, then set it's data
+    // Write the properties of the value to the Parcel, then set its data
     // position back to zero so that it can be read.
     this.writeToParcel(value, parcel, serializer)
     parcel.setDataPosition(0)
@@ -107,7 +107,7 @@ fun <T> AndroidParceler.encodeToBundle(value: T, serializer: SerializationStrate
     // Set the Bundle values to the data Parcel values.
     bundle.readFromParcel(data)
 
-    // Recycler the Parcels.
+    // Recycle the Parcels.
     parcel.recycle()
     data.recycle()
 
@@ -131,7 +131,7 @@ fun <T : Any> AndroidParceler.decodeFromBundle(bundle: Bundle, kClass: KClass<T>
     parcel.setDataPosition(0)
 
     // The first property is the length field. We don't specifically need to use the value
-    // but if the value is less than or equal to zero than there are no properties so we
+    // but if the value is less than or equal to zero then there are no properties, so we
     // return null.
     if (parcel.readInt() <= 0) throw SerializationException("Error decoding a value from the Bundle. length = 0.")
 
@@ -170,7 +170,7 @@ fun <T> AndroidParceler.decodeFromBundle(
     parcel.setDataPosition(0)
 
     // The first property is the length field. We don't specifically need to use the value
-    // but if the value is less than or equal to zero than there are no properties so we
+    // but if the value is less than or equal to zero than there are no properties, so we
     // return null.
     if (parcel.readInt() <= 0) throw SerializationException("Error decoding a value from the Bundle. length = 0.")
 

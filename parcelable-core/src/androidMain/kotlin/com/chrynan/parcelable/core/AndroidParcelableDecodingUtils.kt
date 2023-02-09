@@ -10,20 +10,20 @@ import kotlin.reflect.KClass
 
 @ExperimentalSerializationApi
 fun <T> Parcelable.decodeFromParcel(parcel: android.os.Parcel, deserializer: DeserializationStrategy<T>): T {
-    val decoder = ParcelDecoder(serializersModule = serializersModule, input = AndroidParcel(parcel))
+    val decoder = ParcelDecoder(serializersModule = serializersModule, input = Parcel(parcel))
     return decoder.decodeSerializableValue(deserializer)
 }
 
 @ExperimentalSerializationApi
 inline fun <reified T> Parcelable.decodeFromParcel(parcel: android.os.Parcel): T {
-    val decoder = ParcelDecoder(serializersModule = serializersModule, input = AndroidParcel(parcel))
+    val decoder = ParcelDecoder(serializersModule = serializersModule, input = Parcel(parcel))
     return decoder.decodeSerializableValue(serializersModule.serializer())
 }
 
 @Suppress("UNCHECKED_CAST")
 @ExperimentalSerializationApi
 fun <T : Any> Parcelable.decodeFromParcel(parcel: android.os.Parcel, kclass: KClass<T>): T {
-    val decoder = ParcelDecoder(serializersModule = serializersModule, input = AndroidParcel(parcel))
+    val decoder = ParcelDecoder(serializersModule = serializersModule, input = Parcel(parcel))
     return decoder.decodeSerializableValue(serializersModule.serializer(kclass.java)) as T
 }
 

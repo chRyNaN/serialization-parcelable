@@ -14,6 +14,7 @@ import kotlinx.serialization.modules.SerializersModule
 @ExperimentalSerializationApi
 class ParcelableConfigurationBuilder internal constructor(configuration: ParcelableConfiguration) {
 
+    @Suppress("MemberVisibilityCanBePrivate")
     var serializersModule: SerializersModule = configuration.serializersModule
 
     internal fun build(): ParcelableConfiguration = ParcelableConfiguration(serializersModule = serializersModule)

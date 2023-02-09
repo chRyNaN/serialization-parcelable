@@ -53,15 +53,14 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
 
     override fun <T> encodeToByteArray(serializer: SerializationStrategy<T>, value: T): ByteArray {
         val parcel = Parcel()
-        val encoder = ParcelEncoder(serializersModule = serializersModule, output = parcel)
-        encoder.encodeSerializableValue(serializer, value)
-        return parcel.toByteArray()
+
+        return encodeToParcel(parcel = parcel, serializer = serializer, value = value).toByteArray()
     }
 
     override fun <T> decodeFromByteArray(deserializer: DeserializationStrategy<T>, bytes: ByteArray): T {
         val parcel = Parcel(bytes)
-        val decoder = ParcelDecoder(serializersModule = serializersModule, input = parcel)
-        return decoder.decodeSerializableValue(deserializer)
+
+        return decodeFromParcel(parcel = parcel, deserializer = deserializer)
     }
 
     /**
@@ -71,7 +70,9 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
      */
     fun <T> encodeToParcel(parcel: Parcel, serializer: SerializationStrategy<T>, value: T): Parcel {
         val encoder = ParcelEncoder(serializersModule = serializersModule, output = parcel)
+
         encoder.encodeSerializableValue(serializer, value)
+
         return parcel
     }
 
@@ -83,6 +84,7 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
     fun <T> decodeFromParcel(parcel: Parcel, deserializer: DeserializationStrategy<T>): T {
         val newParcel = Parcel(parcel.toByteArray())
         val decoder = ParcelDecoder(serializersModule = serializersModule, input = newParcel)
+
         return decoder.decodeSerializableValue(deserializer)
     }
 }
@@ -105,8 +107,11 @@ fun Parcelable(
     builderAction: ParcelableConfigurationBuilder.() -> Unit
 ): Parcelable {
     val builder = ParcelableConfigurationBuilder(from.configuration)
+
     builder.builderAction()
+
     val configuration = builder.build()
+
     return Parcelable.Custom(configuration)
 }
 
@@ -117,7 +122,9 @@ fun Parcelable(
 @ExperimentalSerializationApi
 inline fun <reified T> Parcelable.encodeToParcel(parcel: Parcel, value: T): Parcel {
     val encoder = ParcelEncoder(serializersModule = serializersModule, output = parcel)
+
     encoder.encodeSerializableValue(serializersModule.serializer(), value)
+
     return parcel
 }
 
@@ -128,5 +135,6 @@ inline fun <reified T> Parcelable.encodeToParcel(parcel: Parcel, value: T): Parc
 @ExperimentalSerializationApi
 inline fun <reified T> Parcelable.decodeFromParcel(parcel: Parcel): T {
     val decoder = ParcelDecoder(serializersModule = serializersModule, input = parcel)
+
     return decoder.decodeSerializableValue(serializersModule.serializer())
 }

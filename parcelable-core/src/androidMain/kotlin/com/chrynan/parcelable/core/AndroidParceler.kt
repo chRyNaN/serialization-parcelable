@@ -51,7 +51,7 @@ class AndroidParceler(
     fun <T> newArray(size: Int): Array<T?> = arrayOfNulls<Any?>(size) as Array<T?>
 
     /**
-     * Retrieves the [hashCode] for the provided [value] used to describe it's contents in the underlying
+     * Retrieves the [hashCode] for the provided [value] used to describe its contents in the underlying
      * [android.os.Parcel].
      */
     fun <T> describeContents(value: T): Int = value.hashCode()

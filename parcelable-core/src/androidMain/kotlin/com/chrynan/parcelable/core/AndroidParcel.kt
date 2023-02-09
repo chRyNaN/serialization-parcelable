@@ -15,7 +15,7 @@ import kotlinx.serialization.SerializationException
  * @see [Parcel]
  * @see [android.os.Parcel]
  */
-class AndroidParcel(private val parcel: android.os.Parcel) : Parcel {
+class AndroidParcel @PublishedApi internal constructor(private val parcel: android.os.Parcel) : Parcel {
 
     override val dataBufferCapacity: Int
         get() = parcel.dataCapacity()
@@ -81,7 +81,7 @@ class AndroidParcel(private val parcel: android.os.Parcel) : Parcel {
         try {
             parcel.readString()
         } catch (exception: Exception) {
-            throw SerializationException("Error reading the Double value from the Parcel.", exception)
+            throw SerializationException("Error reading the String value from the Parcel.", exception)
         } ?: throw InvalidParcelValueException("Invalid Parcel value. Expected String but got null.")
 
     override fun writeBoolean(value: Boolean) = try {
@@ -194,3 +194,17 @@ actual fun Parcel(data: ByteArray): Parcel {
 
     return AndroidParcel(androidParcel)
 }
+
+/**
+ * Creates a [com.chrynan.parcelable.core.Parcel] instance from the provided [android.os.Parcel] class.
+ */
+@Suppress("NOTHING_TO_INLINE")
+inline fun Parcel(androidParcel: android.os.Parcel): Parcel =
+    AndroidParcel(parcel = androidParcel)
+
+/**
+ * Creates a [com.chrynan.parcelable.core.Parcel] instance from this [android.os.Parcel] class.
+ */
+@Suppress("NOTHING_TO_INLINE")
+inline fun android.os.Parcel.toParcel(): Parcel =
+    AndroidParcel(parcel = this)
