@@ -42,17 +42,17 @@ android {
 
 configurations {
     cleanedAnnotations
-    compile.exclude group: "org.jetbrains", module: "annotations"
+    implementation.exclude group: "org.jetbrains", module: "annotations"
 }
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    implementation("androidx.appcompat:appcompat:1.5.0")
+    implementation("androidx.appcompat:appcompat:1.6.1")
 
-    implementation("com.google.android.material:material:1.6.1")
+    implementation("com.google.android.material:material:1.8.0")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
 
     implementation(project(":parcelable-core"))
     implementation(project(":sample-core"))
