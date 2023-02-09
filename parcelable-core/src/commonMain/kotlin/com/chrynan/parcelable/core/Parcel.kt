@@ -48,6 +48,12 @@ interface Parcel : InputParcel,
     val isRecycled: Boolean
 
     /**
+     * Sets the [dataPosition] to the provided [index] value. This will throw an exception if the provided [index]
+     * value is less than zero or exceeds the last index ([dataSize] minus one).
+     */
+    fun setDataPosition(index: Int)
+
+    /**
      * Puts this parcel object back into the pool, removing its data. This parcel object should not be used after it
      * is recycled.
      */

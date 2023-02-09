@@ -155,6 +155,12 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
         dataPosition++
     }
 
+    override fun setDataPosition(index: Int) {
+        require(index in 0 until dataSize) { "Cannot set data position index less than zero or greater than or equal to dataSize." }
+
+        dataPosition = index
+    }
+
     override fun recycle() {
         isRecycled = true
 

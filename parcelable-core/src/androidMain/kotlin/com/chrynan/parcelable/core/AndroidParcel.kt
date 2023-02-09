@@ -138,6 +138,12 @@ class AndroidParcel(private val parcel: android.os.Parcel) : Parcel {
         throw SerializationException("Error writing the String value '$value' to the Parcel.", exception)
     }
 
+    override fun setDataPosition(index: Int) {
+        require(index in 0 until dataSize) { "Cannot set data position index less than zero or greater than or equal to dataSize." }
+
+        parcel.setDataPosition(index)
+    }
+
     override fun recycle() {
         parcel.recycle()
         isRecycled = true
