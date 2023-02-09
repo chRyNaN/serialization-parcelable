@@ -78,3 +78,8 @@ expect fun Parcel(): Parcel
  * Note that data coming from different target platforms, or different [Parcel] implementations, is not inter-operable.
  */
 expect fun Parcel(data: ByteArray): Parcel
+
+/**
+ * A convenience function for calling the [Parcel.setDataPosition] with an index value of zero.
+ */
+inline fun Parcel.resetDataPosition() = setDataPosition(index = 0)
