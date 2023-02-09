@@ -14,7 +14,7 @@ kotlin {
     targets {
         android()
         jvm()
-        js(BOTH) {
+        js(IR) {
             browser()
         }
     }

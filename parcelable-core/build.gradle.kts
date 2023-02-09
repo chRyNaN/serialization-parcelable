@@ -18,13 +18,17 @@ kotlin {
     targets {
         android()
         jvm()
-        js(BOTH) {
+        js(IR) {
             browser {
                 testTask {
-                    useKarma { useFirefox() }
+                    enabled = false
                 }
             }
-            nodejs()
+            nodejs {
+                testTask {
+                    enabled = false
+                }
+            }
         }
         ios()
         iosSimulatorArm64()

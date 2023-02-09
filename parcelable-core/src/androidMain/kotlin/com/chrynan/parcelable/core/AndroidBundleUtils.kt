@@ -8,15 +8,6 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerializationStrategy
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Bundle.putParcelable(
-    key: String,
-    value: T,
-    parceler: AndroidParceler
-) {
-    putBundle(key, parceler.encodeToBundle(value))
-}
-
-@ExperimentalSerializationApi
 inline fun <reified T> Bundle.putParcelable(key: String, value: T, parcelable: Parcelable = Parcelable.Default) {
     putBundle(key, parcelable.encodeToBundle(value))
 }
@@ -29,12 +20,6 @@ fun <T> Bundle.putParcelable(
     serializer: SerializationStrategy<T>
 ) {
     putBundle(key, parcelable.encodeToBundle(value, serializer))
-}
-
-@ExperimentalSerializationApi
-inline fun <reified T> Bundle.getParcelable(key: String, parceler: AndroidParceler): T? {
-    val bundle = getBundle(key)
-    return bundle?.let { parceler.decodeFromBundle(it) }
 }
 
 @ExperimentalSerializationApi

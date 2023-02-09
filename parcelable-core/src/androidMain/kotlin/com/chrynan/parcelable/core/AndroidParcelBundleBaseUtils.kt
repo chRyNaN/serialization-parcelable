@@ -15,14 +15,14 @@ import kotlin.reflect.KClass
  * [Bundle]s.
  */
 @ExperimentalSerializationApi
-fun <T : Any> AndroidParceler.encodeToBundle(value: T, kClass: KClass<T>): Bundle {
+fun <T : Any> Parcelable.encodeToBundle(value: T, kClass: KClass<T>): Bundle {
     // Create a new Bundle and obtain a Parcel from the Parcel Pool.
     val bundle = Bundle()
     val parcel = Parcel.obtain()
 
     // Write the properties of the value to the Parcel, then set its data
     // position back to zero so that it can be read.
-    this.writeToParcel(value, parcel, kClass)
+    this.encodeToParcel(value = value, parcel = parcel, kclass = kClass)
     parcel.setDataPosition(0)
 
     // Obtain a new Parcel from the Parcel Pool and write to it the size
@@ -68,14 +68,14 @@ fun <T : Any> AndroidParceler.encodeToBundle(value: T, kClass: KClass<T>): Bundl
  * [Bundle]s.
  */
 @ExperimentalSerializationApi
-fun <T> AndroidParceler.encodeToBundle(value: T, serializer: SerializationStrategy<T>): Bundle {
+fun <T> Parcelable.encodeToBundle(value: T, serializer: SerializationStrategy<T>): Bundle {
     // Create a new Bundle and obtain a Parcel from the Parcel Pool.
     val bundle = Bundle()
     val parcel = Parcel.obtain()
 
     // Write the properties of the value to the Parcel, then set its data
     // position back to zero so that it can be read.
-    this.writeToParcel(value, parcel, serializer)
+    this.encodeToParcel(value = value, parcel = parcel, serializer = serializer)
     parcel.setDataPosition(0)
 
     // Obtain a new Parcel from the Parcel Pool and write to it the size
@@ -120,7 +120,7 @@ fun <T> AndroidParceler.encodeToBundle(value: T, serializer: SerializationStrate
  * if the [bundle] is empty or
  */
 @ExperimentalSerializationApi
-fun <T : Any> AndroidParceler.decodeFromBundle(bundle: Bundle, kClass: KClass<T>, flags: Int = 0): T {
+fun <T : Any> Parcelable.decodeFromBundle(bundle: Bundle, kClass: KClass<T>, flags: Int = 0): T {
     // Obtain a new Parcel from the Parcel pool.
     val parcel = Parcel.obtain()
 
@@ -141,7 +141,7 @@ fun <T : Any> AndroidParceler.decodeFromBundle(bundle: Bundle, kClass: KClass<T>
     parcel.readInt()
 
     // Create an instance of the class from the Parcel starting at the current data position.
-    val item = this.createFromParcel(parcel, kClass)
+    val item = this.decodeFromParcel(parcel, kClass)
 
     // Recycle the Parcel after use.
     parcel.recycle()
@@ -155,7 +155,7 @@ fun <T : Any> AndroidParceler.decodeFromBundle(bundle: Bundle, kClass: KClass<T>
  * if the [bundle] is empty or
  */
 @ExperimentalSerializationApi
-fun <T> AndroidParceler.decodeFromBundle(
+fun <T> Parcelable.decodeFromBundle(
     bundle: Bundle,
     deserializer: DeserializationStrategy<T>,
     flags: Int = 0
@@ -180,7 +180,7 @@ fun <T> AndroidParceler.decodeFromBundle(
     parcel.readInt()
 
     // Create an instance of the class from the Parcel starting at the current data position.
-    val item = this.createFromParcel(parcel, deserializer)
+    val item = this.decodeFromParcel(parcel, deserializer)
 
     // Recycle the Parcel after use.
     parcel.recycle()
