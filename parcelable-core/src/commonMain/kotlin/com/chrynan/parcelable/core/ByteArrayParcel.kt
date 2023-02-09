@@ -54,7 +54,7 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun readInt(): Int {
-        val result = data[dataPosition].toIntValue()
+        val result = data[dataPosition].toInt()
 
         dataPosition++
 
@@ -62,7 +62,7 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
     }
 
     override fun readLong(): Long {
-        val result = data[dataPosition].toLongValue()
+        val result = data[dataPosition].toLong()
 
         dataPosition++
 
@@ -187,13 +187,13 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
         dataPosition = 0
 
         if (value.size >= 4) {
-            val dataListSize = value.copyOfRange(fromIndex = 0, toIndex = 4).toIntValue()
+            val dataListSize = value.copyOfRange(fromIndex = 0, toIndex = 4).toInt()
 
             if (dataListSize > 0) {
                 var i = 4
 
                 while (i < value.size) {
-                    val subListSize = value.copyOfRange(fromIndex = i, toIndex = i + 4).toIntValue()
+                    val subListSize = value.copyOfRange(fromIndex = i, toIndex = i + 4).toInt()
 
                     i += 4
 
@@ -224,13 +224,13 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
 
     private fun Byte.toBooleanValue(): Boolean = this == TRUE
 
-    private fun ByteArray.toShortValue(): Short = toIntValue().toShort()
+    private fun ByteArray.toShortValue(): Short = toInt().toShort()
 
-    private fun ByteArray.toFloatValue(): Float = Float.fromBits(toIntValue())
+    private fun ByteArray.toFloatValue(): Float = Float.fromBits(toInt())
 
-    private fun ByteArray.toDoubleValue(): Double = Double.fromBits(toLongValue())
+    private fun ByteArray.toDoubleValue(): Double = Double.fromBits(toLong())
 
-    private fun ByteArray.toCharValue(): Char = toIntValue().toChar()
+    private fun ByteArray.toCharValue(): Char = toInt().toChar()
 
     private fun ByteArray.toStringValue(): String = decodeToString()
 
