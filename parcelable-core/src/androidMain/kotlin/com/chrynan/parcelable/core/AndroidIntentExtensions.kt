@@ -6,7 +6,6 @@ import android.content.Intent
 import kotlinx.serialization.DeserializationStrategy
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerializationStrategy
-import kotlinx.serialization.serializer
 import kotlin.reflect.KClass
 
 @ExperimentalSerializationApi
@@ -30,11 +29,10 @@ inline fun <reified T> Intent.putExtra(
     name: String,
     value: T,
     parcelable: Parcelable = Parcelable.Default,
-): Intent = putExtra(
+): Intent = parcelable.encodeToIntent(
     name = name,
     value = value,
-    serializer = parcelable.serializersModule.serializer(),
-    parcelable = parcelable
+    intent = this
 )
 
 @ExperimentalSerializationApi
@@ -60,7 +58,6 @@ inline fun <reified T : Any> Intent.getParcelableExtra(
     parcelable: Parcelable = Parcelable.Default
 ): T? = parcelable.decodeFromIntent(
     name = name,
-    deserializer = parcelable.serializersModule.serializer(),
     flags = flags,
     intent = this
 )
