@@ -20,21 +20,29 @@ interface Parcel : InputParcel,
      * There may be more space available ([dataBufferCapacity]) in the underlying data buffer than there is data
      * available ([dataSize]). The difference between [dataBufferCapacity] and [dataSize] indicates the amount of room
      * remaining in the underlying data buffer until more space needs to be allocated.
+     *
+     * This value represents an amount of bytes.
      */
     val dataBufferCapacity: Int
 
     /**
      * The total amount of data contained in this parcel.
+     *
+     * This value represents an amount of bytes.
      */
     val dataSize: Int
 
     /**
      * The current index position in the data buffer. Should never be more than [dataSize].
+     *
+     * This value represents an amount of bytes.
      */
     val dataPosition: Int
 
     /**
      * The remaining amount of data to be read ([dataSize] - [dataPosition]).
+     *
+     * This value represents an amount of bytes.
      */
     val dataRemaining: Int
         get() = dataSize - dataPosition
@@ -48,10 +56,14 @@ interface Parcel : InputParcel,
     val isRecycled: Boolean
 
     /**
-     * Sets the [dataPosition] to the provided [index] value. This will throw an exception if the provided [index]
+     * Sets the [dataPosition] to the provided [position] value. This will throw an exception if the provided [position]
      * value is less than zero or exceeds [dataSize].
+     *
+     * The position value represents an amount of bytes. For instance, an [Int] is a 32-bit (4 byte) integer value,
+     * when it is stored in this [Parcel], the [dataSize] will increase by a value of four. To skip over the integer
+     * value to the next item, call this function with the current value plus four.
      */
-    fun setDataPosition(index: Int)
+    fun setDataPosition(position: Int)
 
     /**
      * Puts this parcel object back into the pool, removing its data. This parcel object should not be used after it
@@ -82,4 +94,4 @@ expect fun Parcel(data: ByteArray): Parcel
 /**
  * A convenience function for calling the [Parcel.setDataPosition] with an index value of zero.
  */
-inline fun Parcel.resetDataPosition() = setDataPosition(index = 0)
+inline fun Parcel.resetDataPosition() = setDataPosition(position = 0)

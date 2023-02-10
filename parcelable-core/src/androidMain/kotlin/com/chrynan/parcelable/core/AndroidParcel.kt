@@ -138,10 +138,11 @@ class AndroidParcel @PublishedApi internal constructor(private val parcel: andro
         throw SerializationException("Error writing the String value '$value' to the Parcel.", exception)
     }
 
-    override fun setDataPosition(index: Int) {
-        require(index in 0..dataSize) { "Cannot set data position index less than zero or greater than or equal to dataSize." }
-
-        parcel.setDataPosition(index)
+    override fun setDataPosition(position: Int) {
+        require(position in 0..dataSize) { "Cannot set data position index less than zero or greater than or equal to dataSize." }
+        println("dataSize = $dataSize; dataCapacity = $dataBufferCapacity; dataPosition = $dataPosition")
+        parcel.setDataPosition(position)
+        parcel.dataAvail()
     }
 
     override fun recycle() {
@@ -191,6 +192,8 @@ actual fun Parcel(data: ByteArray): Parcel {
     val androidParcel = android.os.Parcel.obtain()
 
     androidParcel.unmarshall(data, 0, data.size)
+
+    androidParcel.setDataPosition(0)
 
     return AndroidParcel(androidParcel)
 }

@@ -1,53 +1,61 @@
 package com.chrynan.parcelable.core
 
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.filters.MediumTest
+import org.junit.Test
+import org.junit.runner.RunWith
 import kotlin.random.Random
-import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFails
 
 private const val ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 
-class ByteArrayParcelTest {
+@RunWith(AndroidJUnit4::class)
+@MediumTest
+class AndroidParcelTest {
 
     @Test
-    fun resetDataPosition_sets_index_and_position_to_zero() {
-        val parcel = ByteArrayParcel()
+    fun resetDataPosition_sets_position_to_zero() {
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         parcel.writeString("Test")
 
         parcel.resetDataPosition()
 
-        assertEquals(expected = 0, parcel.dataIndex)
         assertEquals(expected = 0, parcel.dataPosition)
+
+        parcel.recycle()
     }
 
     @Test
     fun boolean_true() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         parcel.writeBoolean(true)
 
         parcel.resetDataPosition()
 
         assertEquals(expected = true, actual = parcel.readBoolean())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun boolean_false() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         parcel.writeBoolean(false)
 
         parcel.resetDataPosition()
 
         assertEquals(expected = false, actual = parcel.readBoolean())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun byte_min() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Byte.MIN_VALUE
 
@@ -56,12 +64,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readByte())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun byte_max() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Byte.MAX_VALUE
 
@@ -70,12 +79,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readByte())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun byte_random() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Random.nextInt().toByte()
 
@@ -84,12 +94,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readByte())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun short_min() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Short.MIN_VALUE
 
@@ -98,12 +109,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readShort())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun short_max() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Short.MAX_VALUE
 
@@ -112,12 +124,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readShort())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun short_random() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Random.nextInt().toShort()
 
@@ -126,12 +139,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readShort())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun int_min() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Int.MIN_VALUE
 
@@ -140,12 +154,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readInt())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun int_max() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Int.MAX_VALUE
 
@@ -154,12 +169,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readInt())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun int_random() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Random.nextInt()
 
@@ -168,12 +184,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readInt())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun long_min() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Long.MIN_VALUE
 
@@ -182,12 +199,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readLong())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun long_max() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Long.MAX_VALUE
 
@@ -196,12 +214,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readLong())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun long_random() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Random.nextLong()
 
@@ -210,12 +229,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readLong())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun float_min() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Float.MIN_VALUE
 
@@ -224,12 +244,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readFloat())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun float_max() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Float.MAX_VALUE
 
@@ -238,12 +259,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readFloat())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun float_random() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Random.nextFloat()
 
@@ -252,12 +274,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readFloat())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun double_min() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Double.MIN_VALUE
 
@@ -266,12 +289,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readDouble())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun double_max() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Double.MAX_VALUE
 
@@ -280,12 +304,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readDouble())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun double_random() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = Random.nextDouble()
 
@@ -294,12 +319,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readDouble())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun char_random() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val value = ALPHA_NUMERIC_STRING[Random.nextInt(from = 0, until = ALPHA_NUMERIC_STRING.length)]
 
@@ -308,12 +334,13 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readChar())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun string_random() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         val length = Random.nextInt(from = 0, until = 100)
 
@@ -330,48 +357,39 @@ class ByteArrayParcelTest {
         parcel.resetDataPosition()
 
         assertEquals(expected = value, actual = parcel.readString())
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
+
+        parcel.recycle()
     }
 
     @Test
     fun setting_data_position_less_than_zero_throws_exception() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
-        parcel.writeInt(100)
+        parcel.writeString("Test")
 
+        // There's only one item at index zero. Meaning that the dataSize is equal to 1 (which is the current index).
+        // Setting the value to 2 or more should fail.
         assertFails { parcel.setDataPosition(-1) }
+
+        parcel.recycle()
     }
 
     @Test
     fun setting_data_position_greater_than_data_size_throws_exception() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
-        parcel.writeInt(10)
+        parcel.writeInt(0)
 
-        // There's only one item at index zero. Meaning that the dataSize is equal to one times the byte size for that
-        // item. Setting the value to greater than that value should fail.
+        // There's only one item at index zero. Meaning that the dataSize is equal to 1 (which is the current index).
+        // Setting the value to 2 or more should fail.
         assertFails { parcel.setDataPosition(5) }
-    }
-
-    @Test
-    fun recycle_clears_data() {
-        val parcel = ByteArrayParcel()
-
-        parcel.writeString("Test")
-
-        assertEquals(expected = 1, actual = parcel.dataItemCount)
-        assertEquals(expected = false, actual = parcel.isRecycled)
 
         parcel.recycle()
-
-        assertEquals(expected = 0, actual = parcel.dataSize)
-        assertEquals(expected = 0, actual = parcel.dataItemCount)
-        assertEquals(expected = true, actual = parcel.isRecycled)
     }
 
     @Test
     fun recycled_cannot_be_reused() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         parcel.writeString("Test")
 
@@ -384,7 +402,7 @@ class ByteArrayParcelTest {
 
     @Test
     fun byte_array_constructor_works() {
-        val parcel = ByteArrayParcel()
+        val parcel = AndroidParcel(android.os.Parcel.obtain())
 
         parcel.writeBoolean(false)
         parcel.writeByte(0)
@@ -396,13 +414,10 @@ class ByteArrayParcelTest {
         parcel.writeChar('a')
         parcel.writeString("Testing123")
 
-        assertEquals(expected = 9, actual = parcel.dataItemCount)
-
         val bytes = parcel.toByteArray()
 
-        val resultParcel = ByteArrayParcel(bytes)
+        val resultParcel = Parcel(bytes)
 
-        assertEquals(expected = 9, actual = resultParcel.dataItemCount)
         assertEquals(expected = false, actual = resultParcel.readBoolean())
         assertEquals(expected = 0, actual = resultParcel.readByte())
         assertEquals(expected = 1, actual = resultParcel.readShort())
@@ -412,5 +427,8 @@ class ByteArrayParcelTest {
         assertEquals(expected = 5.5, actual = resultParcel.readDouble())
         assertEquals(expected = 'a', actual = resultParcel.readChar())
         assertEquals(expected = "Testing123", actual = resultParcel.readString())
+
+        parcel.recycle()
+        resultParcel.recycle()
     }
 }
