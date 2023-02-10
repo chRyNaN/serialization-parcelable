@@ -5,11 +5,10 @@ package com.chrynan.parcelable.core
 import android.content.Intent
 import android.os.Bundle
 import android.os.Parcel
-import kotlinx.serialization.DeserializationStrategy
-import kotlinx.serialization.ExperimentalSerializationApi
-import kotlinx.serialization.SerializationException
-import kotlinx.serialization.SerializationStrategy
+import kotlinx.serialization.*
 import kotlin.reflect.KClass
+
+//region Encode
 
 /**
  * Writes the provided [value] of [kClass] into a [Bundle] and returns it.
@@ -118,6 +117,18 @@ fun <T> Parcelable.encodeToBundle(value: T, serializer: SerializationStrategy<T>
 }
 
 /**
+ * Writes the provided [value] of [serializer] obtained from this [Parcelable.serializersModule] into a [Bundle] and
+ * returns it. The returned [Bundle] can then be used as extras in [Intent]s or other [Bundle]s.
+ */
+@ExperimentalSerializationApi
+inline fun <reified T> Parcelable.encodeToBundle(value: T): Bundle =
+    encodeToBundle(value = value, serializer = serializersModule.serializer())
+
+//endregion
+
+//region Decode
+
+/**
  * Retrieves a value of [T] of [kClass] from the provided [bundle] and [flags], or null
  * if the [bundle] is empty or
  */
@@ -190,3 +201,29 @@ fun <T> Parcelable.decodeFromBundle(
     // Congrats we have a model, or null, so return it.
     return item
 }
+
+/**
+ * Retrieves a value of [T] from the deserializer obtained from the [Parcelable.serializersModule] from the provided
+ * [bundle] and [flags], or null if the [bundle] is empty or
+ */
+@ExperimentalSerializationApi
+inline fun <reified T : Any> Parcelable.decodeFromBundle(bundle: Bundle, flags: Int = 0): T =
+    decodeFromBundle(bundle = bundle, deserializer = serializersModule.serializer(), flags = flags)
+
+@ExperimentalSerializationApi
+fun <T : Any> Parcelable.decodeFromBundleOrNull(bundle: Bundle, kClass: KClass<T>, flags: Int = 0): T? =
+    try {
+        decodeFromBundle(bundle = bundle, kClass = kClass, flags = flags)
+    } catch (e: SerializationException) {
+        null
+    }
+
+@ExperimentalSerializationApi
+inline fun <reified T : Any> Parcelable.decodeFromBundleOrNull(bundle: Bundle, flags: Int = 0): T? =
+    try {
+        decodeFromBundle(bundle = bundle, deserializer = serializersModule.serializer(), flags = flags)
+    } catch (e: SerializationException) {
+        null
+    }
+
+//endregion
