@@ -1,35 +1,38 @@
 # parcelable
 
-Android Parceling support for the [Kotlinx Serialization library](https://github.com/Kotlin/kotlinx.serialization)
-. <br />
-<img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/chRyNaN/serialization-parcelable">
-
+Android Parceling support for the [Kotlinx Serialization library](https://github.com/Kotlin/kotlinx.serialization).
+<br/><img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/chRyNaN/serialization-parcelable">
 <a href="https://androidweekly.net/issues/issue-450"><img alt="Badge" src="https://androidweekly.net/issues/issue-450/badge" height="20px"></img></a>
 
 ```kotlin
-intent.putExtra("key", value, serializer)
-val value = intent.getParcelableExtra("key", deserializer)
+// Add to Android Intent
+intent.putExtra(name = "com.example.MyModel", value = myModel, serializer = MyModel.serializer())
+
+// Retrieve from Android Intent
+val result = intent.getParcelableExtra(name = "com.example.MyModel", deserializer = MyModel.serializer())
+
+check(result == myModel) // True
 
 // Compose
-rememberSavable(serializer) { value }
+val result = rememberSavable(serializer = MyModel.serializer()) { MyModel(...) }
 ```
 
-Now all the serialization can be handled from a single library, no need to create both custom Parcelers and Serializers.
-Have a custom class that requires specific serialization? Use
+All serialization for an Android or Multi-platform project can be handled from a single library, no need to create both
+custom Android Parcelers and Serializers. Use
 the [Kotlinx Serialization library](https://github.com/Kotlin/kotlinx.serialization), and it will automatically work
 with Android's `Parcel`, `Bundle`, and `Intent`.
 
 ## Building
 
 The library is provided through [Repsy.io](https://repsy.io). Checkout
-the [releases page](https://github.com/chRyNaN/parcelable/releases) to get the latest version. <br />
+the [releases page](https://github.com/chRyNaN/parcelable/releases) to get the latest version. <br/>
 <img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/chRyNaN/serialization-parcelable">
 
 ### Repository
 
-```groovy
+```kotlin
 repositories {
-    maven { url = "https://repo.repsy.io/mvn/chrynan/public" }
+    maven { url = uri("https://repo.repsy.io/mvn/chrynan/public") }
 }
 ```
 
@@ -37,7 +40,7 @@ repositories {
 
 #### Core
 
-```groovy
+```kotlin
 implementation("com.chrynan.parcelable:parcelable-core:$VERSION")
 ```
 
@@ -49,7 +52,12 @@ implementation("com.chrynan.parcelable:parcelable-compose:$VERSION")
 
 ## Usage
 
-* Setup the `Parcelable` object:
+### Set up the `Parcelable` object
+
+Similar to the `Json` object introduced by
+the [Kotlinx Serialization library](https://github.com/Kotlin/kotlinx.serialization), this library introduces a
+`Parcelable` object. The extension functions default to using the `Parcelable.Default` value if a `Parcelable` instance
+is not provided, but if customization is required, an instance can be created as follows:
 
 ```kotlin
 val parcelable = Parcelable {
@@ -57,7 +65,10 @@ val parcelable = Parcelable {
 }
 ```
 
-* Use [Kotlinx Serialization](https://github.com/Kotlin/kotlinx.serialization) to serialize your model class:
+### Use [Kotlinx Serialization](https://github.com/Kotlin/kotlinx.serialization)
+
+Utilize the [Kotlinx Serialization](https://github.com/Kotlin/kotlinx.serialization) to serialize your model classes.
+These classes can then be used with Android's `Bundle`, `Intent`, and `Parcel` objects.
 
 ```kotlin
 @Serializable
@@ -68,7 +79,9 @@ data class MyModel(
 )
 ```
 
-* Pass your model through `Intents` and `Bundles`:
+### Encode and decode models
+
+#### `Intents` and `Bundles`
 
 ```kotlin
 // Put
@@ -80,7 +93,7 @@ val myModel = intent.getParcelableExtra(key, parcelable)
 val myModel = bundle.getParcelable(key, parcelable)
 ```
 
-* Or serialize to and from `Parcels` and `Bundles`:
+#### `Parcels` and `Bundles`
 
 ```kotlin
 // To
@@ -92,7 +105,7 @@ val myModel = parcelable.decodeFromParcel(parcel)
 val myModel = parcelable.decodeFromBundle(bundle)
 ```
 
-* Or serialize to a `Saver` with Jetpack Compose
+#### `Saver` with Jetpack Compose
 
 ```kotlin
 val model = rememberSavable(parcelable = parcelable, serializer = MyModel.serializer) { myModel }
