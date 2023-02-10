@@ -227,3 +227,14 @@ inline fun <reified T : Any> Parcelable.decodeFromBundleOrNull(bundle: Bundle, f
     }
 
 //endregion
+
+/**
+ * Reads the Parcel contents into this Bundle, typically in order for it to be passed through an IBinder connection.
+ * Params:
+ * parcel – The parcel to overwrite this bundle from.
+ */
+fun Bundle.readFromParcel(parcel: com.chrynan.parcelable.core.Parcel) {
+    require(parcel is AndroidParcel) { "parcel must be an AndroidParcel instance for the Bundle.readFromParcel function." }
+
+    this.readFromParcel(parcel.toAndroidParcel())
+}
