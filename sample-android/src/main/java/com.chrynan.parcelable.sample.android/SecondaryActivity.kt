@@ -33,7 +33,11 @@ class SecondaryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_secondary)
 
         // Retrieves the model with the special serialization getParcelable() function
-        val model = intent?.extras?.getParcelable<Model>(KEY_MODEL, SerializerUtils.parcelable)
+        val model = intent?.extras?.getParcelable(
+            key = KEY_MODEL,
+            deserializer = Model.serializer(),
+            parcelable = SerializerUtils.parcelable
+        )
 
         modelExpectedTextView.text = ExpectedModel.model.toString()
         modelExpectedJsonTextView.setJsonText(Model.serializer(), ExpectedModel.model)
@@ -57,7 +61,7 @@ class SecondaryActivity : AppCompatActivity() {
         fun newIntent(context: Context, model: Model) =
             Intent(context, SecondaryActivity::class.java).apply {
                 // This is the special serialization putExtra() function
-                putExtra(KEY_MODEL, model, SerializerUtils.parcelable)
+                putExtra(name = KEY_MODEL, value = model, parcelable = SerializerUtils.parcelable)
             }
     }
 }

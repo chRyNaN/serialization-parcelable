@@ -111,6 +111,20 @@ val myModel = parcelable.decodeFromBundle(bundle)
 val model = rememberSavable(parcelable = parcelable, serializer = MyModel.serializer) { myModel }
 ```
 
+### Multiplatform
+
+This library is a Kotlin Multi-platform library and supports Android, iOS, JVM, and JS Kotlin targets. The `Parcelable`
+and `Parcel` objects are available in the common source set and can be used to encode and decode models. Then, in
+platform specific code, the `Parcels` can be stored and retrieved between different components (ex: Android Intents).
+
+```kotlin
+// Common Code
+val parcel = parcelable.encodeToParcel(serializer = MyModel.serializer(), value = myModel)
+
+// Android Code
+Bundle().readFromParcel(parcel)
+```
+
 ## Documentation
 
 More detailed documentation is available in the [docs](docs) folder. The entry point to the documentation can be

@@ -22,6 +22,7 @@ local.properties
 .externalNativeBuild
 out/
 **/out/
+**/**.log
 
 # Gradle
 .gradle

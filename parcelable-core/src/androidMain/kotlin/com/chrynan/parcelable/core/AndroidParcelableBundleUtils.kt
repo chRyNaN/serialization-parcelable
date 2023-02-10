@@ -23,7 +23,7 @@ fun <T : Any> Parcelable.encodeToBundle(value: T, kClass: KClass<T>): Bundle {
 
     // Write the properties of the value to the Parcel, then set its data
     // position back to zero so that it can be read.
-    this.encodeToParcel(value = value, parcel = parcel, kclass = kClass)
+    this.encodeToParcel(value = value, parcel = parcel.toParcel(), kClass = kClass)
     parcel.setDataPosition(0)
 
     // Obtain a new Parcel from the Parcel Pool and write to it the size
@@ -76,7 +76,7 @@ fun <T> Parcelable.encodeToBundle(value: T, serializer: SerializationStrategy<T>
 
     // Write the properties of the value to the Parcel, then set its data
     // position back to zero so that it can be read.
-    this.encodeToParcel(value = value, parcel = parcel, serializer = serializer)
+    this.encodeToParcel(value = value, parcel = parcel.toParcel(), serializer = serializer)
     parcel.setDataPosition(0)
 
     // Obtain a new Parcel from the Parcel Pool and write to it the size
@@ -154,7 +154,7 @@ fun <T : Any> Parcelable.decodeFromBundle(bundle: Bundle, kClass: KClass<T>, fla
     parcel.readInt()
 
     // Create an instance of the class from the Parcel starting at the current data position.
-    val item = this.decodeFromParcel(parcel, kClass)
+    val item = this.decodeFromParcel(parcel = parcel.toParcel(), kClass = kClass)
 
     // Recycle the Parcel after use.
     parcel.recycle()
@@ -193,7 +193,7 @@ fun <T> Parcelable.decodeFromBundle(
     parcel.readInt()
 
     // Create an instance of the class from the Parcel starting at the current data position.
-    val item = this.decodeFromParcel(parcel, deserializer)
+    val item = this.decodeFromParcel(parcel = parcel.toParcel(), deserializer = deserializer)
 
     // Recycle the Parcel after use.
     parcel.recycle()

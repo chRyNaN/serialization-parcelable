@@ -68,7 +68,7 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
      *
      * @return The provided [parcel] containing the encoded [value].
      */
-    fun <T> encodeToParcel(parcel: Parcel, serializer: SerializationStrategy<T>, value: T): Parcel {
+    fun <T> encodeToParcel(parcel: Parcel = Parcel(), serializer: SerializationStrategy<T>, value: T): Parcel {
         val encoder = ParcelEncoder(serializersModule = serializersModule, output = parcel)
 
         encoder.encodeSerializableValue(serializer, value)
@@ -120,7 +120,7 @@ fun Parcelable(
  * [Parcelable.serializersModule].
  */
 @ExperimentalSerializationApi
-inline fun <reified T> Parcelable.encodeToParcel(parcel: Parcel, value: T): Parcel {
+inline fun <reified T> Parcelable.encodeToParcel(parcel: Parcel = Parcel(), value: T): Parcel {
     val encoder = ParcelEncoder(serializersModule = serializersModule, output = parcel)
 
     encoder.encodeSerializableValue(serializersModule.serializer(), value)
