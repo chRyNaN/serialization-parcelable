@@ -3,6 +3,7 @@ package com.chrynan.parcelable.sample.android
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.chrynan.parcelable.core.getParcelable
@@ -33,16 +34,22 @@ class SecondaryActivity : AppCompatActivity() {
         setContentView(R.layout.activity_secondary)
 
         // Retrieves the model with the special serialization getParcelable() function
-        val model = intent?.extras?.getParcelable(
-            key = KEY_MODEL,
-            deserializer = Model.serializer(),
-            parcelable = SerializerUtils.parcelable
-        )
+        val model = try {
+            intent?.extras?.getParcelable(
+                key = KEY_MODEL,
+                deserializer = Model.serializer(),
+                parcelable = SerializerUtils.parcelable
+            )
+        } catch (e: Exception) {
+            Log.e("Parcelable", "Error deserializing model: ${e.message}")
+
+            null
+        }
 
         modelExpectedTextView.text = ExpectedModel.model.toString()
         modelExpectedJsonTextView.setJsonText(Model.serializer(), ExpectedModel.model)
 
-        modelRetrievedTextView.text = model.toString()
+        modelRetrievedTextView.text = model?.toString() ?: "null - unexpected error deserializing model"
         modelRetrievedJsonTextView.setJsonText(Model.serializer(), model)
 
         if (model == ExpectedModel.model) {
@@ -61,7 +68,12 @@ class SecondaryActivity : AppCompatActivity() {
         fun newIntent(context: Context, model: Model) =
             Intent(context, SecondaryActivity::class.java).apply {
                 // This is the special serialization putExtra() function
-                putExtra(name = KEY_MODEL, value = model, parcelable = SerializerUtils.parcelable)
+                putExtra(
+                    name = KEY_MODEL,
+                    value = model,
+                    parcelable = SerializerUtils.parcelable,
+                    serializer = Model.serializer()
+                )
             }
     }
 }

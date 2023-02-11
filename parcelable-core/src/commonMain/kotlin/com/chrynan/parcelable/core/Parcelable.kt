@@ -66,6 +66,15 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
     /**
      * Encodes the provided [value] to the provided [parcel] using the provided [serializer].
      *
+     * Note that the provided [parcel] must already be set to the appropriate [Parcel.dataPosition] before invoking
+     * this function, as this function does not make assumptions about where the starting [Parcel.dataPosition] is
+     * located. Failure to do so may result in an exception being thrown when attempting to encode.
+     *
+     * @param [parcel] The [Parcel] to encode the [value] to. Defaults to an empty [Parcel]. The [Parcel.dataPosition]
+     * must be set correctly.
+     * @param [serializer] The [SerializationStrategy] used to encode the [value] to the [parcel].
+     * @param [value] The value that should be encoded into the [parcel].
+     *
      * @return The provided [parcel] containing the encoded [value].
      */
     fun <T> encodeToParcel(parcel: Parcel = Parcel(), serializer: SerializationStrategy<T>, value: T): Parcel {
@@ -79,11 +88,17 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
     /**
      * Decodes the value of [T] from the provided [parcel] using the provided [deserializer].
      *
-     * @return The decoded value of [T].
+     * Note that the provided [parcel] must already be set to the appropriate [Parcel.dataPosition] before invoking
+     * this function, as this function does not make assumptions about where the starting [Parcel.dataPosition] is
+     * located. Failure to do so may result in an exception being thrown when attempting to decode.
+     *
+     * @param [parcel] The [Parcel] to decode the returned value from. The [Parcel.dataPosition] must be set correctly.
+     * @param [deserializer] The [DeserializationStrategy] used to decode the value from the [parcel].
+     *
+     * @return The decoded value of [T] obtained from the [parcel].
      */
     fun <T> decodeFromParcel(parcel: Parcel, deserializer: DeserializationStrategy<T>): T {
-        val newParcel = Parcel(parcel.toByteArray())
-        val decoder = ParcelDecoder(serializersModule = serializersModule, input = newParcel)
+        val decoder = ParcelDecoder(serializersModule = serializersModule, input = parcel)
 
         return decoder.decodeSerializableValue(deserializer)
     }
@@ -101,11 +116,12 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
  *
  * @return A [Parcelable.Custom] instance using the provided configuration values.
  */
+@Suppress("FunctionName")
 @ExperimentalSerializationApi
 fun Parcelable(
     from: Parcelable = Parcelable.Default,
     builderAction: ParcelableConfigurationBuilder.() -> Unit
-): Parcelable {
+): Parcelable.Custom {
     val builder = ParcelableConfigurationBuilder(from.configuration)
 
     builder.builderAction()
@@ -116,8 +132,18 @@ fun Parcelable(
 }
 
 /**
- * A convenience function to [Parcelable.encodeToParcel] that retrieves the serializer from the
- * [Parcelable.serializersModule].
+ * Encodes the provided [value] to the provided [parcel] using the provided [serializer]. This is a convenience
+ * function to [Parcelable.encodeToParcel] that retrieves the serializer from the [Parcelable.serializersModule].
+ *
+ * Note that the provided [parcel] must already be set to the appropriate [Parcel.dataPosition] before invoking
+ * this function, as this function does not make assumptions about where the starting [Parcel.dataPosition] is
+ * located. Failure to do so may result in an exception being thrown when attempting to encode.
+ *
+ * @param [parcel] The [Parcel] to encode the [value] to. Defaults to an empty [Parcel]. The [Parcel.dataPosition]
+ * must be set correctly.
+ * @param [value] The value that should be encoded into the [parcel].
+ *
+ * @return The provided [parcel] containing the encoded [value].
  */
 @ExperimentalSerializationApi
 inline fun <reified T> Parcelable.encodeToParcel(parcel: Parcel = Parcel(), value: T): Parcel {
@@ -129,8 +155,16 @@ inline fun <reified T> Parcelable.encodeToParcel(parcel: Parcel = Parcel(), valu
 }
 
 /**
- * A convenience function to [Parcelable.decodeFromParcel] that retrieves the deserializer from the
- * [Parcelable.serializersModule].
+ * Decodes the value of [T] from the provided [parcel]. This is a convenience function to [Parcelable.decodeFromParcel]
+ * that retrieves the deserializer from the [Parcelable.serializersModule].
+ *
+ * Note that the provided [parcel] must already be set to the appropriate [Parcel.dataPosition] before invoking
+ * this function, as this function does not make assumptions about where the starting [Parcel.dataPosition] is
+ * located. Failure to do so may result in an exception being thrown when attempting to decode.
+ *
+ * @param [parcel] The [Parcel] to decode the returned value from. The [Parcel.dataPosition] must be set correctly.
+ *
+ * @return The decoded value of [T] obtained from the [parcel].
  */
 @ExperimentalSerializationApi
 inline fun <reified T> Parcelable.decodeFromParcel(parcel: Parcel): T {

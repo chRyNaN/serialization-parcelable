@@ -3,10 +3,7 @@
 package com.chrynan.parcelable.core
 
 import android.annotation.SuppressLint
-import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerializationException
-import kotlinx.serialization.serializer
-import kotlin.reflect.KClass
 
 /**
  * An Android implementation of the [Parcel] interface. This class wraps the provided [android.os.Parcel] [parcel] and
@@ -198,7 +195,13 @@ actual fun Parcel(data: ByteArray): Parcel {
 
     androidParcel.unmarshall(data, 0, data.size)
 
-    androidParcel.setDataPosition(0)
+    // Warning - magic number usage!
+    // Note: This is necessary for the implementation because an Android Parcel first contains the encoded size value
+    // and then some magic number that is used in the internal implementation of the Android Parcel class. Both are Int
+    // values which each take up four bytes, so we set the data position to eight so that we can read/write from the
+    // next value. See the Parcelable.encodeToBundle/Parcelable.decodeFromBundle implementations in the
+    // AndroidParcelBundleUtils.kt file for more details.
+    androidParcel.setDataPosition(8)
 
     return AndroidParcel(androidParcel)
 }
@@ -216,28 +219,3 @@ inline fun Parcel(androidParcel: android.os.Parcel): Parcel =
 @Suppress("NOTHING_TO_INLINE")
 inline fun android.os.Parcel.toParcel(): Parcel =
     AndroidParcel(parcel = this)
-
-/**
- * A convenience function to [Parcelable.encodeToParcel] that retrieves the serializer from the
- * [Parcelable.serializersModule].
- */
-@ExperimentalSerializationApi
-fun <T : Any> Parcelable.encodeToParcel(parcel: Parcel = Parcel(), kClass: KClass<T>, value: T): Parcel {
-    val encoder = ParcelEncoder(serializersModule = serializersModule, output = parcel)
-
-    encoder.encodeSerializableValue(serializersModule.serializer(kClass.java), value)
-
-    return parcel
-}
-
-/**
- * A convenience function to [Parcelable.decodeFromParcel] that retrieves the deserializer from the
- * [Parcelable.serializersModule].
- */
-@Suppress("UNCHECKED_CAST")
-@ExperimentalSerializationApi
-fun <T : Any> Parcelable.decodeFromParcel(parcel: Parcel, kClass: KClass<T>): T {
-    val decoder = ParcelDecoder(serializersModule = serializersModule, input = parcel)
-
-    return decoder.decodeSerializableValue(serializersModule.serializer(kClass.java)) as T
-}

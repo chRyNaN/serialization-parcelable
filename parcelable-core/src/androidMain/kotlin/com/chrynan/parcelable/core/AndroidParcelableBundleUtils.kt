@@ -144,8 +144,7 @@ fun <T : Any> Parcelable.decodeFromBundle(bundle: Bundle, kClass: KClass<T>, fla
     parcel.setDataPosition(0)
 
     // The first property is the length field. We don't specifically need to use the value
-    // but if the value is less than or equal to zero then there are no properties, so we
-    // return null.
+    // but if the value is less than or equal to zero then there are no properties, so we throw an exception.
     if (parcel.readInt() <= 0) throw SerializationException("Error decoding a value from the Bundle. length = 0.")
 
     // There's some internal "magic" int property that we don't need. We just read it so
@@ -183,8 +182,7 @@ fun <T> Parcelable.decodeFromBundle(
     parcel.setDataPosition(0)
 
     // The first property is the length field. We don't specifically need to use the value
-    // but if the value is less than or equal to zero than there are no properties, so we
-    // return null.
+    // but if the value is less than or equal to zero than there are no properties, so we throw an exception.
     if (parcel.readInt() <= 0) throw SerializationException("Error decoding a value from the Bundle. length = 0.")
 
     // There's some internal "magic" int property that we don't need. We just read it so
