@@ -195,13 +195,7 @@ actual fun Parcel(data: ByteArray): Parcel {
 
     androidParcel.unmarshall(data, 0, data.size)
 
-    // Warning - magic number usage!
-    // Note: This is necessary for the implementation because an Android Parcel first contains the encoded size value
-    // and then some magic number that is used in the internal implementation of the Android Parcel class. Both are Int
-    // values which each take up four bytes, so we set the data position to eight so that we can read/write from the
-    // next value. See the Parcelable.encodeToBundle/Parcelable.decodeFromBundle implementations in the
-    // AndroidParcelBundleUtils.kt file for more details.
-    androidParcel.setDataPosition(8)
+    androidParcel.setDataPosition(0)
 
     return AndroidParcel(androidParcel)
 }
