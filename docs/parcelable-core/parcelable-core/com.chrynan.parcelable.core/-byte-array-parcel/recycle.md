@@ -5,4 +5,4 @@
 [common]\
 open override fun [recycle](recycle.md)()
 
-Puts this parcel object back into the pool, removing its data. This parcel object should not be used after it is recycled.
+Puts this parcel object back into the pool, removing its data. This parcel object should not be used after it is recycled. Attempting to write or read from a recycled [Parcel](../-parcel/index.md) may cause an exception to be thrown.

@@ -3,6 +3,8 @@
 # ParcelableConfiguration
 
 [common]\
+@ExperimentalSerializationApi
+
 data class [ParcelableConfiguration](index.md)
 
 A class containing configuration values used in a [Parcelable](../-parcelable/index.md) instance.

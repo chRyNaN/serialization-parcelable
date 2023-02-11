@@ -7,6 +7,17 @@ fun &lt;[T](decode-from-parcel.md)&gt; [decodeFromParcel](decode-from-parcel.md)
 
 Decodes the value of [T](decode-from-parcel.md) from the provided [parcel](decode-from-parcel.md) using the provided [deserializer](decode-from-parcel.md).
 
+Note that the provided [parcel](decode-from-parcel.md) must already be set to the appropriate [Parcel.dataPosition](../-parcel/data-position.md) before invoking this function, as this function does not make assumptions about where the starting [Parcel.dataPosition](../-parcel/data-position.md) is located. Failure to do so may result in an exception being thrown when attempting to decode.
+
 #### Return
 
-The decoded value of [T](decode-from-parcel.md).
+The decoded value of [T](decode-from-parcel.md) obtained from the [parcel](decode-from-parcel.md).
+
+#### Parameters
+
+common
+
+| | |
+|---|---|
+| parcel | The [Parcel](../-parcel/index.md) to decode the returned value from. The [Parcel.dataPosition](../-parcel/data-position.md) must be set correctly. |
+| deserializer | The DeserializationStrategy used to decode the value from the [parcel](decode-from-parcel.md). |

@@ -3,7 +3,10 @@
 # Parcelable
 
 [common]\
-fun [Parcelable](-parcelable.md)(from: [Parcelable](-parcelable/index.md) = Parcelable.Default, builderAction: [ParcelableConfigurationBuilder](-parcelable-configuration-builder/index.md).() -&gt; [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)): [Parcelable](-parcelable/index.md)
+
+@ExperimentalSerializationApi
+
+fun [Parcelable](-parcelable.md)(from: [Parcelable](-parcelable/index.md) = Parcelable.Default, builderAction: [ParcelableConfigurationBuilder](-parcelable-configuration-builder/index.md).() -&gt; [Unit](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html)): [Parcelable.Custom](-parcelable/-custom/index.md)
 
 Creates a custom [Parcelable](-parcelable/index.md) implementation using the provided [from](-parcelable/index.md) as a base for the configuration and the provided [builderAction](-parcelable.md) function to override those configuration values.
 
@@ -11,7 +14,7 @@ Creates a custom [Parcelable](-parcelable/index.md) implementation using the pro
 
 A [Parcelable.Custom](-parcelable/-custom/index.md) instance using the provided configuration values.
 
-## Parameters
+#### Parameters
 
 common
 

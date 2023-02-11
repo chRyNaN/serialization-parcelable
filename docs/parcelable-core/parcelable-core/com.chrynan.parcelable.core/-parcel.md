@@ -2,6 +2,11 @@
 
 # Parcel
 
+[android]\
+inline fun [Parcel](-parcel.md)(androidParcel: [Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html)): [Parcel](../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md)
+
+Creates a [com.chrynan.parcelable.core.Parcel](../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md) instance from the provided [android.os.Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html) class.
+
 [common]\
 expect fun [Parcel](-parcel.md)(): [Parcel](-parcel/index.md)
 

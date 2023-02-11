@@ -3,6 +3,8 @@
 # ParcelableConfigurationBuilder
 
 [common]\
+@ExperimentalSerializationApi
+
 class [ParcelableConfigurationBuilder](index.md)
 
 A builder class to create an instance of [ParcelableConfiguration](../-parcelable-configuration/index.md).

@@ -3,7 +3,9 @@
 # ParcelEncoder
 
 [common]\
-class [ParcelEncoder](index.md)(serializersModule: SerializersModule, output: [Parcel](../-parcel/index.md)) : AbstractEncoder
+@ExperimentalSerializationApi
+
+class [ParcelEncoder](index.md)(val serializersModule: SerializersModule = EmptySerializersModule(), output: [Parcel](../-parcel/index.md)) : AbstractEncoder
 
 An Encoder that encodes its values to the provided [output](../-parcel/index.md).
 
@@ -11,7 +13,7 @@ An Encoder that encodes its values to the provided [output](../-parcel/index.md)
 
 | | |
 |---|---|
-| [ParcelEncoder](-parcel-encoder.md) | [common]<br>fun [ParcelEncoder](-parcel-encoder.md)(serializersModule: SerializersModule = EmptySerializersModule, output: [Parcel](../-parcel/index.md)) |
+| [ParcelEncoder](-parcel-encoder.md) | [common]<br>fun [ParcelEncoder](-parcel-encoder.md)(serializersModule: SerializersModule = EmptySerializersModule(), output: [Parcel](../-parcel/index.md)) |
 
 ## Functions
 
@@ -31,7 +33,7 @@ An Encoder that encodes its values to the provided [output](../-parcel/index.md)
 | [encodeEnum](encode-enum.md) | [common]<br>open override fun [encodeEnum](encode-enum.md)(enumDescriptor: SerialDescriptor, index: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)) |
 | [encodeFloat](encode-float.md) | [common]<br>open override fun [encodeFloat](encode-float.md)(value: [Float](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)) |
 | [encodeFloatElement](index.md#-570516580%2FFunctions%2F1557879601) | [common]<br>override fun [encodeFloatElement](index.md#-570516580%2FFunctions%2F1557879601)(descriptor: SerialDescriptor, index: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html), value: [Float](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html)) |
-| [encodeInline](index.md#-3972464%2FFunctions%2F1557879601) | [common]<br>open override fun [encodeInline](index.md#-3972464%2FFunctions%2F1557879601)(inlineDescriptor: SerialDescriptor): Encoder |
+| [encodeInline](index.md#-3972464%2FFunctions%2F1557879601) | [common]<br>open override fun [encodeInline](index.md#-3972464%2FFunctions%2F1557879601)(descriptor: SerialDescriptor): Encoder |
 | [encodeInlineElement](index.md#2108465011%2FFunctions%2F1557879601) | [common]<br>override fun [encodeInlineElement](index.md#2108465011%2FFunctions%2F1557879601)(descriptor: SerialDescriptor, index: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)): Encoder |
 | [encodeInt](encode-int.md) | [common]<br>open override fun [encodeInt](encode-int.md)(value: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)) |
 | [encodeIntElement](index.md#-761765764%2FFunctions%2F1557879601) | [common]<br>override fun [encodeIntElement](index.md#-761765764%2FFunctions%2F1557879601)(descriptor: SerialDescriptor, index: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html), value: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)) |
@@ -49,7 +51,10 @@ An Encoder that encodes its values to the provided [output](../-parcel/index.md)
 | [encodeStringElement](index.md#283493024%2FFunctions%2F1557879601) | [common]<br>override fun [encodeStringElement](index.md#283493024%2FFunctions%2F1557879601)(descriptor: SerialDescriptor, index: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html), value: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)) |
 | [encodeValue](index.md#733233407%2FFunctions%2F1557879601) | [common]<br>open fun [encodeValue](index.md#733233407%2FFunctions%2F1557879601)(value: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)) |
 | [endStructure](index.md#578274407%2FFunctions%2F1557879601) | [common]<br>open override fun [endStructure](index.md#578274407%2FFunctions%2F1557879601)(descriptor: SerialDescriptor) |
+| [equals](equals.md) | [common]<br>open operator override fun [equals](equals.md)(other: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
+| [hashCode](hash-code.md) | [common]<br>open override fun [hashCode](hash-code.md)(): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [shouldEncodeElementDefault](index.md#-1741660893%2FFunctions%2F1557879601) | [common]<br>open fun [shouldEncodeElementDefault](index.md#-1741660893%2FFunctions%2F1557879601)(descriptor: SerialDescriptor, index: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
+| [toString](to-string.md) | [common]<br>open override fun [toString](to-string.md)(): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
 
 ## Properties
 

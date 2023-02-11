@@ -6,3 +6,5 @@
 open override val [dataPosition](data-position.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)
 
 The current index position in the data buffer. Should never be more than [dataSize](data-size.md).
+
+This value represents an amount of bytes.
