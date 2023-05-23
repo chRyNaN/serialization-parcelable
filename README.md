@@ -1,3 +1,5 @@
+![serialization-parcelable](assets/serialization-parcelable-logo.png)
+
 # parcelable
 
 Android Parceling support for the [Kotlinx Serialization library](https://github.com/Kotlin/kotlinx.serialization).
@@ -22,7 +24,7 @@ custom Android Parcelers and Serializers. Use
 the [Kotlinx Serialization library](https://github.com/Kotlin/kotlinx.serialization), and it will automatically work
 with Android's `Parcel`, `Bundle`, and `Intent`.
 
-## Building
+## Getting Started 🏁
 
 The library is provided through [Repsy.io](https://repsy.io). Checkout
 the [releases page](https://github.com/chRyNaN/parcelable/releases) to get the latest version. <br/>
@@ -50,7 +52,7 @@ implementation("com.chrynan.parcelable:parcelable-core:$VERSION")
 implementation("com.chrynan.parcelable:parcelable-compose:$VERSION")
 ```
 
-## Usage
+## Usage 👨‍💻
 
 ### Set up the `Parcelable` object
 
@@ -125,7 +127,7 @@ val parcel = parcelable.encodeToParcel(serializer = MyModel.serializer(), value 
 Bundle().readFromParcel(parcel)
 ```
 
-## Documentation
+## Documentation 📃
 
 More detailed documentation is available in the [docs](docs) folder. The entry point to the documentation can be
 found [here](docs/index.md).
@@ -143,7 +145,23 @@ parceling worked.
 ![Main Screen](assets/sample_main_screenshot.png)
 ![Results Screen](assets/sample_result_screenshot.png)
 
-## License
+## Security 🛡️
+
+For security vulnerabilities, concerns, or issues, please responsibly disclose the information either by opening a
+public GitHub Issue or reaching out to the project owner.
+
+## Contributing ✍️
+
+Outside contributions are welcome for this project. Please follow the [code of conduct](CODE_OF_CONDUCT.md)
+and [coding conventions](CODING_CONVENTIONS.md) when contributing. If contributing code, please add thorough documents.
+and tests. Thank you!
+
+## Sponsorship ❤️
+
+Support this project by [becoming a sponsor](https://www.buymeacoffee.com/chrynan) of my work! And make sure to give the
+repository a ⭐
+
+## License ⚖️
 
 ```
 Copyright 2021 chRyNaN
