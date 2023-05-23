@@ -1,10 +1,6 @@
-@file:Suppress("unused", "FunctionName")
-
 package com.chrynan.parcelable.compose
 
 import androidx.compose.runtime.Stable
-import androidx.compose.runtime.saveable.Saver
-import androidx.compose.runtime.saveable.SaverScope
 import com.chrynan.parcelable.core.Parcel
 import com.chrynan.parcelable.core.Parcelable
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -12,7 +8,7 @@ import kotlinx.serialization.KSerializer
 
 @Stable
 @ExperimentalSerializationApi
-internal class JvmParcelableSaver<T>(
+internal class IosParcelableSaver<T>(
     private val parcelable: Parcelable = Parcelable.Default,
     private val serializer: KSerializer<T>
 ) : Saver<T, ByteArray> {
@@ -33,7 +29,7 @@ internal class JvmParcelableSaver<T>(
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is JvmParcelableSaver<*>) return false
+        if (other !is IosParcelableSaver<*>) return false
 
         if (parcelable != other.parcelable) return false
 
@@ -47,15 +43,16 @@ internal class JvmParcelableSaver<T>(
     }
 
     override fun toString(): String =
-        "JvmParcelableSaver(parcelable=$parcelable, serializer=$serializer)"
+        "IosParcelableSaver(parcelable=$parcelable, serializer=$serializer)"
 }
 
+@Suppress("FunctionName")
 @ExperimentalSerializationApi
 internal actual fun <T : Any> InternalParcelableSaver(
     parcelable: Parcelable,
     serializer: KSerializer<T>
 ): Saver<T, *> =
-    JvmParcelableSaver(
+    IosParcelableSaver(
         parcelable = parcelable,
         serializer = serializer
     )

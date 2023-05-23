@@ -32,9 +32,8 @@ internal class JsParcelableSaver<T>(
         if (other !is JsParcelableSaver<*>) return false
 
         if (parcelable != other.parcelable) return false
-        if (serializer != other.serializer) return false
 
-        return true
+        return serializer == other.serializer
     }
 
     override fun hashCode(): Int {

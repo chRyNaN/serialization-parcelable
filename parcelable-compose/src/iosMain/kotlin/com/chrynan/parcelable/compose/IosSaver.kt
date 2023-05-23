@@ -90,7 +90,7 @@ internal actual fun <T : Any> internalRememberSaveable(
     saver: Saver<T, out Any>,
     key: String?,
     init: () -> T
-): T = remember(inputs, key, init) // We currently just delegate to remember for Javascript.
+): T = remember(inputs, key, init) // We currently just delegate to remember for iOs.
 
 @Composable
 internal actual fun <T> internalRememberSaveable(
@@ -98,4 +98,4 @@ internal actual fun <T> internalRememberSaveable(
     stateSaver: Saver<T, out Any>,
     key: String?,
     init: () -> MutableState<T>
-): MutableState<T> = remember(inputs, key, init) // We currently just delegate to remember for Javascript.
+): MutableState<T> = remember(inputs, key, init) // We currently just delegate to remember for iOS.

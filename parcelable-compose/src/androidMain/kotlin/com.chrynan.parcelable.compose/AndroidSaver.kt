@@ -9,7 +9,6 @@ actual typealias Saver<Original, Saveable> = androidx.compose.runtime.saveable.S
 
 actual typealias SaverScope = androidx.compose.runtime.saveable.SaverScope
 
-@Suppress("FunctionName")
 actual fun <Original, Saveable : Any> Saver(
     save: SaverScope.(value: Original) -> Saveable?,
     restore: (value: Saveable) -> Original?

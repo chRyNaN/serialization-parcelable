@@ -29,9 +29,8 @@ internal class AndroidParcelableSaver<T>(
         if (other !is AndroidParcelableSaver<*>) return false
 
         if (parcelable != other.parcelable) return false
-        if (serializer != other.serializer) return false
 
-        return true
+        return serializer == other.serializer
     }
 
     override fun hashCode(): Int {
