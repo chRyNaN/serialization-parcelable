@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+    - family-names: "Keenan"
+      given-names: "Christopher"
+      alias: chRyNaN
+      website: "https://chrynan.codes"
+contact:
+    - family-names: "Keenan"
+      given-names: "Christopher"
+      alias: chRyNaN
+      website: "https://chrynan.codes"
+title: "serialization-parcelable"
+type: "software"
+abstract: "Android Parcelable support for the Kotlinx Serialization library."
+license: Apache-2.0
+keywords:
+    - kotlin
+    - parcelable
+    - "kotlinx-serialization"
+    - "android-parcelable"
+    - serialization
+    - "kotlin-library"
+    - "kotlin-multiplatform"
+    - "kotlin-multiplatform-library"
+    - "kotlin-multiplatform-mobile"
+repository-code: "https://github.com/chRyNaN/serialization-parcelable"
+url: "https://github.com/chRyNaN/serialization-parcelable"

@@ -1,0 +1,26 @@
+name: Publish
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v1
+
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: 11
+
+      - name: Gradle Publish
+        env:
+          KEY: ${{ secrets.GITHUB_TOKEN }}
+          BINTRAY_USER: ${{ secrets.repsyUsername }}
+          BINTRAY_KEY: ${{ secrets.repsyToken }}
+        run: ./gradlew publish

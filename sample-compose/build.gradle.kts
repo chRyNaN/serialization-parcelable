@@ -30,12 +30,12 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                implementation("androidx.activity:activity-compose:1.6.1")
+                implementation("androidx.activity:activity-compose:_")
 
-                implementation("androidx.appcompat:appcompat:1.6.1")
+                implementation("androidx.appcompat:appcompat:_")
 
                 // Syntax highlighting
-                implementation("io.noties:prism4j:2.0.0")
+                implementation("io.noties:prism4j:_")
             }
         }
         val jvmMain by getting {
@@ -43,7 +43,7 @@ kotlin {
                 implementation(compose.desktop.currentOs)
 
                 // Syntax highlighting
-                implementation("io.noties:prism4j:2.0.0")
+                implementation("io.noties:prism4j:_")
             }
         }
     }

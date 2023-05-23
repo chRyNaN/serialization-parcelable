@@ -1,4 +1,5 @@
 import com.chrynan.parcelable.buildSrc.LibraryConstants
+import com.chrynan.parcelable.buildSrc.isBuildingOnOSX
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -22,6 +23,10 @@ kotlin {
         js(IR) {
             browser()
         }
+        if (isBuildingOnOSX()) {
+            ios()
+            iosSimulatorArm64()
+        }
     }
     sourceSets {
         all {
@@ -31,7 +36,7 @@ kotlin {
             dependencies {
                 implementation(project(":parcelable-core"))
 
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:_")
 
                 implementation(compose.runtime)
             }
@@ -45,6 +50,11 @@ kotlin {
             dependencies {
                 implementation(compose.foundation)
             }
+        }
+        if (isBuildingOnOSX()) {
+            val iosMain by sourceSets.getting
+            val iosSimulatorArm64Main by sourceSets.getting
+            iosSimulatorArm64Main.dependsOn(iosMain)
         }
     }
 }

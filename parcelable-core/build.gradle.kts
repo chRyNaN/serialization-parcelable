@@ -1,4 +1,5 @@
 import com.chrynan.parcelable.buildSrc.LibraryConstants
+import com.chrynan.parcelable.buildSrc.isBuildingOnOSX
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -30,15 +31,17 @@ kotlin {
                 }
             }
         }
-        ios()
-        iosSimulatorArm64()
+        if (isBuildingOnOSX()) {
+            ios()
+            iosSimulatorArm64()
+        }
     }
     sourceSets {
         val commonMain by getting {
             dependencies {
                 // kotlinx.serialization
-                api("org.jetbrains.kotlinx:kotlinx-serialization-core:1.4.1")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
+                api("org.jetbrains.kotlinx:kotlinx-serialization-core:_")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:_")
             }
         }
         val commonTest by getting {
@@ -46,16 +49,18 @@ kotlin {
                 implementation(kotlin("test"))
             }
         }
-        val iosMain by sourceSets.getting
-        val iosSimulatorArm64Main by sourceSets.getting
-        iosSimulatorArm64Main.dependsOn(iosMain)
+        if (isBuildingOnOSX()) {
+            val iosMain by sourceSets.getting
+            val iosSimulatorArm64Main by sourceSets.getting
+            iosSimulatorArm64Main.dependsOn(iosMain)
+        }
     }
 }
 
 dependencies {
-    androidTestImplementation("androidx.test:rules:1.5.0")
-    androidTestImplementation("androidx.test:runner:1.5.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test:rules:_")
+    androidTestImplementation("androidx.test:runner:_")
+    androidTestImplementation("androidx.test.ext:junit:_")
 }
 
 android {

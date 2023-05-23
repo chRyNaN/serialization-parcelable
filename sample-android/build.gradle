@@ -46,20 +46,20 @@ configurations {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-
-    implementation("androidx.appcompat:appcompat:1.6.1")
-
-    implementation("com.google.android.material:material:1.8.0")
-
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
-
     implementation(project(":parcelable-core"))
     implementation(project(":sample-core"))
 
-    implementation("io.noties.markwon:core:4.6.2")
-    implementation("io.noties.markwon:syntax-highlight:4.6.2")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-    implementation("io.noties:prism4j:2.0.0")
-    kapt("io.noties:prism4j-bundler:2.0.0")
+    implementation("androidx.appcompat:appcompat:_")
+
+    implementation("com.google.android.material:material:_")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:_")
+
+    implementation("io.noties.markwon:core:_")
+    implementation("io.noties.markwon:syntax-highlight:_")
+
+    implementation("io.noties:prism4j:_")
+    kapt("io.noties:prism4j-bundler:_")
 }
