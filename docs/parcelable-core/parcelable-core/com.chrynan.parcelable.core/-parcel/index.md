@@ -2,7 +2,6 @@
 
 # Parcel
 
-[common]\
 interface [Parcel](index.md) : [InputParcel](../-input-parcel/index.md), [OutputParcel](../-output-parcel/index.md)
 
 An interface representing a component that has the ability for primitive types to be written to and read from it.
@@ -13,11 +12,16 @@ Note that this is based off of the Android Parcel component.
 
 #### See also
 
-common
-
 | | |
 |---|---|
 |  | [Android Parcel](https://developer.android.com/reference/android/os/Parcel) |
+
+#### Inheritors
+
+| |
+|---|
+| [AndroidParcel](../-android-parcel/index.md#-638012278%2FMain%2F1557879601) |
+| [ByteArrayParcel](../-byte-array-parcel/index.md) |
 
 ## Functions
 
@@ -33,6 +37,7 @@ common
 | [readShort](../-input-parcel/read-short.md) | [common]<br>abstract fun [readShort](../-input-parcel/read-short.md)(): [Short](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html)<br>Retrieves a [Short](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html) from the Parcel at the current data position. |
 | [readString](../-input-parcel/read-string.md) | [common]<br>abstract fun [readString](../-input-parcel/read-string.md)(): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>Retrieves a [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) from the Parcel at the current data position. |
 | [recycle](recycle.md) | [common]<br>abstract fun [recycle](recycle.md)()<br>Puts this parcel object back into the pool, removing its data. This parcel object should not be used after it is recycled. Attempting to write or read from a recycled [Parcel](index.md) may cause an exception to be thrown. |
+| [resetDataPosition](../reset-data-position.md) | [common]<br>inline fun [Parcel](index.md).[resetDataPosition](../reset-data-position.md)()<br>A convenience function for calling the [Parcel.setDataPosition](set-data-position.md) with an index value of zero. |
 | [setDataPosition](set-data-position.md) | [common]<br>abstract fun [setDataPosition](set-data-position.md)(position: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html))<br>Sets the [dataPosition](data-position.md) to the provided [position](set-data-position.md) value. This will throw an exception if the provided [position](set-data-position.md) value is less than zero or exceeds [dataSize](data-size.md). |
 | [toByteArray](to-byte-array.md) | [common]<br>abstract fun [toByteArray](to-byte-array.md)(): [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html)<br>Obtains a [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html) of the underlying values of this [Parcel](index.md). Note that the returned [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html) data is structured in a way that is meaningful for this implementation, but doesn't guarantee any structure for outside usage or usage between different implementations. |
 | [writeBoolean](../-output-parcel/write-boolean.md) | [common]<br>abstract fun [writeBoolean](../-output-parcel/write-boolean.md)(value: [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html))<br>Writes the [Boolean](../-output-parcel/write-boolean.md) to the Parcel at the current data position. |
@@ -54,16 +59,3 @@ common
 | [dataRemaining](data-remaining.md) | [common]<br>open val [dataRemaining](data-remaining.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The remaining amount of data to be read ([dataSize](data-size.md) - [dataPosition](data-position.md)). |
 | [dataSize](data-size.md) | [common]<br>abstract val [dataSize](data-size.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The total amount of data contained in this parcel. |
 | [isRecycled](is-recycled.md) | [common]<br>abstract val [isRecycled](is-recycled.md): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Determines whether this [Parcel](index.md)s [recycle](recycle.md) function has been called already. A parcel object should not be used after it is recycled. |
-
-## Inheritors
-
-| Name |
-|---|
-| [AndroidParcel](../-android-parcel/index.md) |
-| [ByteArrayParcel](../-byte-array-parcel/index.md) |
-
-## Extensions
-
-| Name | Summary |
-|---|---|
-| [resetDataPosition](../reset-data-position.md) | [common]<br>inline fun [Parcel](index.md).[resetDataPosition](../reset-data-position.md)()<br>A convenience function for calling the [Parcel.setDataPosition](set-data-position.md) with an index value of zero. |

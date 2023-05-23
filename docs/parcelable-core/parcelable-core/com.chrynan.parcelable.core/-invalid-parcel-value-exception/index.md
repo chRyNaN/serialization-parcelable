@@ -13,4 +13,4 @@ For instance, if we expect an [Int](https://kotlinlang.org/api/latest/jvm/stdlib
 
 | | |
 |---|---|
-| [InvalidParcelValueException](-invalid-parcel-value-exception.md) | [common]<br>fun [InvalidParcelValueException](-invalid-parcel-value-exception.md)(message: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)) |
+| [InvalidParcelValueException](-invalid-parcel-value-exception.md) | [common]<br>constructor(message: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)) |

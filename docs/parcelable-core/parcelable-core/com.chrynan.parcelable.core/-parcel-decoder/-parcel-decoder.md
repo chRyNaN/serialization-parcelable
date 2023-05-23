@@ -3,4 +3,4 @@
 # ParcelDecoder
 
 [common]\
-fun [ParcelDecoder](-parcel-decoder.md)(serializersModule: SerializersModule = EmptySerializersModule(), input: [Parcel](../-parcel/index.md))
+constructor(serializersModule: SerializersModule = EmptySerializersModule(), input: [Parcel](../-parcel/index.md))

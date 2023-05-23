@@ -13,7 +13,7 @@ An Encoder that encodes its values to the provided [output](../-parcel/index.md)
 
 | | |
 |---|---|
-| [ParcelEncoder](-parcel-encoder.md) | [common]<br>fun [ParcelEncoder](-parcel-encoder.md)(serializersModule: SerializersModule = EmptySerializersModule(), output: [Parcel](../-parcel/index.md)) |
+| [ParcelEncoder](-parcel-encoder.md) | [common]<br>constructor(serializersModule: SerializersModule = EmptySerializersModule(), output: [Parcel](../-parcel/index.md)) |
 
 ## Functions
 

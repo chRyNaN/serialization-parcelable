@@ -2,10 +2,15 @@
 
 # OutputParcel
 
-[common]\
 interface [OutputParcel](index.md)
 
 An interface that provides a way to write to a basic output source. This interface provides the writing functionality of the [Parcel](../-parcel/index.md) interface.
+
+#### Inheritors
+
+| |
+|---|
+| [Parcel](../-parcel/index.md) |
 
 ## Functions
 
@@ -20,9 +25,3 @@ An interface that provides a way to write to a basic output source. This interfa
 | [writeLong](write-long.md) | [common]<br>abstract fun [writeLong](write-long.md)(value: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html))<br>Writes the [Long](write-long.md) to the Parcel at the current data position. |
 | [writeShort](write-short.md) | [common]<br>abstract fun [writeShort](write-short.md)(value: [Short](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html))<br>Writes the [Short](write-short.md) to the Parcel at the current data position. |
 | [writeString](write-string.md) | [common]<br>abstract fun [writeString](write-string.md)(value: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html))<br>Writes the [String](write-string.md) to the Parcel at the current data position. |
-
-## Inheritors
-
-| Name |
-|---|
-| [Parcel](../-parcel/index.md) |

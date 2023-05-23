@@ -6,7 +6,7 @@
 
 @ExperimentalSerializationApi
 
-fun &lt;[T]([android]decode-from-parcel.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](-parcelable/index.md#1131268509%2FExtensions%2F-1462739831).[decodeFromParcel]([android]decode-from-parcel.md)(parcel: [Parcel](../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md), kClass: [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)&lt;[T]([android]decode-from-parcel.md)&gt;): [T]([android]decode-from-parcel.md)
+fun &lt;[T]([android]decode-from-parcel.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt; [Parcelable](-parcelable/index.md#1131268509%2FMain%2F-1462739831).[decodeFromParcel]([android]decode-from-parcel.md)(parcel: [Parcel](../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md), kClass: [KClass](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.reflect/-k-class/index.html)&lt;[T]([android]decode-from-parcel.md)&gt;): [T]([android]decode-from-parcel.md)
 
 Decodes the value of [T]([android]decode-from-parcel.md) from the provided [parcel]([android]decode-from-parcel.md). This is a convenience function to [Parcelable.decodeFromParcel](../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcelable/decode-from-parcel.md) that retrieves the deserializer from the [Parcelable.serializersModule](../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcelable/serializers-module.md) from the provided [kClass]([android]decode-from-parcel.md).
 

@@ -2,7 +2,6 @@
 
 # AndroidParcel
 
-[android]\
 class [AndroidParcel](index.md) : [Parcel](../../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md)
 
 An Android implementation of the [Parcel](../../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md) interface. This class wraps the provided [android.os.Parcel](../../../../parcelable-core/com.chrynan.parcelable.core/-android-parcel/parcel.md) and delegates the reading and writing to it.
@@ -10,8 +9,6 @@ An Android implementation of the [Parcel](../../../../parcelable-core/parcelable
 Note that this class should not be confused with the [android.os.Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html). Instead, this class wraps that class and implements the [Parcel](../../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md) interface of this library.
 
 #### See also
-
-android
 
 | |
 |---|
@@ -34,6 +31,7 @@ android
 | [readShort](read-short.md) | [android]<br>open override fun [readShort](read-short.md)(): [Short](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html)<br>Retrieves a [Short](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html) from the Parcel at the current data position. |
 | [readString](read-string.md) | [android]<br>open override fun [readString](read-string.md)(): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>Retrieves a [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) from the Parcel at the current data position. |
 | [recycle](recycle.md) | [android]<br>open override fun [recycle](recycle.md)()<br>Puts this parcel object back into the pool, removing its data. This parcel object should not be used after it is recycled. Attempting to write or read from a recycled [Parcel](../../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md) may cause an exception to be thrown. |
+| [resetDataPosition](../reset-data-position.md) | [common]<br>inline fun [Parcel](../-parcel/index.md).[resetDataPosition](../reset-data-position.md)()<br>A convenience function for calling the [Parcel.setDataPosition](../-parcel/set-data-position.md) with an index value of zero. |
 | [setDataPosition](set-data-position.md) | [android]<br>open override fun [setDataPosition](set-data-position.md)(position: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html))<br>Sets the [dataPosition](data-position.md) to the provided [position](set-data-position.md) value. This will throw an exception if the provided [position](set-data-position.md) value is less than zero or exceeds [dataSize](data-size.md). |
 | [toByteArray](to-byte-array.md) | [android]<br>open override fun [toByteArray](to-byte-array.md)(): [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html)<br>Obtains a [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html) of the underlying values of this [Parcel](../../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md). Note that the returned [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html) data is structured in a way that is meaningful for this implementation, but doesn't guarantee any structure for outside usage or usage between different implementations. |
 | [toString](to-string.md) | [android]<br>open override fun [toString](to-string.md)(): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
@@ -55,10 +53,4 @@ android
 | [dataPosition](data-position.md) | [android]<br>open override val [dataPosition](data-position.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The current index position in the data buffer. Should never be more than [dataSize](data-size.md). |
 | [dataRemaining](index.md#-139993914%2FProperties%2F-1462739831) | [android]<br>open val [dataRemaining](index.md#-139993914%2FProperties%2F-1462739831): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The remaining amount of data to be read ([dataSize](../../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/data-size.md) - [dataPosition](../../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/data-position.md)). |
 | [dataSize](data-size.md) | [android]<br>open override val [dataSize](data-size.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The total amount of data contained in this parcel. |
-| [isRecycled](is-recycled.md) | [android]<br>open override var [isRecycled](is-recycled.md): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) = false<br>Determines whether this [Parcel](../../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md)s [recycle](recycle.md) function has been called already. A parcel object should not be used after it is recycled. |
-
-## Extensions
-
-| Name | Summary |
-|---|---|
-| [resetDataPosition](../reset-data-position.md) | [common]<br>inline fun [Parcel](../-parcel/index.md).[resetDataPosition](../reset-data-position.md)()<br>A convenience function for calling the [Parcel.setDataPosition](../-parcel/set-data-position.md) with an index value of zero. |
+| [isRecycled](is-recycled.md) | [android]<br>open override var [isRecycled](is-recycled.md): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Determines whether this [Parcel](../../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md)s [recycle](recycle.md) function has been called already. A parcel object should not be used after it is recycled. |

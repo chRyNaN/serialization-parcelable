@@ -2,10 +2,15 @@
 
 # InputParcel
 
-[common]\
 interface [InputParcel](index.md)
 
 An interface that provides a way to read from a basic input source. This interface provides the reading functionality of the [Parcel](../-parcel/index.md) interface.
+
+#### Inheritors
+
+| |
+|---|
+| [Parcel](../-parcel/index.md) |
 
 ## Functions
 
@@ -20,9 +25,3 @@ An interface that provides a way to read from a basic input source. This interfa
 | [readLong](read-long.md) | [common]<br>abstract fun [readLong](read-long.md)(): [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html)<br>Retrieves a [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html) from the Parcel at the current data position. |
 | [readShort](read-short.md) | [common]<br>abstract fun [readShort](read-short.md)(): [Short](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html)<br>Retrieves a [Short](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html) from the Parcel at the current data position. |
 | [readString](read-string.md) | [common]<br>abstract fun [readString](read-string.md)(): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)<br>Retrieves a [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) from the Parcel at the current data position. |
-
-## Inheritors
-
-| Name |
-|---|
-| [Parcel](../-parcel/index.md) |
