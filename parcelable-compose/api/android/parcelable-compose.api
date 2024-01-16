@@ -1,0 +1,19 @@
+public final class com/chrynan/parcelable/compose/AndroidSaverKt {
+	public static final fun Saver (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Landroidx/compose/runtime/saveable/Saver;
+	public static final fun autoSaver ()Landroidx/compose/runtime/saveable/Saver;
+	public static final fun listSaver (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Landroidx/compose/runtime/saveable/Saver;
+	public static final fun mapSaver (Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;)Landroidx/compose/runtime/saveable/Saver;
+}
+
+public final class com/chrynan/parcelable/compose/ParcelableSaverUtilsKt {
+	public static final fun ParcelableSaver (Lcom/chrynan/parcelable/core/Parcelable;Lkotlinx/serialization/KSerializer;)Landroidx/compose/runtime/saveable/Saver;
+	public static synthetic fun ParcelableSaver$default (Lcom/chrynan/parcelable/core/Parcelable;Lkotlinx/serialization/KSerializer;ILjava/lang/Object;)Landroidx/compose/runtime/saveable/Saver;
+	public static final fun rememberSavable ([Ljava/lang/Object;Lcom/chrynan/parcelable/core/Parcelable;Lkotlinx/serialization/KSerializer;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)Ljava/lang/Object;
+	public static final fun rememberSaveable ([Ljava/lang/Object;Lcom/chrynan/parcelable/core/Parcelable;Lkotlinx/serialization/KSerializer;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)Landroidx/compose/runtime/MutableState;
+}
+
+public final class com/chrynan/parcelable/compose/SaverKt {
+	public static final fun rememberSaveable ([Ljava/lang/Object;Landroidx/compose/runtime/saveable/Saver;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)Landroidx/compose/runtime/MutableState;
+	public static final fun rememberSaveable ([Ljava/lang/Object;Landroidx/compose/runtime/saveable/Saver;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)Ljava/lang/Object;
+}
+

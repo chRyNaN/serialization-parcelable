@@ -1,0 +1,113 @@
+public final class com/chrynan/parcelable/sample/core/ExpectedModel {
+	public static final field INSTANCE Lcom/chrynan/parcelable/sample/core/ExpectedModel;
+	public final fun getModel ()Lcom/chrynan/parcelable/sample/core/Model;
+}
+
+public final class com/chrynan/parcelable/sample/core/Model {
+	public static final field Companion Lcom/chrynan/parcelable/sample/core/Model$Companion;
+	public fun <init> (CLjava/lang/String;ZBSIJFDLjava/lang/String;Ljava/util/List;Lcom/chrynan/parcelable/sample/core/SubModel;Ljava/util/Map;Lcom/chrynan/parcelable/sample/core/SomeEnum;Ljava/util/Set;)V
+	public synthetic fun <init> (CLjava/lang/String;ZBSIJFDLjava/lang/String;Ljava/util/List;Lcom/chrynan/parcelable/sample/core/SubModel;Ljava/util/Map;Lcom/chrynan/parcelable/sample/core/SomeEnum;Ljava/util/Set;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()C
+	public final fun component10 ()Ljava/lang/String;
+	public final fun component11 ()Ljava/util/List;
+	public final fun component12 ()Lcom/chrynan/parcelable/sample/core/SubModel;
+	public final fun component13 ()Ljava/util/Map;
+	public final fun component14 ()Lcom/chrynan/parcelable/sample/core/SomeEnum;
+	public final fun component15 ()Ljava/util/Set;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Z
+	public final fun component4 ()B
+	public final fun component5 ()S
+	public final fun component6 ()I
+	public final fun component7 ()J
+	public final fun component8 ()F
+	public final fun component9 ()D
+	public final fun copy (CLjava/lang/String;ZBSIJFDLjava/lang/String;Ljava/util/List;Lcom/chrynan/parcelable/sample/core/SubModel;Ljava/util/Map;Lcom/chrynan/parcelable/sample/core/SomeEnum;Ljava/util/Set;)Lcom/chrynan/parcelable/sample/core/Model;
+	public static synthetic fun copy$default (Lcom/chrynan/parcelable/sample/core/Model;CLjava/lang/String;ZBSIJFDLjava/lang/String;Ljava/util/List;Lcom/chrynan/parcelable/sample/core/SubModel;Ljava/util/Map;Lcom/chrynan/parcelable/sample/core/SomeEnum;Ljava/util/Set;ILjava/lang/Object;)Lcom/chrynan/parcelable/sample/core/Model;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBoolean ()Z
+	public final fun getByte ()B
+	public final fun getChar ()C
+	public final fun getDouble ()D
+	public final fun getEnum ()Lcom/chrynan/parcelable/sample/core/SomeEnum;
+	public final fun getEnumSet ()Ljava/util/Set;
+	public final fun getFloat ()F
+	public final fun getInteger ()I
+	public final fun getIntegerList ()Ljava/util/List;
+	public final fun getLong ()J
+	public final fun getMap ()Ljava/util/Map;
+	public final fun getNullableString ()Ljava/lang/String;
+	public final fun getShort ()S
+	public final fun getString ()Ljava/lang/String;
+	public final fun getSubModel ()Lcom/chrynan/parcelable/sample/core/SubModel;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/chrynan/parcelable/sample/core/Model$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/chrynan/parcelable/sample/core/Model$$serializer;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/chrynan/parcelable/sample/core/Model;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/chrynan/parcelable/sample/core/Model;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/chrynan/parcelable/sample/core/Model$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/chrynan/parcelable/sample/core/SerializerUtils {
+	public static final field INSTANCE Lcom/chrynan/parcelable/sample/core/SerializerUtils;
+	public final fun getJson ()Lkotlinx/serialization/json/Json;
+	public final fun getParcelable ()Lcom/chrynan/parcelable/core/Parcelable;
+}
+
+public final class com/chrynan/parcelable/sample/core/SomeEnum : java/lang/Enum {
+	public static final field Companion Lcom/chrynan/parcelable/sample/core/SomeEnum$Companion;
+	public static final field FIVE Lcom/chrynan/parcelable/sample/core/SomeEnum;
+	public static final field FOUR Lcom/chrynan/parcelable/sample/core/SomeEnum;
+	public static final field ONE Lcom/chrynan/parcelable/sample/core/SomeEnum;
+	public static final field THREE Lcom/chrynan/parcelable/sample/core/SomeEnum;
+	public static final field TWO Lcom/chrynan/parcelable/sample/core/SomeEnum;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/chrynan/parcelable/sample/core/SomeEnum;
+	public static fun values ()[Lcom/chrynan/parcelable/sample/core/SomeEnum;
+}
+
+public final class com/chrynan/parcelable/sample/core/SomeEnum$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/chrynan/parcelable/sample/core/SubModel {
+	public static final field Companion Lcom/chrynan/parcelable/sample/core/SubModel$Companion;
+	public fun <init> (Ljava/lang/String;Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/Map;
+	public final fun copy (Ljava/lang/String;Ljava/util/Map;)Lcom/chrynan/parcelable/sample/core/SubModel;
+	public static synthetic fun copy$default (Lcom/chrynan/parcelable/sample/core/SubModel;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lcom/chrynan/parcelable/sample/core/SubModel;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getNullableMap ()Ljava/util/Map;
+	public final fun getText ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/chrynan/parcelable/sample/core/SubModel$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lcom/chrynan/parcelable/sample/core/SubModel$$serializer;
+	public fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lcom/chrynan/parcelable/sample/core/SubModel;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public fun serialize (Lkotlinx/serialization/encoding/Encoder;Lcom/chrynan/parcelable/sample/core/SubModel;)V
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class com/chrynan/parcelable/sample/core/SubModel$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+

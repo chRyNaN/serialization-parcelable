@@ -10,6 +10,7 @@ version LibraryConstants.versionName
 
 android {
     compileSdkVersion LibraryConstants.Android.compileSdkVersion
+    namespace = "com.chrynan.parcelable.sample.android"
 
     defaultConfig {
         minSdkVersion 26

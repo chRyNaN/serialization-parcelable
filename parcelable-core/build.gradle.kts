@@ -65,6 +65,7 @@ dependencies {
 
 android {
     compileSdk = LibraryConstants.Android.compileSdkVersion
+    namespace = "com.chrynan.parcelable.core"
 
     defaultConfig {
         minSdk = LibraryConstants.Android.minSdkVersion

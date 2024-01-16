@@ -31,6 +31,7 @@ kotlin {
 
 android {
     compileSdk = LibraryConstants.Android.compileSdkVersion
+    namespace = "com.chrynan.parcelable.sample.core"
 
     defaultConfig {
         minSdk = LibraryConstants.Android.minSdkVersion

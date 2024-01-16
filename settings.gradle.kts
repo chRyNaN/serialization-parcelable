@@ -3,21 +3,34 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+        maven("https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
         maven { url = uri("https://repo.repsy.io/mvn/chrynan/public") }
     }
 }
 
-plugins {
-    // See https://jmfayard.github.io/refreshVersions
-    id("de.fayard.refreshVersions") version "0.51.0"
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+        google()
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+        maven("https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
+        maven("https://repo.repsy.io/mvn/chrynan/public")
+    }
+}
 
-    // See build.gradle.kts file in root project folder for the rest of the plugins applied.
+plugins {
+    // Apply the foojay-resolver plugin to allow automatic download of JDKs
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
+
+    // See https://jmfayard.github.io/refreshVersions
+    id("de.fayard.refreshVersions") version "0.60.3"
 }
 
 rootProject.name = "parcelable"
 
 include(":parcelable-core")
 include(":parcelable-compose")
-include(":sample-core")
-include(":sample-android")
-include(":sample-compose")
+// TODO: Enable: include(":sample-core")
+// TODO: Enable: include(":sample-android")
+// TODO: Enable: include(":sample-compose")

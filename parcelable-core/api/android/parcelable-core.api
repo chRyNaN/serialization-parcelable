@@ -1,0 +1,263 @@
+public final class com/chrynan/parcelable/core/AndroidBundleExtensionsKt {
+	public static final fun getParcelable (Landroid/os/Bundle;Ljava/lang/String;Lkotlin/reflect/KClass;ILcom/chrynan/parcelable/core/Parcelable;)Ljava/lang/Object;
+	public static final fun getParcelable (Landroid/os/Bundle;Ljava/lang/String;Lkotlinx/serialization/DeserializationStrategy;ILcom/chrynan/parcelable/core/Parcelable;)Ljava/lang/Object;
+	public static synthetic fun getParcelable$default (Landroid/os/Bundle;Ljava/lang/String;Lkotlin/reflect/KClass;ILcom/chrynan/parcelable/core/Parcelable;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun getParcelable$default (Landroid/os/Bundle;Ljava/lang/String;Lkotlinx/serialization/DeserializationStrategy;ILcom/chrynan/parcelable/core/Parcelable;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun putParcelable (Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Object;Lkotlin/reflect/KClass;Lcom/chrynan/parcelable/core/Parcelable;)V
+	public static final fun putParcelable (Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Object;Lkotlinx/serialization/SerializationStrategy;Lcom/chrynan/parcelable/core/Parcelable;)V
+	public static synthetic fun putParcelable$default (Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Object;Lkotlin/reflect/KClass;Lcom/chrynan/parcelable/core/Parcelable;ILjava/lang/Object;)V
+	public static synthetic fun putParcelable$default (Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/Object;Lkotlinx/serialization/SerializationStrategy;Lcom/chrynan/parcelable/core/Parcelable;ILjava/lang/Object;)V
+}
+
+public final class com/chrynan/parcelable/core/AndroidIntentExtensionsKt {
+	public static final fun getParcelableExtra (Landroid/content/Intent;Ljava/lang/String;Lkotlin/reflect/KClass;ILcom/chrynan/parcelable/core/Parcelable;)Ljava/lang/Object;
+	public static final fun getParcelableExtra (Landroid/content/Intent;Ljava/lang/String;Lkotlinx/serialization/DeserializationStrategy;ILcom/chrynan/parcelable/core/Parcelable;)Ljava/lang/Object;
+	public static synthetic fun getParcelableExtra$default (Landroid/content/Intent;Ljava/lang/String;Lkotlin/reflect/KClass;ILcom/chrynan/parcelable/core/Parcelable;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun getParcelableExtra$default (Landroid/content/Intent;Ljava/lang/String;Lkotlinx/serialization/DeserializationStrategy;ILcom/chrynan/parcelable/core/Parcelable;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun putExtra (Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Object;Lkotlin/reflect/KClass;Lcom/chrynan/parcelable/core/Parcelable;)Landroid/content/Intent;
+	public static final fun putExtra (Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Object;Lkotlinx/serialization/SerializationStrategy;Lcom/chrynan/parcelable/core/Parcelable;)Landroid/content/Intent;
+	public static synthetic fun putExtra$default (Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Object;Lkotlin/reflect/KClass;Lcom/chrynan/parcelable/core/Parcelable;ILjava/lang/Object;)Landroid/content/Intent;
+	public static synthetic fun putExtra$default (Landroid/content/Intent;Ljava/lang/String;Ljava/lang/Object;Lkotlinx/serialization/SerializationStrategy;Lcom/chrynan/parcelable/core/Parcelable;ILjava/lang/Object;)Landroid/content/Intent;
+}
+
+public final class com/chrynan/parcelable/core/AndroidParcel : com/chrynan/parcelable/core/Parcel {
+	public fun <init> (Landroid/os/Parcel;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getDataBufferCapacity ()I
+	public fun getDataPosition ()I
+	public fun getDataRemaining ()I
+	public fun getDataSize ()I
+	public fun hashCode ()I
+	public fun isRecycled ()Z
+	public fun readBoolean ()Z
+	public fun readByte ()B
+	public fun readChar ()C
+	public fun readDouble ()D
+	public fun readFloat ()F
+	public fun readInt ()I
+	public fun readLong ()J
+	public fun readShort ()S
+	public fun readString ()Ljava/lang/String;
+	public fun recycle ()V
+	public fun setDataPosition (I)V
+	public fun toByteArray ()[B
+	public fun toString ()Ljava/lang/String;
+	public fun writeBoolean (Z)V
+	public fun writeByte (B)V
+	public fun writeChar (C)V
+	public fun writeDouble (D)V
+	public fun writeFloat (F)V
+	public fun writeInt (I)V
+	public fun writeLong (J)V
+	public fun writeShort (S)V
+	public fun writeString (Ljava/lang/String;)V
+}
+
+public final class com/chrynan/parcelable/core/AndroidParcelKt {
+	public static final fun Parcel ()Lcom/chrynan/parcelable/core/Parcel;
+	public static final fun Parcel (Landroid/os/Parcel;)Lcom/chrynan/parcelable/core/Parcel;
+	public static final fun Parcel ([B)Lcom/chrynan/parcelable/core/Parcel;
+	public static final fun toParcel (Landroid/os/Parcel;)Lcom/chrynan/parcelable/core/Parcel;
+}
+
+public final class com/chrynan/parcelable/core/AndroidParcelableBundleUtilsKt {
+	public static final fun decodeFromBundle (Lcom/chrynan/parcelable/core/Parcelable;Landroid/os/Bundle;Lkotlin/reflect/KClass;I)Ljava/lang/Object;
+	public static final fun decodeFromBundle (Lcom/chrynan/parcelable/core/Parcelable;Landroid/os/Bundle;Lkotlinx/serialization/DeserializationStrategy;I)Ljava/lang/Object;
+	public static synthetic fun decodeFromBundle$default (Lcom/chrynan/parcelable/core/Parcelable;Landroid/os/Bundle;Lkotlin/reflect/KClass;IILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun decodeFromBundle$default (Lcom/chrynan/parcelable/core/Parcelable;Landroid/os/Bundle;Lkotlinx/serialization/DeserializationStrategy;IILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun decodeFromBundleOrNull (Lcom/chrynan/parcelable/core/Parcelable;Landroid/os/Bundle;Lkotlin/reflect/KClass;I)Ljava/lang/Object;
+	public static synthetic fun decodeFromBundleOrNull$default (Lcom/chrynan/parcelable/core/Parcelable;Landroid/os/Bundle;Lkotlin/reflect/KClass;IILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun encodeToBundle (Lcom/chrynan/parcelable/core/Parcelable;Ljava/lang/Object;Lkotlin/reflect/KClass;)Landroid/os/Bundle;
+	public static final fun encodeToBundle (Lcom/chrynan/parcelable/core/Parcelable;Ljava/lang/Object;Lkotlinx/serialization/SerializationStrategy;)Landroid/os/Bundle;
+	public static final fun readFromParcel (Landroid/os/Bundle;Lcom/chrynan/parcelable/core/Parcel;)V
+}
+
+public final class com/chrynan/parcelable/core/AndroidParcelableIntentUtilsKt {
+	public static final fun decodeFromIntent (Lcom/chrynan/parcelable/core/Parcelable;Ljava/lang/String;Lkotlin/reflect/KClass;ILandroid/content/Intent;)Ljava/lang/Object;
+	public static final fun decodeFromIntent (Lcom/chrynan/parcelable/core/Parcelable;Ljava/lang/String;Lkotlinx/serialization/DeserializationStrategy;ILandroid/content/Intent;)Ljava/lang/Object;
+	public static synthetic fun decodeFromIntent$default (Lcom/chrynan/parcelable/core/Parcelable;Ljava/lang/String;Lkotlin/reflect/KClass;ILandroid/content/Intent;ILjava/lang/Object;)Ljava/lang/Object;
+	public static synthetic fun decodeFromIntent$default (Lcom/chrynan/parcelable/core/Parcelable;Ljava/lang/String;Lkotlinx/serialization/DeserializationStrategy;ILandroid/content/Intent;ILjava/lang/Object;)Ljava/lang/Object;
+	public static final fun encodeToIntent (Lcom/chrynan/parcelable/core/Parcelable;Ljava/lang/String;Ljava/lang/Object;Lkotlin/reflect/KClass;Landroid/content/Intent;)Landroid/content/Intent;
+	public static final fun encodeToIntent (Lcom/chrynan/parcelable/core/Parcelable;Ljava/lang/String;Ljava/lang/Object;Lkotlinx/serialization/SerializationStrategy;Landroid/content/Intent;)Landroid/content/Intent;
+}
+
+public final class com/chrynan/parcelable/core/AndroidParcelableKt {
+	public static final fun decodeFromParcel (Lcom/chrynan/parcelable/core/Parcelable;Lcom/chrynan/parcelable/core/Parcel;Lkotlin/reflect/KClass;)Ljava/lang/Object;
+	public static final fun encodeToParcel (Lcom/chrynan/parcelable/core/Parcelable;Lcom/chrynan/parcelable/core/Parcel;Lkotlin/reflect/KClass;Ljava/lang/Object;)Lcom/chrynan/parcelable/core/Parcel;
+	public static synthetic fun encodeToParcel$default (Lcom/chrynan/parcelable/core/Parcelable;Lcom/chrynan/parcelable/core/Parcel;Lkotlin/reflect/KClass;Ljava/lang/Object;ILjava/lang/Object;)Lcom/chrynan/parcelable/core/Parcel;
+}
+
+public final class com/chrynan/parcelable/core/ByteArrayParcel : com/chrynan/parcelable/core/Parcel {
+	public static final field Companion Lcom/chrynan/parcelable/core/ByteArrayParcel$Companion;
+	public fun <init> ()V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getDataBufferCapacity ()I
+	public final fun getDataIndex ()I
+	public final fun getDataItemCount ()I
+	public fun getDataPosition ()I
+	public fun getDataRemaining ()I
+	public fun getDataSize ()I
+	public fun hashCode ()I
+	public fun isRecycled ()Z
+	public fun readBoolean ()Z
+	public fun readByte ()B
+	public fun readChar ()C
+	public fun readDouble ()D
+	public fun readFloat ()F
+	public fun readInt ()I
+	public fun readLong ()J
+	public fun readShort ()S
+	public fun readString ()Ljava/lang/String;
+	public fun recycle ()V
+	public final fun setDataIndex (I)V
+	public fun setDataPosition (I)V
+	public fun toByteArray ()[B
+	public fun toString ()Ljava/lang/String;
+	public fun writeBoolean (Z)V
+	public fun writeByte (B)V
+	public fun writeChar (C)V
+	public fun writeDouble (D)V
+	public fun writeFloat (F)V
+	public fun writeInt (I)V
+	public fun writeLong (J)V
+	public fun writeShort (S)V
+	public fun writeString (Ljava/lang/String;)V
+}
+
+public final class com/chrynan/parcelable/core/ByteArrayParcel$Companion {
+}
+
+public abstract interface class com/chrynan/parcelable/core/InputParcel {
+	public abstract fun readBoolean ()Z
+	public abstract fun readByte ()B
+	public abstract fun readChar ()C
+	public abstract fun readDouble ()D
+	public abstract fun readFloat ()F
+	public abstract fun readInt ()I
+	public abstract fun readLong ()J
+	public abstract fun readShort ()S
+	public abstract fun readString ()Ljava/lang/String;
+}
+
+public final class com/chrynan/parcelable/core/InvalidParcelValueException : kotlinx/serialization/SerializationException {
+	public fun <init> (Ljava/lang/String;)V
+}
+
+public abstract interface class com/chrynan/parcelable/core/OutputParcel {
+	public abstract fun writeBoolean (Z)V
+	public abstract fun writeByte (B)V
+	public abstract fun writeChar (C)V
+	public abstract fun writeDouble (D)V
+	public abstract fun writeFloat (F)V
+	public abstract fun writeInt (I)V
+	public abstract fun writeLong (J)V
+	public abstract fun writeShort (S)V
+	public abstract fun writeString (Ljava/lang/String;)V
+}
+
+public abstract interface class com/chrynan/parcelable/core/Parcel : com/chrynan/parcelable/core/InputParcel, com/chrynan/parcelable/core/OutputParcel {
+	public abstract fun getDataBufferCapacity ()I
+	public abstract fun getDataPosition ()I
+	public abstract fun getDataRemaining ()I
+	public abstract fun getDataSize ()I
+	public abstract fun isRecycled ()Z
+	public abstract fun recycle ()V
+	public abstract fun setDataPosition (I)V
+	public abstract fun toByteArray ()[B
+}
+
+public final class com/chrynan/parcelable/core/Parcel$DefaultImpls {
+	public static fun getDataRemaining (Lcom/chrynan/parcelable/core/Parcel;)I
+}
+
+public final class com/chrynan/parcelable/core/ParcelDecoder : kotlinx/serialization/encoding/AbstractDecoder {
+	public fun <init> (Lkotlinx/serialization/modules/SerializersModule;Lcom/chrynan/parcelable/core/Parcel;)V
+	public synthetic fun <init> (Lkotlinx/serialization/modules/SerializersModule;Lcom/chrynan/parcelable/core/Parcel;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun beginStructure (Lkotlinx/serialization/descriptors/SerialDescriptor;)Lkotlinx/serialization/encoding/CompositeDecoder;
+	public fun decodeBoolean ()Z
+	public fun decodeByte ()B
+	public fun decodeChar ()C
+	public fun decodeCollectionSize (Lkotlinx/serialization/descriptors/SerialDescriptor;)I
+	public fun decodeDouble ()D
+	public fun decodeElementIndex (Lkotlinx/serialization/descriptors/SerialDescriptor;)I
+	public fun decodeEnum (Lkotlinx/serialization/descriptors/SerialDescriptor;)I
+	public fun decodeFloat ()F
+	public fun decodeInt ()I
+	public fun decodeLong ()J
+	public fun decodeNotNullMark ()Z
+	public fun decodeSequentially ()Z
+	public fun decodeShort ()S
+	public fun decodeString ()Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getSerializersModule ()Lkotlinx/serialization/modules/SerializersModule;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/chrynan/parcelable/core/ParcelEncoder : kotlinx/serialization/encoding/AbstractEncoder {
+	public fun <init> (Lkotlinx/serialization/modules/SerializersModule;Lcom/chrynan/parcelable/core/Parcel;)V
+	public synthetic fun <init> (Lkotlinx/serialization/modules/SerializersModule;Lcom/chrynan/parcelable/core/Parcel;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun beginCollection (Lkotlinx/serialization/descriptors/SerialDescriptor;I)Lkotlinx/serialization/encoding/CompositeEncoder;
+	public fun encodeBoolean (Z)V
+	public fun encodeByte (B)V
+	public fun encodeChar (C)V
+	public fun encodeDouble (D)V
+	public fun encodeEnum (Lkotlinx/serialization/descriptors/SerialDescriptor;I)V
+	public fun encodeFloat (F)V
+	public fun encodeInt (I)V
+	public fun encodeLong (J)V
+	public fun encodeNotNullMark ()V
+	public fun encodeNull ()V
+	public fun encodeShort (S)V
+	public fun encodeString (Ljava/lang/String;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getSerializersModule ()Lkotlinx/serialization/modules/SerializersModule;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/chrynan/parcelable/core/ParcelKt {
+	public static final fun resetDataPosition (Lcom/chrynan/parcelable/core/Parcel;)V
+}
+
+public abstract class com/chrynan/parcelable/core/Parcelable : kotlinx/serialization/BinaryFormat, kotlinx/serialization/SerialFormat {
+	public static final field Default Lcom/chrynan/parcelable/core/Parcelable$Default;
+	public synthetic fun <init> (Lcom/chrynan/parcelable/core/ParcelableConfiguration;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun decodeFromByteArray (Lkotlinx/serialization/DeserializationStrategy;[B)Ljava/lang/Object;
+	public final fun decodeFromParcel (Lcom/chrynan/parcelable/core/Parcel;Lkotlinx/serialization/DeserializationStrategy;)Ljava/lang/Object;
+	public fun encodeToByteArray (Lkotlinx/serialization/SerializationStrategy;Ljava/lang/Object;)[B
+	public final fun encodeToParcel (Lcom/chrynan/parcelable/core/Parcel;Lkotlinx/serialization/SerializationStrategy;Ljava/lang/Object;)Lcom/chrynan/parcelable/core/Parcel;
+	public static synthetic fun encodeToParcel$default (Lcom/chrynan/parcelable/core/Parcelable;Lcom/chrynan/parcelable/core/Parcel;Lkotlinx/serialization/SerializationStrategy;Ljava/lang/Object;ILjava/lang/Object;)Lcom/chrynan/parcelable/core/Parcel;
+	public fun getSerializersModule ()Lkotlinx/serialization/modules/SerializersModule;
+}
+
+public final class com/chrynan/parcelable/core/Parcelable$Custom : com/chrynan/parcelable/core/Parcelable {
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/chrynan/parcelable/core/Parcelable$Default : com/chrynan/parcelable/core/Parcelable {
+}
+
+public final class com/chrynan/parcelable/core/ParcelableConfiguration {
+	public fun <init> ()V
+	public final fun component1 ()Lkotlinx/serialization/modules/SerializersModule;
+	public final fun copy (Lkotlinx/serialization/modules/SerializersModule;)Lcom/chrynan/parcelable/core/ParcelableConfiguration;
+	public static synthetic fun copy$default (Lcom/chrynan/parcelable/core/ParcelableConfiguration;Lkotlinx/serialization/modules/SerializersModule;ILjava/lang/Object;)Lcom/chrynan/parcelable/core/ParcelableConfiguration;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSerializersModule ()Lkotlinx/serialization/modules/SerializersModule;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/chrynan/parcelable/core/ParcelableConfigurationBuilder {
+	public final fun getSerializersModule ()Lkotlinx/serialization/modules/SerializersModule;
+	public final fun setSerializersModule (Lkotlinx/serialization/modules/SerializersModule;)V
+}
+
+public final class com/chrynan/parcelable/core/ParcelableKt {
+	public static final fun Parcelable (Lcom/chrynan/parcelable/core/Parcelable;Lkotlin/jvm/functions/Function1;)Lcom/chrynan/parcelable/core/Parcelable$Custom;
+	public static synthetic fun Parcelable$default (Lcom/chrynan/parcelable/core/Parcelable;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/chrynan/parcelable/core/Parcelable$Custom;
+}
+

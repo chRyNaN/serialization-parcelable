@@ -51,6 +51,7 @@ kotlin {
 
 android {
     compileSdk = LibraryConstants.Android.compileSdkVersion
+    namespace = "com.chrynan.parcelable.sample.compose"
 
     defaultConfig {
         minSdk = 26
