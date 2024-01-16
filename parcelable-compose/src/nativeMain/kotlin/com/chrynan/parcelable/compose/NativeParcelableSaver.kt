@@ -8,7 +8,7 @@ import kotlinx.serialization.KSerializer
 
 @Stable
 @ExperimentalSerializationApi
-internal class IosParcelableSaver<T>(
+internal class NativeParcelableSaver<T>(
     private val parcelable: Parcelable = Parcelable.Default,
     private val serializer: KSerializer<T>
 ) : Saver<T, ByteArray> {
@@ -29,7 +29,7 @@ internal class IosParcelableSaver<T>(
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is IosParcelableSaver<*>) return false
+        if (other !is NativeParcelableSaver<*>) return false
 
         if (parcelable != other.parcelable) return false
 
@@ -43,7 +43,7 @@ internal class IosParcelableSaver<T>(
     }
 
     override fun toString(): String =
-        "IosParcelableSaver(parcelable=$parcelable, serializer=$serializer)"
+        "NativeParcelableSaver(parcelable=$parcelable, serializer=$serializer)"
 }
 
 @Suppress("FunctionName")
@@ -52,7 +52,7 @@ internal actual fun <T : Any> InternalParcelableSaver(
     parcelable: Parcelable,
     serializer: KSerializer<T>
 ): Saver<T, *> =
-    IosParcelableSaver(
+    NativeParcelableSaver(
         parcelable = parcelable,
         serializer = serializer
     )
