@@ -94,4 +94,5 @@ expect fun Parcel(data: ByteArray): Parcel
 /**
  * A convenience function for calling the [Parcel.setDataPosition] with an index value of zero.
  */
+@Suppress("NOTHING_TO_INLINE")
 inline fun Parcel.resetDataPosition() = setDataPosition(position = 0)

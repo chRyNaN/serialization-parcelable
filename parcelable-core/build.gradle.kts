@@ -1,5 +1,7 @@
 import com.chrynan.parcelable.buildSrc.LibraryConstants
+import com.chrynan.parcelable.buildSrc.isBuildingOnLinux
 import com.chrynan.parcelable.buildSrc.isBuildingOnOSX
+import com.chrynan.parcelable.buildSrc.isBuildingOnWindows
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -13,29 +15,59 @@ group = LibraryConstants.group
 version = LibraryConstants.versionName
 
 kotlin {
-    android {
-        publishAllLibraryVariants()
-    }
-    targets {
-        android()
-        jvm()
-        js(IR) {
-            browser {
-                testTask {
-                    enabled = false
-                }
-            }
-            nodejs {
-                testTask {
-                    enabled = false
-                }
+    applyDefaultHierarchyTemplate()
+
+    androidTarget()
+
+    jvm()
+
+    js(IR) {
+        browser {
+            testTask {
+                enabled = false
             }
         }
-        if (isBuildingOnOSX()) {
-            ios()
-            iosSimulatorArm64()
+        nodejs {
+            testTask {
+                enabled = false
+            }
         }
     }
+
+    @Suppress("OPT_IN_USAGE")
+    wasmJs {
+        browser {
+            testTask {
+                enabled = false
+            }
+        }
+        nodejs {
+            testTask {
+                enabled = false
+            }
+        }
+    }
+
+    if (isBuildingOnOSX()) {
+        iosX64()
+        iosArm64()
+        iosSimulatorArm64()
+        tvosX64()
+        tvosArm64()
+        watchosX64()
+        watchosArm64()
+        macosX64()
+        macosArm64()
+    }
+
+    if (isBuildingOnLinux()) {
+        linuxX64()
+    }
+
+    if (isBuildingOnWindows()) {
+        mingwX64()
+    }
+
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -44,15 +76,16 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:_")
             }
         }
+
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
             }
         }
-        if (isBuildingOnOSX()) {
-            val iosMain by sourceSets.getting
-            val iosSimulatorArm64Main by sourceSets.getting
-            iosSimulatorArm64Main.dependsOn(iosMain)
+
+        val nativeMain by getting {
+            dependencies {
+            }
         }
     }
 }
