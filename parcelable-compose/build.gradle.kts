@@ -14,24 +14,34 @@ group = LibraryConstants.group
 version = LibraryConstants.versionName
 
 kotlin {
-    android {
-        publishAllLibraryVariants()
+    applyDefaultHierarchyTemplate()
+
+    androidTarget()
+
+    jvm()
+
+    js(IR) {
+        browser()
     }
-    targets {
-        android()
-        jvm()
-        js(IR) {
-            browser()
-        }
-        if (isBuildingOnOSX()) {
-            ios()
-            iosSimulatorArm64()
-        }
+
+    @Suppress("OPT_IN_USAGE")
+    wasmJs {
+        browser()
     }
+
+    if (isBuildingOnOSX()) {
+        iosX64()
+        iosArm64()
+        iosSimulatorArm64()
+        macosX64()
+        macosArm64()
+    }
+
     sourceSets {
         all {
             languageSettings.optIn("kotlin.RequiresOptIn")
         }
+
         val commonMain by getting {
             dependencies {
                 implementation(project(":parcelable-core"))
@@ -41,16 +51,19 @@ kotlin {
                 implementation(compose.runtime)
             }
         }
+
         val androidMain by getting {
             dependencies {
                 implementation(compose.foundation)
             }
         }
+
         val jvmMain by getting {
             dependencies {
                 implementation(compose.foundation)
             }
         }
+
         if (isBuildingOnOSX()) {
             val iosMain by sourceSets.getting
             val iosSimulatorArm64Main by sourceSets.getting
