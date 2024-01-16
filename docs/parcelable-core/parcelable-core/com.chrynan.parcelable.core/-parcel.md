@@ -12,11 +12,11 @@ expect fun [Parcel](-parcel.md)(): [Parcel](-parcel/index.md)
 
 Creates an empty [Parcel](-parcel/index.md) instance.
 
-[android, ios, js, jvm]\
-[android, ios, js, jvm]\
+[android, js, jvm, native, wasmJs]\
+[android, js, jvm, native, wasmJs]\
 actual fun [Parcel](-parcel.md)(): [Parcel](../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md)
 
-[android, ios, js, jvm]\
+[android, js, jvm, native, wasmJs]\
 actual fun [Parcel](-parcel.md)(data: [ByteArray](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-byte-array/index.html)): [Parcel](../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md)
 
 [common]\

@@ -2,9 +2,9 @@
 
 # save
 
-[common, ios, js]\
+[common, js, native, wasmJs]\
 [common]\
 expect abstract fun [SaverScope](../-saver-scope/index.md).[save](save.md)(value: [Original](index.md)): [Saveable](index.md)?
 
-[ios, js]\
+[js, native, wasmJs]\
 actual abstract fun [SaverScope](../-saver-scope/index.md).[save](save.md)(value: [Original](index.md)): [Saveable](index.md)?

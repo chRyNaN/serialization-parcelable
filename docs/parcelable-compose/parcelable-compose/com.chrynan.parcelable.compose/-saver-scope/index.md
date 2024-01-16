@@ -5,7 +5,7 @@
 [common]\
 expect fun interface [SaverScope](index.md)
 
-[ios, js]\
+[js, native, wasmJs]\
 actual fun interface [SaverScope](index.md)
 
 [android, jvm]\
@@ -15,4 +15,4 @@ actual typealias [SaverScope](index.md) = [SaverScope](https://developer.android
 
 | Name | Summary |
 |---|---|
-| [canBeSaved](can-be-saved.md) | [common, ios, js]<br>[common]<br>expect abstract fun [canBeSaved](can-be-saved.md)(value: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>[ios, js]<br>actual abstract fun [canBeSaved](can-be-saved.md)(value: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
+| [canBeSaved](can-be-saved.md) | [common, js, native, wasmJs]<br>[common]<br>expect abstract fun [canBeSaved](can-be-saved.md)(value: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>[js, native, wasmJs]<br>actual abstract fun [canBeSaved](can-be-saved.md)(value: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |

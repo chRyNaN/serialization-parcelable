@@ -2,9 +2,9 @@
 
 # restore
 
-[common, ios, js]\
+[common, js, native, wasmJs]\
 [common]\
 expect abstract fun [restore](restore.md)(value: [Saveable](index.md)): [Original](index.md)?
 
-[ios, js]\
+[js, native, wasmJs]\
 actual abstract fun [restore](restore.md)(value: [Saveable](index.md)): [Original](index.md)?

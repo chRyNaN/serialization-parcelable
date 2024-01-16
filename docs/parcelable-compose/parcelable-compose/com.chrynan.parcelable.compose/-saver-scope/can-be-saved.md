@@ -2,9 +2,9 @@
 
 # canBeSaved
 
-[common, ios, js]\
+[common, js, native, wasmJs]\
 [common]\
 expect abstract fun [canBeSaved](can-be-saved.md)(value: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
 
-[ios, js]\
+[js, native, wasmJs]\
 actual abstract fun [canBeSaved](can-be-saved.md)(value: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)
