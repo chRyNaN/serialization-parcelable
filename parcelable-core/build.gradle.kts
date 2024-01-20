@@ -17,7 +17,9 @@ version = LibraryConstants.versionName
 kotlin {
     applyDefaultHierarchyTemplate()
 
-    androidTarget()
+    androidTarget {
+        publishAllLibraryVariants()
+    }
 
     jvm()
 
