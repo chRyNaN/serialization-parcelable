@@ -5,32 +5,32 @@ package com.chrynan.parcelable.compose
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 
-expect interface Saver<Original, Saveable : Any> {
+public expect interface Saver<Original, Saveable : Any> {
 
-    fun SaverScope.save(value: Original): Saveable?
+    public fun SaverScope.save(value: Original): Saveable?
 
-    fun restore(value: Saveable): Original?
+    public fun restore(value: Saveable): Original?
 }
 
-expect fun interface SaverScope {
+public expect fun interface SaverScope {
 
-    fun canBeSaved(value: Any): Boolean
+    public fun canBeSaved(value: Any): Boolean
 }
 
 @Suppress("FunctionName")
-expect fun <Original, Saveable : Any> Saver(
+public expect fun <Original, Saveable : Any> Saver(
     save: SaverScope.(value: Original) -> Saveable?,
     restore: (value: Saveable) -> Original?
 ): Saver<Original, Saveable>
 
-expect fun <T> autoSaver(): Saver<T, Any>
+public expect fun <T> autoSaver(): Saver<T, Any>
 
-expect fun <Original, Saveable> listSaver(
+public expect fun <Original, Saveable> listSaver(
     save: SaverScope.(value: Original) -> List<Saveable>,
     restore: (list: List<Saveable>) -> Original?
 ): Saver<Original, Any>
 
-expect fun <T> mapSaver(
+public expect fun <T> mapSaver(
     save: SaverScope.(value: T) -> Map<String, Any?>,
     restore: (Map<String, Any?>) -> T?
 ): Saver<T, Any>
@@ -52,7 +52,7 @@ internal expect fun <T> internalRememberSaveable(
 ): MutableState<T>
 
 @Composable
-fun <T : Any> rememberSaveable(
+public fun <T : Any> rememberSaveable(
     vararg inputs: Any?,
     saver: Saver<T, out Any> = autoSaver(),
     key: String? = null,
@@ -60,9 +60,10 @@ fun <T : Any> rememberSaveable(
 ): T = internalRememberSaveable(inputs = inputs, saver = saver, key = key, init = init)
 
 @Composable
-fun <T> rememberSaveable(
+public fun <T> rememberSaveable(
     vararg inputs: Any?,
     stateSaver: Saver<T, out Any>,
     key: String? = null,
     init: () -> MutableState<T>
-): MutableState<T> = internalRememberSaveable(inputs = inputs, stateSaver = stateSaver, key = key, init = init)
+): MutableState<T> =
+    internalRememberSaveable(inputs = inputs, stateSaver = stateSaver, key = key, init = init)

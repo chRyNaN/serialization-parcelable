@@ -4,19 +4,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.remember
 
-actual interface Saver<Original, Saveable : Any> {
+public actual interface Saver<Original, Saveable : Any> {
 
-    actual fun SaverScope.save(value: Original): Saveable?
+    public actual fun SaverScope.save(value: Original): Saveable?
 
-    actual fun restore(value: Saveable): Original?
+    public actual fun restore(value: Saveable): Original?
 }
 
-actual fun interface SaverScope {
+public actual fun interface SaverScope {
 
-    actual fun canBeSaved(value: Any): Boolean
+    public actual fun canBeSaved(value: Any): Boolean
 }
 
-actual fun <Original, Saveable : Any> Saver(
+public actual fun <Original, Saveable : Any> Saver(
     save: SaverScope.(value: Original) -> Saveable?,
     restore: (value: Saveable) -> Original?
 ): Saver<Original, Saveable> = object : Saver<Original, Saveable> {
@@ -30,7 +30,7 @@ actual fun <Original, Saveable : Any> Saver(
     override fun restore(value: Saveable): Original? = restore(value)
 }
 
-actual fun <T> autoSaver(): Saver<T, Any> =
+public actual fun <T> autoSaver(): Saver<T, Any> =
     @Suppress("UNCHECKED_CAST")
     (AutoSaver as Saver<T, Any>)
 
@@ -39,7 +39,7 @@ private val AutoSaver = Saver<Any?, Any>(
     restore = { it }
 )
 
-actual fun <Original, Saveable> listSaver(
+public actual fun <Original, Saveable> listSaver(
     save: SaverScope.(value: Original) -> List<Saveable>,
     restore: (list: List<Saveable>) -> Original?
 ): Saver<Original, Any> =
@@ -57,7 +57,7 @@ actual fun <Original, Saveable> listSaver(
         restore = restore as (Any) -> Original?
     )
 
-actual fun <T> mapSaver(
+public actual fun <T> mapSaver(
     save: SaverScope.(value: T) -> Map<String, Any?>,
     restore: (Map<String, Any?>) -> T?
 ): Saver<T, Any> =

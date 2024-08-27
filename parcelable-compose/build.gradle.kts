@@ -7,31 +7,11 @@ plugins {
     id("org.jetbrains.dokka")
     id("org.jetbrains.compose")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("parcelable.multiplatform")
     id("parcelable.publish")
 }
 
 kotlin {
-    applyDefaultHierarchyTemplate()
-
-    androidTarget()
-
-    jvm()
-
-    js(IR) {
-        browser()
-    }
-
-    @Suppress("OPT_IN_USAGE")
-    wasmJs {
-        browser()
-    }
-
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
-    macosX64()
-    macosArm64()
-
     sourceSets {
         all {
             languageSettings.optIn("kotlin.RequiresOptIn")
@@ -41,7 +21,7 @@ kotlin {
             dependencies {
                 implementation(project(":parcelable-core"))
 
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:_")
+                implementation(KotlinX.serialization.json)
 
                 implementation(compose.runtime)
             }

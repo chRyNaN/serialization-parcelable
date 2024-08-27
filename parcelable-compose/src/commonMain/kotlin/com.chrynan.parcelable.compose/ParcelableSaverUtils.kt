@@ -18,7 +18,7 @@ internal expect fun <T : Any> InternalParcelableSaver(
  * Creates a [Saver] that uses the provided [parcelable] and [serializer] to save and restore the value.
  */
 @ExperimentalSerializationApi
-fun <T : Any> ParcelableSaver(
+public fun <T : Any> ParcelableSaver(
     parcelable: Parcelable = Parcelable.Default,
     serializer: KSerializer<T>
 ): Saver<T, *> = InternalParcelableSaver(
@@ -31,7 +31,7 @@ fun <T : Any> ParcelableSaver(
  */
 @Composable
 @ExperimentalSerializationApi
-fun <T : Any> rememberSavable(
+public fun <T : Any> rememberSavable(
     vararg inputs: Any?,
     parcelable: Parcelable = Parcelable.Default,
     serializer: KSerializer<T>,
@@ -48,7 +48,7 @@ fun <T : Any> rememberSavable(
  */
 @Composable
 @ExperimentalSerializationApi
-fun <T : Any> rememberSaveable(
+public fun <T : Any> rememberSaveable(
     vararg inputs: Any?,
     parcelable: Parcelable = Parcelable.Default,
     serializer: KSerializer<T>,
