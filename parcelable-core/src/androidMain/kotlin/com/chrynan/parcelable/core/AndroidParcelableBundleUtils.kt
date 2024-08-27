@@ -16,7 +16,7 @@ import kotlin.reflect.KClass
  * [Bundle]s.
  */
 @ExperimentalSerializationApi
-fun <T : Any> Parcelable.encodeToBundle(value: T, kClass: KClass<T>): Bundle {
+public fun <T : Any> Parcelable.encodeToBundle(value: T, kClass: KClass<T>): Bundle {
     // Create a new Bundle and obtain a Parcel from the Parcel Pool.
     val bundle = Bundle()
     val parcel = Parcel.obtain()
@@ -69,7 +69,7 @@ fun <T : Any> Parcelable.encodeToBundle(value: T, kClass: KClass<T>): Bundle {
  * [Bundle]s.
  */
 @ExperimentalSerializationApi
-fun <T> Parcelable.encodeToBundle(value: T, serializer: SerializationStrategy<T>): Bundle {
+public fun <T> Parcelable.encodeToBundle(value: T, serializer: SerializationStrategy<T>): Bundle {
     // Create a new Bundle and obtain a Parcel from the Parcel Pool.
     val bundle = Bundle()
     val parcel = Parcel.obtain()
@@ -121,7 +121,7 @@ fun <T> Parcelable.encodeToBundle(value: T, serializer: SerializationStrategy<T>
  * returns it. The returned [Bundle] can then be used as extras in [Intent]s or other [Bundle]s.
  */
 @ExperimentalSerializationApi
-inline fun <reified T> Parcelable.encodeToBundle(value: T): Bundle =
+public inline fun <reified T> Parcelable.encodeToBundle(value: T): Bundle =
     encodeToBundle(value = value, serializer = serializersModule.serializer())
 
 //endregion
@@ -133,7 +133,11 @@ inline fun <reified T> Parcelable.encodeToBundle(value: T): Bundle =
  * if the [bundle] is empty or
  */
 @ExperimentalSerializationApi
-fun <T : Any> Parcelable.decodeFromBundle(bundle: Bundle, kClass: KClass<T>, flags: Int = 0): T {
+public fun <T : Any> Parcelable.decodeFromBundle(
+    bundle: Bundle,
+    kClass: KClass<T>,
+    flags: Int = 0
+): T {
     // Obtain a new Parcel from the Parcel pool.
     val parcel = Parcel.obtain()
 
@@ -167,7 +171,7 @@ fun <T : Any> Parcelable.decodeFromBundle(bundle: Bundle, kClass: KClass<T>, fla
  * if the [bundle] is empty or
  */
 @ExperimentalSerializationApi
-fun <T> Parcelable.decodeFromBundle(
+public fun <T> Parcelable.decodeFromBundle(
     bundle: Bundle,
     deserializer: DeserializationStrategy<T>,
     flags: Int = 0
@@ -205,11 +209,15 @@ fun <T> Parcelable.decodeFromBundle(
  * [bundle] and [flags], or null if the [bundle] is empty or
  */
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Parcelable.decodeFromBundle(bundle: Bundle, flags: Int = 0): T =
+public inline fun <reified T : Any> Parcelable.decodeFromBundle(bundle: Bundle, flags: Int = 0): T =
     decodeFromBundle(bundle = bundle, deserializer = serializersModule.serializer(), flags = flags)
 
 @ExperimentalSerializationApi
-fun <T : Any> Parcelable.decodeFromBundleOrNull(bundle: Bundle, kClass: KClass<T>, flags: Int = 0): T? =
+public fun <T : Any> Parcelable.decodeFromBundleOrNull(
+    bundle: Bundle,
+    kClass: KClass<T>,
+    flags: Int = 0
+): T? =
     try {
         decodeFromBundle(bundle = bundle, kClass = kClass, flags = flags)
     } catch (e: SerializationException) {
@@ -217,9 +225,16 @@ fun <T : Any> Parcelable.decodeFromBundleOrNull(bundle: Bundle, kClass: KClass<T
     }
 
 @ExperimentalSerializationApi
-inline fun <reified T : Any> Parcelable.decodeFromBundleOrNull(bundle: Bundle, flags: Int = 0): T? =
+public inline fun <reified T : Any> Parcelable.decodeFromBundleOrNull(
+    bundle: Bundle,
+    flags: Int = 0
+): T? =
     try {
-        decodeFromBundle(bundle = bundle, deserializer = serializersModule.serializer(), flags = flags)
+        decodeFromBundle(
+            bundle = bundle,
+            deserializer = serializersModule.serializer(),
+            flags = flags
+        )
     } catch (e: SerializationException) {
         null
     }
@@ -231,7 +246,7 @@ inline fun <reified T : Any> Parcelable.decodeFromBundleOrNull(bundle: Bundle, f
  * Params:
  * parcel – The parcel to overwrite this bundle from.
  */
-fun Bundle.readFromParcel(parcel: com.chrynan.parcelable.core.Parcel) {
+public fun Bundle.readFromParcel(parcel: com.chrynan.parcelable.core.Parcel) {
     require(parcel is AndroidParcel) { "parcel must be an AndroidParcel instance for the Bundle.readFromParcel function." }
 
     this.readFromParcel(parcel.toAndroidParcel())

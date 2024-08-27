@@ -9,27 +9,27 @@ import kotlinx.serialization.SerializationStrategy
 import kotlin.reflect.KClass
 
 @ExperimentalSerializationApi
-fun <T : Any> Bundle.putParcelable(
+public fun <T : Any> Bundle.putParcelable(
     key: String,
     value: T,
     kClass: KClass<T>,
     parcelable: Parcelable = Parcelable.Default
-) = putBundle(key, parcelable.encodeToBundle(value = value, kClass = kClass))
+): Unit = putBundle(key, parcelable.encodeToBundle(value = value, kClass = kClass))
 
 @ExperimentalSerializationApi
-fun <T> Bundle.putParcelable(
+public fun <T> Bundle.putParcelable(
     key: String,
     value: T,
     serializer: SerializationStrategy<T>,
     parcelable: Parcelable = Parcelable.Default,
-) = putBundle(key, parcelable.encodeToBundle(value = value, serializer = serializer))
+): Unit = putBundle(key, parcelable.encodeToBundle(value = value, serializer = serializer))
 
 @ExperimentalSerializationApi
-inline fun <reified T> Bundle.putParcelable(key: String, value: T, parcelable: Parcelable = Parcelable.Default) =
+public inline fun <reified T> Bundle.putParcelable(key: String, value: T, parcelable: Parcelable = Parcelable.Default): Unit =
     putBundle(key, parcelable.encodeToBundle(value = value))
 
 @ExperimentalSerializationApi
-fun <T : Any> Bundle.getParcelable(
+public fun <T : Any> Bundle.getParcelable(
     key: String,
     kClass: KClass<T>,
     flags: Int = 0,
@@ -41,7 +41,7 @@ fun <T : Any> Bundle.getParcelable(
 }
 
 @ExperimentalSerializationApi
-fun <T> Bundle.getParcelable(
+public fun <T> Bundle.getParcelable(
     key: String,
     deserializer: DeserializationStrategy<T>,
     flags: Int = 0,
@@ -53,7 +53,7 @@ fun <T> Bundle.getParcelable(
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T> Bundle.getParcelable(
+public inline fun <reified T> Bundle.getParcelable(
     key: String,
     flags: Int = 0,
     parcelable: Parcelable = Parcelable.Default

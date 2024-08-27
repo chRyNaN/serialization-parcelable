@@ -12,10 +12,10 @@ import kotlinx.serialization.modules.SerializersModule
  * class is used in the [Parcelable] function to retrieve a custom [ParcelableConfiguration].
  */
 @ExperimentalSerializationApi
-class ParcelableConfigurationBuilder internal constructor(configuration: ParcelableConfiguration) {
+public class ParcelableConfigurationBuilder internal constructor(configuration: ParcelableConfiguration) {
 
     @Suppress("MemberVisibilityCanBePrivate")
-    var serializersModule: SerializersModule = configuration.serializersModule
+    public var serializersModule: SerializersModule = configuration.serializersModule
 
     internal fun build(): ParcelableConfiguration = ParcelableConfiguration(serializersModule = serializersModule)
 }

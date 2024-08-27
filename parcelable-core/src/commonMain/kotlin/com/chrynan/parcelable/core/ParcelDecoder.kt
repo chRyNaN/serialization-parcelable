@@ -14,7 +14,7 @@ import kotlinx.serialization.encoding.Decoder
  * A [Decoder] that decodes its values from the provided [input] [Parcel].
  */
 @ExperimentalSerializationApi
-class ParcelDecoder(
+public class ParcelDecoder(
     override val serializersModule: SerializersModule = EmptySerializersModule(),
     private val input: Parcel
 ) : AbstractDecoder() {

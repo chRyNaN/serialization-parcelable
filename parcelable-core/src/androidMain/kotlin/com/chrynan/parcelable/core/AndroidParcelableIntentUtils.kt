@@ -8,7 +8,12 @@ import kotlinx.serialization.serializer
 import kotlin.reflect.KClass
 
 @ExperimentalSerializationApi
-fun <T : Any> Parcelable.encodeToIntent(name: String, value: T, kClass: KClass<T>, intent: Intent): Intent {
+public fun <T : Any> Parcelable.encodeToIntent(
+    name: String,
+    value: T,
+    kClass: KClass<T>,
+    intent: Intent
+): Intent {
     val bundle = this.encodeToBundle(value = value, kClass = kClass)
 
     intent.putExtra(name, bundle)
@@ -17,7 +22,7 @@ fun <T : Any> Parcelable.encodeToIntent(name: String, value: T, kClass: KClass<T
 }
 
 @ExperimentalSerializationApi
-fun <T> Parcelable.encodeToIntent(
+public fun <T> Parcelable.encodeToIntent(
     name: String,
     value: T,
     serializer: SerializationStrategy<T>,
@@ -31,21 +36,31 @@ fun <T> Parcelable.encodeToIntent(
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T> Parcelable.encodeToIntent(
+public inline fun <reified T> Parcelable.encodeToIntent(
     name: String,
     value: T,
     intent: Intent
-): Intent = encodeToIntent(name = name, value = value, serializer = serializersModule.serializer(), intent = intent)
+): Intent = encodeToIntent(
+    name = name,
+    value = value,
+    serializer = serializersModule.serializer(),
+    intent = intent
+)
 
 @ExperimentalSerializationApi
-fun <T : Any> Parcelable.decodeFromIntent(name: String, kClass: KClass<T>, flags: Int = 0, intent: Intent): T? {
+public fun <T : Any> Parcelable.decodeFromIntent(
+    name: String,
+    kClass: KClass<T>,
+    flags: Int = 0,
+    intent: Intent
+): T? {
     val bundle = intent.getBundleExtra(name)
 
     return bundle?.let { this.decodeFromBundle(bundle = it, kClass = kClass, flags = flags) }
 }
 
 @ExperimentalSerializationApi
-fun <T> Parcelable.decodeFromIntent(
+public fun <T> Parcelable.decodeFromIntent(
     name: String,
     deserializer: DeserializationStrategy<T>,
     flags: Int = 0,
@@ -53,12 +68,23 @@ fun <T> Parcelable.decodeFromIntent(
 ): T? {
     val bundle = intent.getBundleExtra(name)
 
-    return bundle?.let { this.decodeFromBundle(bundle = it, deserializer = deserializer, flags = flags) }
+    return bundle?.let {
+        this.decodeFromBundle(
+            bundle = it,
+            deserializer = deserializer,
+            flags = flags
+        )
+    }
 }
 
 @ExperimentalSerializationApi
-inline fun <reified T> Parcelable.decodeFromIntent(
+public inline fun <reified T> Parcelable.decodeFromIntent(
     name: String,
     flags: Int = 0,
     intent: Intent
-): T? = decodeFromIntent(name = name, deserializer = serializersModule.serializer(), flags = flags, intent = intent)
+): T? = decodeFromIntent(
+    name = name,
+    deserializer = serializersModule.serializer(),
+    flags = flags,
+    intent = intent
+)

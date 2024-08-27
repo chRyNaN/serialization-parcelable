@@ -14,36 +14,40 @@ import kotlinx.serialization.encoding.Encoder
  * An [Encoder] that encodes its values to the provided [output] [Parcel].
  */
 @ExperimentalSerializationApi
-class ParcelEncoder(
+public class ParcelEncoder(
     override val serializersModule: SerializersModule = EmptySerializersModule(),
     private val output: Parcel
 ) : AbstractEncoder() {
 
-    override fun encodeBoolean(value: Boolean) = output.writeBoolean(value)
+    override fun encodeBoolean(value: Boolean): Unit = output.writeBoolean(value)
 
-    override fun encodeByte(value: Byte) = output.writeByte(value)
+    override fun encodeByte(value: Byte): Unit = output.writeByte(value)
 
-    override fun encodeShort(value: Short) = output.writeShort(value)
+    override fun encodeShort(value: Short): Unit = output.writeShort(value)
 
-    override fun encodeInt(value: Int) = output.writeInt(value)
+    override fun encodeInt(value: Int): Unit = output.writeInt(value)
 
-    override fun encodeLong(value: Long) = output.writeLong(value)
+    override fun encodeLong(value: Long): Unit = output.writeLong(value)
 
-    override fun encodeFloat(value: Float) = output.writeFloat(value)
+    override fun encodeFloat(value: Float): Unit = output.writeFloat(value)
 
-    override fun encodeDouble(value: Double) = output.writeDouble(value)
+    override fun encodeDouble(value: Double): Unit = output.writeDouble(value)
 
-    override fun encodeChar(value: Char) = output.writeChar(value)
+    override fun encodeChar(value: Char): Unit = output.writeChar(value)
 
-    override fun encodeString(value: String) = output.writeString(value)
+    override fun encodeString(value: String): Unit = output.writeString(value)
 
-    override fun encodeEnum(enumDescriptor: SerialDescriptor, index: Int) = output.writeInt(index)
+    override fun encodeEnum(enumDescriptor: SerialDescriptor, index: Int): Unit =
+        output.writeInt(index)
 
-    override fun encodeNull() = output.writeBoolean(false)
+    override fun encodeNull(): Unit = output.writeBoolean(false)
 
-    override fun encodeNotNullMark() = output.writeBoolean(true)
+    override fun encodeNotNullMark(): Unit = output.writeBoolean(true)
 
-    override fun beginCollection(descriptor: SerialDescriptor, collectionSize: Int): CompositeEncoder {
+    override fun beginCollection(
+        descriptor: SerialDescriptor,
+        collectionSize: Int
+    ): CompositeEncoder {
         output.writeInt(collectionSize)
         return this
     }

@@ -15,7 +15,8 @@ import kotlinx.serialization.SerializationException
  * @see [Parcel]
  * @see [android.os.Parcel]
  */
-class AndroidParcel @PublishedApi internal constructor(private val parcel: android.os.Parcel) : Parcel {
+public class AndroidParcel @PublishedApi internal constructor(private val parcel: android.os.Parcel) :
+    Parcel {
 
     override val dataBufferCapacity: Int
         get() = parcel.dataCapacity()
@@ -81,61 +82,92 @@ class AndroidParcel @PublishedApi internal constructor(private val parcel: andro
         try {
             parcel.readString()
         } catch (exception: Exception) {
-            throw SerializationException("Error reading the String value from the Parcel.", exception)
-        } ?: throw InvalidParcelValueException("Invalid Parcel value. Expected String but got null.")
+            throw SerializationException(
+                "Error reading the String value from the Parcel.",
+                exception
+            )
+        }
+            ?: throw InvalidParcelValueException("Invalid Parcel value. Expected String but got null.")
 
-    override fun writeBoolean(value: Boolean) = try {
+    override fun writeBoolean(value: Boolean): Unit = try {
         parcel.writeInt(if (value) 1 else 0)
     } catch (exception: Exception) {
-        throw SerializationException("Error writing the Boolean value '$value' to the Parcel.", exception)
+        throw SerializationException(
+            "Error writing the Boolean value '$value' to the Parcel.",
+            exception
+        )
     }
 
-    override fun writeByte(value: Byte) = try {
+    override fun writeByte(value: Byte): Unit = try {
         parcel.writeByte(value)
     } catch (exception: Exception) {
-        throw SerializationException("Error writing the Byte value '$value' to the Parcel.", exception)
+        throw SerializationException(
+            "Error writing the Byte value '$value' to the Parcel.",
+            exception
+        )
     }
 
-    override fun writeShort(value: Short) = try {
+    override fun writeShort(value: Short): Unit = try {
         parcel.writeInt(value.toInt())
     } catch (exception: Exception) {
-        throw SerializationException("Error writing the Short value '$value' to the Parcel.", exception)
+        throw SerializationException(
+            "Error writing the Short value '$value' to the Parcel.",
+            exception
+        )
     }
 
-    override fun writeInt(value: Int) = try {
+    override fun writeInt(value: Int): Unit = try {
         parcel.writeInt(value)
     } catch (exception: Exception) {
-        throw SerializationException("Error writing the Int value '$value' to the Parcel.", exception)
+        throw SerializationException(
+            "Error writing the Int value '$value' to the Parcel.",
+            exception
+        )
     }
 
-    override fun writeLong(value: Long) = try {
+    override fun writeLong(value: Long): Unit = try {
         parcel.writeLong(value)
     } catch (exception: Exception) {
-        throw SerializationException("Error writing the Long value '$value' to the Parcel.", exception)
+        throw SerializationException(
+            "Error writing the Long value '$value' to the Parcel.",
+            exception
+        )
     }
 
-    override fun writeFloat(value: Float) = try {
+    override fun writeFloat(value: Float): Unit = try {
         parcel.writeFloat(value)
     } catch (exception: Exception) {
-        throw SerializationException("Error writing the Float value '$value' to the Parcel.", exception)
+        throw SerializationException(
+            "Error writing the Float value '$value' to the Parcel.",
+            exception
+        )
     }
 
-    override fun writeDouble(value: Double) = try {
+    override fun writeDouble(value: Double): Unit = try {
         parcel.writeDouble(value)
     } catch (exception: Exception) {
-        throw SerializationException("Error writing the Double value '$value' to the Parcel.", exception)
+        throw SerializationException(
+            "Error writing the Double value '$value' to the Parcel.",
+            exception
+        )
     }
 
-    override fun writeChar(value: Char) = try {
+    override fun writeChar(value: Char): Unit = try {
         parcel.writeString(value.toString())
     } catch (exception: Exception) {
-        throw SerializationException("Error writing the Char value '$value' to the Parcel.", exception)
+        throw SerializationException(
+            "Error writing the Char value '$value' to the Parcel.",
+            exception
+        )
     }
 
-    override fun writeString(value: String) = try {
+    override fun writeString(value: String): Unit = try {
         parcel.writeString(value)
     } catch (exception: Exception) {
-        throw SerializationException("Error writing the String value '$value' to the Parcel.", exception)
+        throw SerializationException(
+            "Error writing the String value '$value' to the Parcel.",
+            exception
+        )
     }
 
     override fun setDataPosition(position: Int) {
@@ -187,10 +219,10 @@ class AndroidParcel @PublishedApi internal constructor(private val parcel: andro
     internal fun toAndroidParcel(): android.os.Parcel = parcel
 }
 
-actual fun Parcel(): Parcel = AndroidParcel(android.os.Parcel.obtain())
+public actual fun Parcel(): Parcel = AndroidParcel(android.os.Parcel.obtain())
 
 @SuppressLint("Recycle")
-actual fun Parcel(data: ByteArray): Parcel {
+public actual fun Parcel(data: ByteArray): Parcel {
     val androidParcel = android.os.Parcel.obtain()
 
     androidParcel.unmarshall(data, 0, data.size)
@@ -204,12 +236,12 @@ actual fun Parcel(data: ByteArray): Parcel {
  * Creates a [com.chrynan.parcelable.core.Parcel] instance from the provided [android.os.Parcel] class.
  */
 @Suppress("NOTHING_TO_INLINE")
-inline fun Parcel(androidParcel: android.os.Parcel): Parcel =
+public inline fun Parcel(androidParcel: android.os.Parcel): Parcel =
     AndroidParcel(parcel = androidParcel)
 
 /**
  * Creates a [com.chrynan.parcelable.core.Parcel] instance from this [android.os.Parcel] class.
  */
 @Suppress("NOTHING_TO_INLINE")
-inline fun android.os.Parcel.toParcel(): Parcel =
+public inline fun android.os.Parcel.toParcel(): Parcel =
     AndroidParcel(parcel = this)

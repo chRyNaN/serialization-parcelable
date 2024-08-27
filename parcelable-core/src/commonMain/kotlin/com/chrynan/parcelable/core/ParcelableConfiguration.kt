@@ -11,6 +11,6 @@ import kotlinx.serialization.modules.SerializersModule
  * the [Parcelable] function call.
  */
 @ExperimentalSerializationApi
-data class ParcelableConfiguration internal constructor(
+public data class ParcelableConfiguration internal constructor(
     val serializersModule: SerializersModule = EmptySerializersModule()
 )

@@ -18,7 +18,7 @@ import kotlinx.serialization.json.Json
  * @see [Android Parcelable (not the same)](https://developer.android.com/reference/android/os/Parcelable))
  */
 @ExperimentalSerializationApi
-sealed class Parcelable(internal val configuration: ParcelableConfiguration) : SerialFormat,
+public sealed class Parcelable(internal val configuration: ParcelableConfiguration) : SerialFormat,
     BinaryFormat {
 
     override val serializersModule: SerializersModule
@@ -28,7 +28,7 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
      * The default [Parcelable] implementation using the default [ParcelableConfiguration] values. This class can be
      * used when no custom configuration is needed.
      */
-    companion object Default : Parcelable(ParcelableConfiguration())
+    public companion object Default : Parcelable(ParcelableConfiguration())
 
     /**
      * A custom [Parcelable] implementation using the provided [configuration] values. This class can be used when
@@ -36,7 +36,7 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
      *
      * Note that instances of this class are created using the [Parcelable] function.
      */
-    class Custom internal constructor(configuration: ParcelableConfiguration) : Parcelable(configuration) {
+    public class Custom internal constructor(configuration: ParcelableConfiguration) : Parcelable(configuration) {
 
         override fun equals(other: Any?): Boolean {
             if (this === other) return true
@@ -77,7 +77,7 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
      *
      * @return The provided [parcel] containing the encoded [value].
      */
-    fun <T> encodeToParcel(parcel: Parcel = Parcel(), serializer: SerializationStrategy<T>, value: T): Parcel {
+    public fun <T> encodeToParcel(parcel: Parcel = Parcel(), serializer: SerializationStrategy<T>, value: T): Parcel {
         val encoder = ParcelEncoder(serializersModule = serializersModule, output = parcel)
 
         encoder.encodeSerializableValue(serializer, value)
@@ -97,7 +97,7 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
      *
      * @return The decoded value of [T] obtained from the [parcel].
      */
-    fun <T> decodeFromParcel(parcel: Parcel, deserializer: DeserializationStrategy<T>): T {
+    public fun <T> decodeFromParcel(parcel: Parcel, deserializer: DeserializationStrategy<T>): T {
         val decoder = ParcelDecoder(serializersModule = serializersModule, input = parcel)
 
         return decoder.decodeSerializableValue(deserializer)
@@ -118,7 +118,7 @@ sealed class Parcelable(internal val configuration: ParcelableConfiguration) : S
  */
 @Suppress("FunctionName")
 @ExperimentalSerializationApi
-fun Parcelable(
+public fun Parcelable(
     from: Parcelable = Parcelable.Default,
     builderAction: ParcelableConfigurationBuilder.() -> Unit
 ): Parcelable.Custom {
@@ -146,7 +146,7 @@ fun Parcelable(
  * @return The provided [parcel] containing the encoded [value].
  */
 @ExperimentalSerializationApi
-inline fun <reified T> Parcelable.encodeToParcel(parcel: Parcel = Parcel(), value: T): Parcel {
+public inline fun <reified T> Parcelable.encodeToParcel(parcel: Parcel = Parcel(), value: T): Parcel {
     val encoder = ParcelEncoder(serializersModule = serializersModule, output = parcel)
 
     encoder.encodeSerializableValue(serializersModule.serializer(), value)
@@ -167,7 +167,7 @@ inline fun <reified T> Parcelable.encodeToParcel(parcel: Parcel = Parcel(), valu
  * @return The decoded value of [T] obtained from the [parcel].
  */
 @ExperimentalSerializationApi
-inline fun <reified T> Parcelable.decodeFromParcel(parcel: Parcel): T {
+public inline fun <reified T> Parcelable.decodeFromParcel(parcel: Parcel): T {
     val decoder = ParcelDecoder(serializersModule = serializersModule, input = parcel)
 
     return decoder.decodeSerializableValue(serializersModule.serializer())

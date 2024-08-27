@@ -7,4 +7,4 @@ import kotlinx.serialization.SerializationException
  *
  * For instance, if we expect an [Int] but we got a [String], this exception will be thrown.
  */
-class InvalidParcelValueException(message: String) : SerializationException(message)
+public class InvalidParcelValueException(message: String) : SerializationException(message)

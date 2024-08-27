@@ -9,7 +9,7 @@ package com.chrynan.parcelable.core
  * Note that the underlying [ByteArray] data is structured in a way that is meaningful for this class, but doesn't
  * guarantee any structure for outside usage.
  */
-class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) : Parcel {
+public class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) : Parcel {
 
     override val dataBufferCapacity: Int
         get() = data.sumOf { it.size }
@@ -31,7 +31,7 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
      * two, whereas the [dataSize] will return a value of eight (each [Int] has four bytes).
      */
     @Suppress("MemberVisibilityCanBePrivate", "unused")
-    val dataItemCount: Int
+    public val dataItemCount: Int
         get() = data.size
 
     /**
@@ -41,7 +41,7 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
      * equals one, the [dataPosition] should equal four.
      */
     @Suppress("MemberVisibilityCanBePrivate")
-    var dataIndex: Int = 0
+    public var dataIndex: Int = 0
 
     private val data = mutableListOf<ByteArray>()
 
@@ -345,7 +345,7 @@ class ByteArrayParcel internal constructor(initial: ByteArray = byteArrayOf()) :
                 "isRecycled=$isRecycled, " +
                 "data=$data)"
 
-    companion object {
+    public companion object {
 
         private const val FALSE: Byte = 0
         private const val TRUE: Byte = 1

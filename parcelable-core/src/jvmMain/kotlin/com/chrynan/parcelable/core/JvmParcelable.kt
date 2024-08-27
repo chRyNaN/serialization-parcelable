@@ -22,7 +22,7 @@ import kotlin.reflect.KClass
  * @return The provided [parcel] containing the encoded [value].
  */
 @ExperimentalSerializationApi
-fun <T : Any> Parcelable.encodeToParcel(parcel: Parcel = Parcel(), kClass: KClass<T>, value: T): Parcel {
+public fun <T : Any> Parcelable.encodeToParcel(parcel: Parcel = Parcel(), kClass: KClass<T>, value: T): Parcel {
     val encoder = ParcelEncoder(serializersModule = serializersModule, output = parcel)
 
     encoder.encodeSerializableValue(serializersModule.serializer(kClass.java), value)
@@ -44,7 +44,7 @@ fun <T : Any> Parcelable.encodeToParcel(parcel: Parcel = Parcel(), kClass: KClas
  */
 @Suppress("UNCHECKED_CAST")
 @ExperimentalSerializationApi
-fun <T : Any> Parcelable.decodeFromParcel(parcel: Parcel, kClass: KClass<T>): T {
+public fun <T : Any> Parcelable.decodeFromParcel(parcel: Parcel, kClass: KClass<T>): T {
     val decoder = ParcelDecoder(serializersModule = serializersModule, input = parcel)
 
     return decoder.decodeSerializableValue(serializersModule.serializer(kClass.java)) as T
