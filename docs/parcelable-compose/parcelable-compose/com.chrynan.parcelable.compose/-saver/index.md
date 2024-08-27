@@ -9,7 +9,7 @@ expect interface [Saver](index.md)&lt;[Original](index.md), [Saveable](index.md)
 actual interface [Saver](index.md)&lt;[Original](index.md), [Saveable](index.md) : [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)&gt;
 
 [android, jvm]\
-actual typealias [Saver](index.md) = [Saver](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/Saver.html)&lt;[Original](index.md), [Saveable](index.md)&gt;
+actual typealias [Saver](index.md)&lt;[Original](index.md), [Saveable](index.md)&gt; = [androidx.compose.runtime.saveable.Saver](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/Saver.html)&lt;[Original](index.md), [Saveable](index.md)&gt;
 
 ## Functions
 

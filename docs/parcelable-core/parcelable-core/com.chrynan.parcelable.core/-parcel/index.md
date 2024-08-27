@@ -23,6 +23,16 @@ Note that this is based off of the Android Parcel component.
 | [AndroidParcel](../-android-parcel/index.md#-638012278%2FMain%2F1557879601) |
 | [ByteArrayParcel](../-byte-array-parcel/index.md) |
 
+## Properties
+
+| Name | Summary |
+|---|---|
+| [dataBufferCapacity](data-buffer-capacity.md) | [common]<br>abstract val [dataBufferCapacity](data-buffer-capacity.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The total amount of space available in this parcel. This should always be greater than or equal to [dataSize](data-size.md). There may be more space available ([dataBufferCapacity](data-buffer-capacity.md)) in the underlying data buffer than there is data available ([dataSize](data-size.md)). The difference between [dataBufferCapacity](data-buffer-capacity.md) and [dataSize](data-size.md) indicates the amount of room remaining in the underlying data buffer until more space needs to be allocated. |
+| [dataPosition](data-position.md) | [common]<br>abstract val [dataPosition](data-position.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The current index position in the data buffer. Should never be more than [dataSize](data-size.md). |
+| [dataRemaining](data-remaining.md) | [common]<br>open val [dataRemaining](data-remaining.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The remaining amount of data to be read ([dataSize](data-size.md) - [dataPosition](data-position.md)). |
+| [dataSize](data-size.md) | [common]<br>abstract val [dataSize](data-size.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The total amount of data contained in this parcel. |
+| [isRecycled](is-recycled.md) | [common]<br>abstract val [isRecycled](is-recycled.md): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Determines whether this [Parcel](index.md)s [recycle](recycle.md) function has been called already. A parcel object should not be used after it is recycled. |
+
 ## Functions
 
 | Name | Summary |
@@ -49,13 +59,3 @@ Note that this is based off of the Android Parcel component.
 | [writeLong](../-output-parcel/write-long.md) | [common]<br>abstract fun [writeLong](../-output-parcel/write-long.md)(value: [Long](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html))<br>Writes the [Long](../-output-parcel/write-long.md) to the Parcel at the current data position. |
 | [writeShort](../-output-parcel/write-short.md) | [common]<br>abstract fun [writeShort](../-output-parcel/write-short.md)(value: [Short](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-short/index.html))<br>Writes the [Short](../-output-parcel/write-short.md) to the Parcel at the current data position. |
 | [writeString](../-output-parcel/write-string.md) | [common]<br>abstract fun [writeString](../-output-parcel/write-string.md)(value: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html))<br>Writes the [String](../-output-parcel/write-string.md) to the Parcel at the current data position. |
-
-## Properties
-
-| Name | Summary |
-|---|---|
-| [dataBufferCapacity](data-buffer-capacity.md) | [common]<br>abstract val [dataBufferCapacity](data-buffer-capacity.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The total amount of space available in this parcel. This should always be greater than or equal to [dataSize](data-size.md). There may be more space available ([dataBufferCapacity](data-buffer-capacity.md)) in the underlying data buffer than there is data available ([dataSize](data-size.md)). The difference between [dataBufferCapacity](data-buffer-capacity.md) and [dataSize](data-size.md) indicates the amount of room remaining in the underlying data buffer until more space needs to be allocated. |
-| [dataPosition](data-position.md) | [common]<br>abstract val [dataPosition](data-position.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The current index position in the data buffer. Should never be more than [dataSize](data-size.md). |
-| [dataRemaining](data-remaining.md) | [common]<br>open val [dataRemaining](data-remaining.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The remaining amount of data to be read ([dataSize](data-size.md) - [dataPosition](data-position.md)). |
-| [dataSize](data-size.md) | [common]<br>abstract val [dataSize](data-size.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)<br>The total amount of data contained in this parcel. |
-| [isRecycled](is-recycled.md) | [common]<br>abstract val [isRecycled](is-recycled.md): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)<br>Determines whether this [Parcel](index.md)s [recycle](recycle.md) function has been called already. A parcel object should not be used after it is recycled. |

@@ -9,7 +9,7 @@ expect fun interface [SaverScope](index.md)
 actual fun interface [SaverScope](index.md)
 
 [android, jvm]\
-actual typealias [SaverScope](index.md) = [SaverScope](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/SaverScope.html)
+actual typealias [SaverScope](index.md) = [androidx.compose.runtime.saveable.SaverScope](https://developer.android.com/reference/kotlin/androidx/compose/runtime/saveable/SaverScope.html)
 
 ## Functions
 

@@ -3,6 +3,6 @@
 # toParcel
 
 [android]\
-inline fun [Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html).[toParcel](to-parcel.md)(): [Parcel](../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md)
+inline fun [Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html).[toParcel](to-parcel.md)(): [Parcel](-parcel/index.md)
 
-Creates a [com.chrynan.parcelable.core.Parcel](../../../parcelable-core/parcelable-core/com.chrynan.parcelable.core/-parcel/index.md) instance from this [android.os.Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html) class.
+Creates a [com.chrynan.parcelable.core.Parcel](-parcel/index.md) instance from this [android.os.Parcel](https://developer.android.com/reference/kotlin/android/os/Parcel.html) class.

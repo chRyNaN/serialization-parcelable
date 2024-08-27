@@ -15,6 +15,12 @@ An Encoder that encodes its values to the provided [output](../-parcel/index.md)
 |---|---|
 | [ParcelEncoder](-parcel-encoder.md) | [common]<br>constructor(serializersModule: SerializersModule = EmptySerializersModule(), output: [Parcel](../-parcel/index.md)) |
 
+## Properties
+
+| Name | Summary |
+|---|---|
+| [serializersModule](serializers-module.md) | [common]<br>open override val [serializersModule](serializers-module.md): SerializersModule |
+
 ## Functions
 
 | Name | Summary |
@@ -55,9 +61,3 @@ An Encoder that encodes its values to the provided [output](../-parcel/index.md)
 | [hashCode](hash-code.md) | [common]<br>open override fun [hashCode](hash-code.md)(): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [shouldEncodeElementDefault](index.md#-1741660893%2FFunctions%2F1557879601) | [common]<br>open fun [shouldEncodeElementDefault](index.md#-1741660893%2FFunctions%2F1557879601)(descriptor: SerialDescriptor, index: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
 | [toString](to-string.md) | [common]<br>open override fun [toString](to-string.md)(): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-
-## Properties
-
-| Name | Summary |
-|---|---|
-| [serializersModule](serializers-module.md) | [common]<br>open override val [serializersModule](serializers-module.md): SerializersModule |

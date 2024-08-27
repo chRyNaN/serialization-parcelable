@@ -15,6 +15,12 @@ A Decoder that decodes its values from the provided [input](../-parcel/index.md)
 |---|---|
 | [ParcelDecoder](-parcel-decoder.md) | [common]<br>constructor(serializersModule: SerializersModule = EmptySerializersModule(), input: [Parcel](../-parcel/index.md)) |
 
+## Properties
+
+| Name | Summary |
+|---|---|
+| [serializersModule](serializers-module.md) | [common]<br>open override val [serializersModule](serializers-module.md): SerializersModule |
+
 ## Functions
 
 | Name | Summary |
@@ -55,9 +61,3 @@ A Decoder that decodes its values from the provided [input](../-parcel/index.md)
 | [equals](equals.md) | [common]<br>open operator override fun [equals](equals.md)(other: [Any](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html)?): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html) |
 | [hashCode](hash-code.md) | [common]<br>open override fun [hashCode](hash-code.md)(): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html) |
 | [toString](to-string.md) | [common]<br>open override fun [toString](to-string.md)(): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html) |
-
-## Properties
-
-| Name | Summary |
-|---|---|
-| [serializersModule](serializers-module.md) | [common]<br>open override val [serializersModule](serializers-module.md): SerializersModule |
