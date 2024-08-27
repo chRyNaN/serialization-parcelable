@@ -8,6 +8,7 @@ plugins {
     id("maven-publish")
     id("org.jetbrains.dokka")
     id("org.jetbrains.compose")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 group = LibraryConstants.group
