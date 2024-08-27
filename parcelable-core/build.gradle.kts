@@ -1,81 +1,21 @@
-import com.chrynan.parcelable.buildSrc.LibraryConstants
-import com.chrynan.parcelable.buildSrc.isBuildingOnLinux
-import com.chrynan.parcelable.buildSrc.isBuildingOnOSX
-import com.chrynan.parcelable.buildSrc.isBuildingOnWindows
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    id("maven-publish")
     id("org.jetbrains.dokka")
+    id("parcelable.multiplatform")
+    id("parcelable.publish")
 }
 
-group = LibraryConstants.group
-version = LibraryConstants.versionName
-
 kotlin {
-    applyDefaultHierarchyTemplate()
-
-    androidTarget {
-        publishAllLibraryVariants()
-    }
-
-    jvm()
-
-    js(IR) {
-        browser {
-            testTask {
-                enabled = false
-            }
-        }
-        nodejs {
-            testTask {
-                enabled = false
-            }
-        }
-    }
-
-    @Suppress("OPT_IN_USAGE")
-    wasmJs {
-        browser {
-            testTask {
-                enabled = false
-            }
-        }
-        nodejs {
-            testTask {
-                enabled = false
-            }
-        }
-    }
-
-    if (isBuildingOnOSX()) {
-        iosX64()
-        iosArm64()
-        iosSimulatorArm64()
-        tvosX64()
-        tvosArm64()
-        watchosX64()
-        watchosArm64()
-        macosX64()
-        macosArm64()
-    }
-
-    if (isBuildingOnLinux()) {
-        linuxX64()
-    }
-
-    if (isBuildingOnWindows()) {
-        mingwX64()
-    }
-
     sourceSets {
         val commonMain by getting {
             dependencies {
                 // kotlinx.serialization
-                api("org.jetbrains.kotlinx:kotlinx-serialization-core:_")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:_")
+                // https://github.com/Kotlin/kotlinx.serialization
+                api(KotlinX.serialization.core)
+                implementation(KotlinX.serialization.json)
             }
         }
 
@@ -138,18 +78,3 @@ android {
 }
 
 tasks.withType<Jar> { duplicatesStrategy = DuplicatesStrategy.INHERIT }
-
-afterEvaluate {
-    publishing {
-        repositories {
-            maven {
-                url = uri("https://repo.repsy.io/mvn/chrynan/public")
-
-                credentials {
-                    username = (project.findProperty("repsyUsername") ?: System.getenv("repsyUsername")) as? String
-                    password = (project.findProperty("repsyToken") ?: System.getenv("repsyToken")) as? String
-                }
-            }
-        }
-    }
-}

@@ -1,5 +1,3 @@
-import com.chrynan.parcelable.buildSrc.LibraryConstants
-import com.chrynan.parcelable.buildSrc.isBuildingOnOSX
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -9,10 +7,8 @@ plugins {
     id("org.jetbrains.dokka")
     id("org.jetbrains.compose")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("parcelable.publish")
 }
-
-group = LibraryConstants.group
-version = LibraryConstants.versionName
 
 kotlin {
     applyDefaultHierarchyTemplate()
@@ -30,13 +26,11 @@ kotlin {
         browser()
     }
 
-    if (isBuildingOnOSX()) {
-        iosX64()
-        iosArm64()
-        iosSimulatorArm64()
-        macosX64()
-        macosArm64()
-    }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+    macosX64()
+    macosArm64()
 
     sourceSets {
         all {
@@ -65,11 +59,9 @@ kotlin {
             }
         }
 
-        if (isBuildingOnOSX()) {
-            val iosMain by sourceSets.getting
-            val iosSimulatorArm64Main by sourceSets.getting
-            iosSimulatorArm64Main.dependsOn(iosMain)
-        }
+        val iosMain by sourceSets.getting
+        val iosSimulatorArm64Main by sourceSets.getting
+        iosSimulatorArm64Main.dependsOn(iosMain)
     }
 }
 
@@ -113,20 +105,3 @@ android {
 }
 
 tasks.withType<Jar> { duplicatesStrategy = DuplicatesStrategy.INHERIT }
-
-afterEvaluate {
-    publishing {
-        repositories {
-            maven {
-                url = uri("https://repo.repsy.io/mvn/chrynan/public")
-
-                credentials {
-                    username = (project.findProperty("repsyUsername")
-                        ?: System.getenv("repsyUsername")) as? String
-                    password = (project.findProperty("repsyToken")
-                        ?: System.getenv("repsyToken")) as? String
-                }
-            }
-        }
-    }
-}
